@@ -1,0 +1,330 @@
+# 免费额度数据表：每条 offer 一个 YAML 条目
+# ============================ 字段说明 ============================
+# id / provider / website / docs        厂商名与链接
+# region                                可用地区与网络要求
+# signup                                注册方法和手段
+# models                                覆盖的模型
+# offer.type                            免费层 | 试用金 | 签到积分 | 限时活动 | 一次性赠送
+# offer.requests_day / rpm              请求上限
+# offer.tokens_day / tokens_month       token 上限
+# offer.credits_usd / valid_months      一次性金额（美元）与摊销月数
+# offer.checkin_tokens_day              每日签到送 tokens
+# offer.points_monthly / points_daily   签到积分制
+# offer.expiry                          截止日期 YYYY-MM-DD
+# restrictions                          使用限制
+# est_usd_per_mtok                      用于折算的官方付费价（$/百万 tokens）
+# value_override_usd                    人工指定的折算月价值（覆盖自动计算）
+# verified / confidence                 核查日期 YYYY-MM-DD ｜ high/medium/low
+# ================================================================
+
+offers:
+  - id: groq
+    provider: Groq
+    website: https://console.groq.com
+    docs: https://console.groq.com/docs/rate-limits
+    region: "全球（无需海外手机）"
+    signup: "邮箱或 GitHub/Google OAuth 注册 → console.groq.com/keys 取 API Key"
+    models: ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b", "qwen/qwen3.8-27b", "moonshotai/kimi-k2-instruct", "whisper-large-v3(语音)"]
+    offer:
+      type: 免费层
+      rpm: 30
+      requests_day: 1000
+      tokens_day: 200000        # 主力聊天模型；部分老列表可见 14,400 RPD
+      expiry: null
+    restrictions: "组织级限速（多 key 不叠加）；200K tokens/天为主力阵容；部分模型 TPD 500K"
+    est_usd_per_mtok: 0.30
+    verified: 2026-10-21
+    confidence: high
+    notes: "2026-09 阵容调整：llama-3.1-8b-instant 14,400 RPD 的老额度对新账号已不适用（klymentiev.com 与 console 文档交叉验证）"
+
+  - id: openrouter
+    provider: OpenRouter
+    website: https://openrouter.ai
+    docs: https://openrouter.ai/docs/faq
+    region: "全球"
+    signup: "邮箱注册即取 API Key；无需信用卡"
+    models: ["19+ 个 :free 后缀文本模型(含 deepseek/qwen/llama 等) + openrouter/free 路由"]
+    offer:
+      type: 免费层
+      rpm: 20
+      requests_day: 50
+      link_premium_rpd: 1000    # 累计充值 $10 后每天 1000 请求
+      expiry: null
+    restrictions: ":free 模型 20 RPM / 50 RPD；充值满 $10（历史累计）解锁 1000 RPD；按请求计不限 tokens"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+
+  - id: cerebras
+    provider: Cerebras
+    website: https://cloud.cerebras.ai
+    docs: https://inference-docs.cerebras.ai/support/rate-limits
+    region: "全球"
+    signup: "邮箱注册 cloud.cerebras.ai → 取 API Key"
+    models: ["Llama 4 Scout/Qwen3 + 试用金可开全量模型"]
+    offer:
+      type: 试用金            # 2026-07-21 前是 1M tokens/天永久免费层，现改 Free Trial $5 试用金 + 1M tokens/日流量
+      tokens_day: 1000000
+      credits_usd: 5
+      valid_months: 1
+      rpm: 5
+      expiry: null
+    restrictions: "试用层 5 RPM / 30K TPM / 1M tokens per hour&day；$5 一次性credits"
+    est_usd_per_mtok: 0.35
+    verified: 2026-10-21
+    confidence: high
+    notes: "2026-07 改版：老的『每日 1M tokens 永久免费』由 Free Trial（$5 credits）取代，具体以控制台为准"
+
+  - id: google-ai-studio
+    provider: Google AI Studio / Gemini API
+    website: https://aistudio.google.com
+    docs: https://ai.google.dev/gemini-api/docs/rate-limits
+    region: "全球（中国大陆需自行解决网络）"
+    signup: "Google 账号登录 AI Studio → Get API key；免费层无需绑卡"
+    models: ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-2.5 系列(免费层口径官方动态调整)"]
+    offer:
+      type: 免费层
+      requests_day: null        # 限速型：RPM 级别限制，官方未公布统一 TPD
+      cli_requests_day: 250     # Gemini CLI 免费 250 请求/天
+      grounding_requests_free: 5000   # Google Search grounding 每月免费次数
+      expiry: null
+    restrictions: "免费层 RPM 不断下调中（高峰会 429）；部分高级模型(Pro/图像)免费层不可用"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+
+  - id: mistral
+    provider: Mistral La Plateforme
+    website: https://console.mistral.ai
+    docs: https://docs.mistral.ai/admin/billing-usage/usage-limits
+    region: "全球"
+    signup: "邮箱/Google 注册即可申请 Experiment（免费）层 API Key；是否需绑手机号以控制台为准"
+    models: ["mistral-large", "mistral-medium", "codestral", "mistral-small", "pixtral(视模型池为准)"]
+    offer:
+      type: 免费层
+      rpm: null                 # 官方未公布；社区测得 ≈1 req/s、50K tokens/min 量级
+      tokens_month: 1000000000  # 月总量级参考 pricepertoken "approx 1B tokens/month cap"
+      expiry: null
+    restrictions: "限速严格（约 1 req/s），月吞吐上限按平台平均用量池化计；不能用于生产 SLA"
+    est_usd_per_mtok: 0.40
+    value_override_usd: 15      # 理论池化上限 1B tokens/月 ≈ $400；受 ~1 req/s 限速实际达不到，保守记 $15
+    verified: 2026-10-21
+    confidence: medium
+    notes: "1B tokens/月为平台平均吞吐口径（pricepertoken），个人实际利用率远低于此"
+
+  - id: zhipu-bigmodel
+    provider: 智谱 AI BigModel
+    website: https://open.bigmodel.cn
+    docs: https://docs.bigmodel.cn/cn/update/promotion
+    region: "中国大陆可直连"
+    signup: "手机号注册；实名后完整额度"
+    models: ["glm-4-flash-250414(永久免费)", "glm-4.7-flash", "glm-4-air", "glm-4.6+ 全家"]
+    offer:
+      type: 一次性赠送
+      signup_tokens: 20000000   # 新用户 2000 万 tokens（有效期内）
+      invite_tokens_monthly: 200000000  # 邀荐每月最高 2 亿 free tokens（每位用户最多邀 10 人/月）
+      expiry: null              # 邀荐活动长期有效
+    restrictions: "免费模型系列并发 1；邀请要求新用户实名注册起跑"
+    est_usd_per_mtok: 0.11      # glm-4-air paid 价 ≈ ¥0.8/1M
+    value_override_usd: 22      # 邀荐 2 亿 tokens/月 折算
+    verified: 2026-10-21
+    confidence: high
+
+  - id: siliconflow
+    provider: 硅基流动 SiliconFlow
+    website: https://cloud.siliconflow.cn
+    docs: https://www.siliconflow.com/zh/pricing
+    region: "中国大陆可直连"
+    signup: "手机号注册 + 注册送额度（当前口径：实名认证后送 ¥18 通用券）"
+    models: ["Qwen 系列 / DeepSeek 蒸馏 / GLM 等国产开源全量 200+ 模型"]
+    offer:
+      type: 一次性赠送
+      credits_cny: 18
+      valid_months: null
+      promo: "推荐官计划（分享送 tokens）持续至 2026-12-31"
+      expiry: null
+    restrictions: "以人民币券结算；部分模型强制实名"
+    est_usd_per_mtok: 0.14
+    verified: 2026-10-21
+    confidence: high
+    notes: "旧活动『注册送 2000 万 tokens』已下线（beizigen 2025-03 记录改为实名 ¥18 通用券）"
+
+  - id: tencent-hunyuan-lite
+    provider: 腾讯混元 Lite
+    website: https://lke.cloud.tencent.com/lke/#/hybrid/home
+    docs: https://cloud.tencent.com/document/product/1729
+    region: "中国大陆可直连"
+    signup: "腾讯云账号 → 开通混元 → 用 hunyuan-lite 免费模型"
+    models: ["hunyuan-lite（永久免费）", "hunyuan-turbos(付费) 等"]
+    offer:
+      type: 免费层
+      expiry: null
+    restrictions: "并发限制以腾讯云文档为准；lite 系列限速免费"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+
+  - id: cloudflare-workers-ai
+    provider: Cloudflare Workers AI
+    website: https://developers.cloudflare.com/workers-ai/
+    docs: https://developers.cloudflare.com/workers-ai/platform/pricing/
+    region: "全球"
+    signup: "Cloudflare 账号 → Workers AI 直接绑定，或 REST API"
+    models: ["Llama 3.x / Qwen2.5 / Mistral 7B / SDXL 图像等"]
+    offer:
+      type: 免费层
+      tokens_day_unit: "10,000 neurons/天免费"
+      expiry: null
+    restrictions: "按 neuron 计费；免费 10,000 neurons/天（tokens 数随模型而定）"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+
+  - id: workbuddy
+    provider: WorkBuddy（示例条目 — 由需求方提供，待核）
+    website: null             # TODO 待补准确官方站
+    docs: null
+    region: "未知"
+    signup: "见官网（待补）"
+    models: ["待核"]
+    offer:
+      type: 签到积分
+      points_monthly: 500       # 冷启动每月 500 积分
+      points_daily: 100         # 每日签到 100 积分
+      expiry: null
+    restrictions: "待核"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: low
+    notes: "信息来自需求方口述示例（每月 500 积分 + 每日 100 签到），待补站址与模型池后复核"
+
+  - id: volcengine-doubao
+    provider: 火山引擎豆包大模型
+    website: https://www.volcengine.com/product/doubao
+    docs: https://www.volcengine.com/docs/82379
+    region: "中国大陆可直连"
+    signup: "手机号注册 → 控制台为每个模型开通 → 赠送试用 tokens"
+    models: ["doubao-seed 全线（每个模型赠 49 万 tokens 试用期，以控制台为准）"]
+    offer:
+      type: 一次性赠送
+      signup_tokens: 490000
+      expiry: null
+    restrictions: "按模型独立赠送；开通即赠；具体额度以官网控制台校准"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+
+  - id: alibaba-bailian
+    provider: 阿里云百炼 DashScope
+    website: https://bailian.console.aliyun.com
+    docs: https://help.aliyun.com/zh/model-studio/getting-started/models
+    region: "中国大陆可直连"
+    signup: "阿里云账号开通百炼 → 新用户按模型层获得免费试用额度（qwen-turbo 等百万级 tokens；时有时效）"
+    models: ["qwen 系列（各模型免费额度不同）"]
+    offer:
+      type: 一次性赠送
+      signup_tokens: null       # 以控制台为准
+      expiry: null
+    restrictions: "额度有有效期；具体以控制台展示为准"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: low
+
+  - id: hf-inference
+    provider: Hugging Face Inference Providers
+    website: https://huggingface.co/inference-providers
+    docs: https://huggingface.co/docs/inference-providers/index
+    region: "全球"
+    signup: "HF 账号自带少量月度 free credits（登录即有）；PRO 账号额度更高"
+    models: ["hf 推理路由全模型（groq/together 等多家后端）"]
+    offer:
+      type: 免费层
+      tokens_day: null          # 以月度 credits 计
+      expiry: null
+    restrictions: "免费账户 credits 量极小，主要用于试玩；具体钱数官方动态调整"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: low
+
+  - id: gemini-cli
+    provider: Gemini CLI（终端 agent 客户端）
+    website: https://github.com/google-gemini/gemini-cli
+    docs: https://ai.google.dev/gemini-api/docs/rate-limits
+    region: "全球（中国大陆需自行解决网络）"
+    signup: "Google 账号登录即可，免费层无需绑卡"
+    models: ["gemini-3.8-flash", "gemini-3.6-flash（免费层可用阵容动态调整）"]
+    offer:
+      type: 免费层
+      requests_day: 250        # 免费层 250 请求/日
+      expiry: null
+    restrictions: "免费层限速较低（高峰 429）；模型阵容与限额动态调整；与 AI Studio 免费层共享池"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+    notes: "与 google-ai-studio 同源（之前 websearch 核得 250 req/day；官方计划页佐证个人层免费）"
+
+  - id: qwen-code-cli
+    provider: Qwen Code CLI（终端 agent 客户端）
+    website: https://github.com/QwenLM/qwen-code
+    docs: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
+    region: "全球"
+    signup: "npm 装 @qwen-code/qwen-code → 启动选 qwen-oauth 设备码登录，无需绑卡"
+    models: ["qwen3-coder 系列（OAuth 免费池）"]
+    offer:
+      type: 免费层
+      requests_day: 2000       # qwen-oauth 免费层口径，请以 docs 复核
+      rpm: 60
+      expiry: null
+    restrictions: "OAuth 免费池限额以官方 docs 实时口径为准；付费 DashScope Key 可再解锁"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+    notes: "agent 客户端里免费量最大方的之一；数字在 repo README/docs 历史版本可见，未在最新 fetch 里直见原文"
+
+  - id: github-copilot-free
+    provider: GitHub Copilot Free（IDE/网页 agent 客户端）
+    website: https://github.com/features/copilot
+    docs: https://docs.github.com/en/copilot/get-started/plans
+    region: "全球"
+    signup: "GitHub 账号一键开通；认证学生可白嫖 Copilot Student"
+    models: ["官方指定的有限模型池（免费层阵容由 GitHub 单方面调整）"]
+    offer:
+      type: 免费层
+      expiry: null
+    restrictions: "limited access：补全 + 有限聊天/配额；企业账号禁用；详细数字以 plans 页为准"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+    notes: "官方 plans 页印证存在 Copilot Free / Copilot Student；『2000 补全+50 聊天/月』为社区广泛流传口径"
+
+  - id: opencode-zen
+    provider: OpenCode Zen（agent 客户端模型网关）
+    website: https://opencode.ai/zen
+    docs: https://opencode.ai/docs
+    region: "全球"
+    signup: "opencode 客户端配 Zen endpoint，$20 起充"
+    models: ["GLM/Kimi/Qwen 等精选池（官方统一基准测试）"]
+    offer:
+      type: 其他（非免费）
+      expiry: null
+    restrictions: "无免费层、无注册赠送；卖点为『零加成单价 + 挑过模型的网关』，与 OpenRouter :free 组合可白嫖"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+    notes: "收录原因：用户点名覆盖 agent 客户端；本身非白嫖目标，但可挂 OpenRouter 免费模型作透明托管层"
+
+  - id: kilo-code
+    provider: Kilo Code（IDE/CLI agent 客户端）
+    website: https://kilocode.ai
+    docs: https://kilocode.ai/pricing
+    region: "全球"
+    signup: "GitHub/邮箱注册 app.kilo.ai → 装 VS Code 插件或 CLI"
+    models: ["500+ 模型零加成；免费模型池（Auto Free 自动路由）"]
+    offer:
+      type: 免费层
+      expiry: null
+    restrictions: "免费池额度与模型动态调整；限时活动以站内公告为准；企业版有 Cursor 迁移优惠（非白嫖主线）"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+    notes: "官网 fetch 印证『免费 VS Code agent + 免费 CLI』；限时免费模型类活动（如指定模型免费期）偶发，站内公告确认后升级为限时活动条目"
