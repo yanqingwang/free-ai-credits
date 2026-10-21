@@ -1,11 +1,19 @@
 {
-  "generated_at": "2026-10-21T02:06:40.745836+00:00",
+  "generated_at": "2026-10-21T04:25:33.096942+00:00",
   "offers": {
     "workbuddy": {
       "recurring_usd": 105.0,
       "once_usd": 60.0,
       "official_sources": 3,
       "third_sources": 3,
+      "stale": false,
+      "bad_links": []
+    },
+    "modal": {
+      "recurring_usd": 30.0,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     },
@@ -41,11 +49,129 @@
       "stale": false,
       "bad_links": []
     },
+    "iflytek-spark": {
+      "recurring_usd": 0.69,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [
+        "website:https://www.xfyun.cn/doc/spark/HTTP调用文档.html (HTTP NO)"
+      ]
+    },
+    "scnet-supercomputing": {
+      "recurring_usd": 0.28,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "scaleway-generative-apis": {
+      "recurring_usd": 0.18,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "baidu-qianfan-modelbuilder": {
+      "recurring_usd": 0.04,
+      "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "ovhcloud-ai-endpoints": {
+      "recurring_usd": null,
+      "once_usd": 200.0,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "baseten": {
+      "recurring_usd": null,
+      "once_usd": 30.0,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "exa-free-tier": {
+      "recurring_usd": null,
+      "once_usd": 20.0,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [
+        "website:https://dashboard.exa.ai (HTTP 429)"
+      ]
+    },
+    "nscale": {
+      "recurring_usd": null,
+      "once_usd": 5.0,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
     "siliconflow": {
       "recurring_usd": null,
       "once_usd": 2.5,
       "official_sources": 2,
       "third_sources": 2,
+      "stale": false,
+      "bad_links": []
+    },
+    "minimax-platform": {
+      "recurring_usd": null,
+      "once_usd": 2.08,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "moonshot-kimi-openplatform": {
+      "recurring_usd": null,
+      "once_usd": 2.08,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "fireworks-ai": {
+      "recurring_usd": null,
+      "once_usd": 1.0,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "hyperbolic": {
+      "recurring_usd": null,
+      "once_usd": 1.0,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [
+        "docs:https://www.hyperbolic.xyz/pricing (HTTP 404)"
+      ]
+    },
+    "xiaomi-mimo": {
+      "recurring_usd": null,
+      "once_usd": 0.69,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "novita-ai": {
+      "recurring_usd": null,
+      "once_usd": 0.5,
+      "official_sources": 1,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     },
@@ -157,6 +283,128 @@
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "stepfun-free-models": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "sensenova-token-plan": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [
+        "website:https://token.sensenova.cn/ (HTTP 404)"
+      ]
+    },
+    "tongyi-lingma": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "baidu-comate": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "fitten-code": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "codegeex": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "nvidia-nim": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "cohere-trial": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "perplexity-free": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "poe-daily-points": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "cursor-hobby": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "windsurf-free": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "xai-grok-free": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "gemini-code-assist-individuals": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "minimax-code-checkin": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
       "third_sources": 0,
       "stale": false,
       "bad_links": []

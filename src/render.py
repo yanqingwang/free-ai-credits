@@ -90,6 +90,8 @@ def table(entries: list, lang: str = "zh") -> str:
         if offer.get("points_daily"):
             quant.append(f"{U['checkin']} {offer['points_daily']:,} 点{U['pts_d']}")
         msg = " + ".join(quant)
+        if lang == "en":
+            msg = msg.replace("点", "pts")   # 积分单位英文残留清理
 
         if lang == "zh":
             msg_zh = msg if msg else ("限速免费（量级未公布）" if typ_zh == "免费层" else typ_zh)

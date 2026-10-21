@@ -574,3 +574,327 @@ offers:
     verified: '2026-10-21'
     confidence: medium
     notes: 最老牌免费中文代码助手系列之一；免费页无明确额度数字
+# ==== 国际厂商扩充（2026-10-21 核查；evidence 见 data/sources.yml） ====
+  - id: nvidia-nim
+    provider: NVIDIA NIM
+    website: https://build.nvidia.com
+    docs: https://build.nvidia.com/en-us
+    region: 全球（中国大陆需代理）
+    signup: build.nvidia.com 注册后 Dashboard 生成 API key
+    models:
+    - nvidia/nemotron-3-ultra-550b-a55b
+    - deepseek-ai/deepseek-v4
+    - qwen/qwen3-coder
+    offer:
+      type: 免费层
+    restrictions: 免费原型层按限速运行（多数模型 40 RPM），不按 token 计费
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方 FAQ 明示免费原型层长期存在；不自动扣费
+  - id: cohere-trial
+    provider: Cohere
+    website: https://dashboard.cohere.com
+    docs: https://docs.cohere.com/docs/rate-limits
+    region: 全球
+    signup: 注册即自动创建 Trial key
+    models:
+    - command-a-plus
+    - command-a
+    - command-a-reasoning
+    - command-r7b
+    - embed-4
+    - rerank-3.5
+    offer:
+      type: 免费层
+      requests_day: 33
+    restrictions: 1000 API calls/月（全端点合计）；Chat 20 RPM / Rerank 10 RPM；禁商用
+    est_usd_per_mtok: 2.5
+    verified: '2026-10-21'
+    confidence: high
+    notes: requests_day=33 为 1000 calls/月折算的等价值
+  - id: fireworks-ai
+    provider: Fireworks AI
+    website: https://fireworks.ai
+    docs: https://docs.fireworks.ai/faq-new/billing-pricing
+    region: 全球（中国大陆需代理）
+    signup: Get Started 注册，新账户自动入账 $1 起始 credits
+    models:
+    - kimi-k3
+    - glm-5.3
+    - deepseek-v4.1-flash
+    offer:
+      type: 试用金
+      credits_usd: 1
+    restrictions: 无绑卡时全账户 10 RPM；$1 用完且未绑卡即停
+    est_usd_per_mtok: 0.3
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方定价页明示 $1 free credits；另有 Muse Glimmer 30B 免费微调至 2026-11-30
+  - id: novita-ai
+    provider: Novita AI
+    website: https://novita.ai
+    docs: https://docs.novita.ai/guides/sandbox-pricing
+    region: 全球（中国大陆需代理）
+    signup: 注册即得小额 voucher
+    models:
+    - deepseek-v4-flash
+    - llama-3.1-8b-instruct
+    - qwen2.5-7b-instruct
+    - glm-4-9b-0414
+    offer:
+      type: 试用金
+      credits_usd: 0.5
+      valid_months: 12
+    restrictions: 注册 voucher 金额官方未公布（第三方口径 ~$0.5/1年）；referral 双向各 $10
+    est_usd_per_mtok: 0.02
+    verified: '2026-10-21'
+    confidence: medium
+    notes: $100 Agent Sandbox 促销金仅限 Sandbox，不并入 LLM API 估值
+  - id: hyperbolic
+    provider: Hyperbolic
+    website: https://app.hyperbolic.ai
+    docs: https://www.hyperbolic.xyz/pricing
+    region: 全球（中国大陆需代理）
+    signup: 注册（Google/GitHub/邮箱）即获推理试用金
+    models:
+    - meta-llama/Llama-3.3-70B
+    - deepseek-v3
+    - qwen3-235b
+    offer:
+      type: 试用金
+      credits_usd: 1
+    restrictions: Basic 免费层 60 RPM；$5+ 充值解锁 Pro 600 RPM
+    est_usd_per_mtok: 0.2
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 60 RPM 为官方口径；$1 注册金为第三方保守值
+  - id: nscale
+    provider: Nscale
+    website: https://console.nscale.com
+    docs: https://www.nscale.com/blog/introducing-nscale-serverless-inference-scalable-ai-without-infrastructure-hassles
+    region: 欧盟托管；全球注册（仅 Google SSO）
+    signup: console.nscale.com Google 登录后 Claim $5 free credit
+    models:
+    - llama-3.3-70b-instruct
+    - qwen3-coder
+    - deepseek-r1
+    offer:
+      type: 试用金
+      credits_usd: 5
+    restrictions: 用完即止，未绑卡不可续
+    est_usd_per_mtok: 0.01
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方博客/产品页反复明示 Sign up and claim $5 free credits
+  - id: scaleway-generative-apis
+    provider: Scaleway Generative APIs
+    website: https://console.scaleway.com
+    docs: https://www.scaleway.com/en/docs/generative-apis/faq/
+    region: 欧盟定价区（EUR）
+    signup: 注册建项目即享 Free Tier；OpenAI 兼容 endpoint
+    models:
+    - qwen3.5-397b-a17b
+    - mistral-small-3.2-24b
+    offer:
+      type: 免费层
+      tokens_month: 1000000
+    restrictions: 1M 免费额度优先抵扣最贵 token；官方未确认是否每月重置，保守按一次性/月度首冲
+    est_usd_per_mtok: 0.18
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 1M token 为官方明示；月刷性未确认，估值按保守
+  - id: ovhcloud-ai-endpoints
+    provider: OVHcloud AI Endpoints
+    website: https://www.ovhcloud.com/en/public-cloud/ai-endpoints/
+    docs: https://www.ovhcloud.com/en/public-cloud/free-ai-api
+    region: 欧洲数据中心（GDPR）
+    signup: 注册建首个 Public Cloud project 激活试用 token
+    models:
+    - gpt-oss-120b
+    - qwen3.5
+    - stable-diffusion-xl(免费)
+    - qwen3guard-8b(免费)
+    - nvidia-riva-tts(免费)
+    offer:
+      type: 一次性赠送
+      credits_usd: 200
+      valid_months: 1
+    restrictions: $200 免费额度 1 个月；需绑卡且限每法人一张；SDXL/Riva/Qwen3Guard 长期免费模型
+    est_usd_per_mtok: 0.095
+    verified: '2026-10-21'
+    confidence: medium
+    notes: $200 为第三方汇总口径，绑卡门槛高
+  - id: modal
+    provider: Modal
+    website: https://modal.com
+    docs: https://modal.com/pricing
+    region: 全球（中国大陆需代理）
+    signup: GitHub/Google 一键注册，Starter 档自动享每月 $30 算力金
+    models:
+    - 自托管任意开源模型（BYO image，如 vLLM）
+    offer:
+      type: 免费层
+    restrictions: $30/月按秒计费，月底清零不结转；无月费、无需信用卡
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: high
+    value_override_recurring_usd: 30
+    notes: $30 为每月刷新额度（recurring），非一次性——用 override 计持续价值
+  - id: baseten
+    provider: Baseten
+    website: https://app.baseten.co
+    docs: https://docs.baseten.co/organization/billing
+    region: 全球（中国大陆需代理）
+    signup: 注册新 workspace 自动入账起赠 credits
+    models:
+    - gpt-oss-120b
+    - deepseek-v4-flash
+    - glm-5.3-flash
+    - kimi-k3
+    offer:
+      type: 试用金
+      credits_usd: 30
+    restrictions: 一次性起赠金；用尽且无支付方式则模型停用
+    est_usd_per_mtok: 0.1
+    verified: '2026-10-21'
+    confidence: high
+    notes: $30 为官方 changelog 明示（all new workspaces）
+  - id: perplexity-free
+    provider: Perplexity
+    website: https://www.perplexity.ai
+    docs: https://docs.perplexity.ai/getting-started/pricing
+    region: 全球（中国大陆需代理）
+    signup: 邮箱/Google 注册即享免费层
+    models:
+    - perplexity-web-pro-search
+    - sonar
+    offer:
+      type: 免费层
+      requests_day: 3
+    restrictions: 免费层约 3-5 次 Pro Search/天 + 1 次深度研究/月；API 侧无免费积分
+    est_usd_per_mtok: 1.0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: requests_day=3 取低界
+  - id: poe-daily-points
+    provider: Poe (Quora)
+    website: https://poe.com
+    docs: https://help.poe.com/hc/en-us/articles/19944206309524-Poe-FAQs
+    region: 全球（中国大陆需代理）
+    signup: 注册免费账户自动每日发放 points
+    models:
+    - poe-bot-claude
+    - poe-bot-gpt
+    - poe-bot-gemini
+    - poe-bot-grok
+    offer:
+      type: 签到积分
+      points_daily: 300
+    restrictions: 每日 points 24h 重置不结转；不可用于前沿模型；官方不公布具体点数
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: low
+    notes: 300 点/天为第三方估计（非官方）；点值未官方化故不作估值，避免高估
+  - id: cursor-hobby
+    provider: Cursor
+    website: https://cursor.com
+    docs: https://cursor.com/pricing
+    region: 全球（中国大陆需代理）
+    signup: 下载安装器+注册，无需信用卡入 Hobby 免费层
+    models:
+    - composer
+    - tab (completion)
+    - agent (受限)
+    offer:
+      type: 免费层
+    restrictions: Agent/Tab 有配额限制但官方从未公布具体数字；高峰 slow_queue 延迟
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方所有具体数字均未公布，只能确认免费层存在
+  - id: windsurf-free
+    provider: Windsurf (Devin Desktop)
+    website: https://windsurf.com
+    docs: https://windsurf.com/pricing
+    region: 全球（中国大陆需代理）
+    signup: windsurf.com/pricing 选 Free
+    models:
+    - swe-1.x
+    - tab (completion)
+    - cascade-agent (受限)
+    offer:
+      type: 免费层
+    restrictions: Free 档 daily/weekly token 配额，官方未公布具体数值
+    est_usd_per_mtok: 3.0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 品牌现为 Devin Desktop；SWE 模型 2026-10-15 前 $0/M 属限时价格福利，勿当永久免费层
+  - id: xai-grok-free
+    provider: xAI Grok
+    website: https://grok.com
+    docs: https://x.ai/pricing
+    region: 全球（中国大陆需代理）
+    signup: X 或 grok.com 登录免费账户即享 Limited 使用
+    models:
+    - grok-4.7-fast
+    offer:
+      type: 免费层
+    restrictions: free tier Limited（Chat+图像+Build）；具体数字官方未公布；无 API
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 旧 10 msg/2h 口径已作废；免费层仍存在
+  - id: gemini-code-assist-individuals
+    provider: Google Gemini Code Assist (individuals)
+    website: https://developers.google.com/gemini-code-assist
+    docs: https://developers.google.com/gemini-code-assist
+    region: 全球（Google 账号可用地区）
+    signup: Google 账号登录装 IDE 插件即可，无信用卡
+    models:
+    - gemini-code-assist(auto)
+    - gemini-cli(合并额度)
+    offer:
+      type: 免费层
+      requests_day: 6000
+    restrictions: 代码请求 6000/天 + 聊天 240/天；Agent/Gemini CLI 共享上限
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 6000/240 明示于官方页面；2026-06 起 IDE 插件被 Antigravity 取代，个人层免费口径同源
+  - id: exa-free-tier
+    provider: Exa AI
+    website: https://dashboard.exa.ai
+    docs: https://exa.ai/docs/reference/pricing
+    region: 全球（中国大陆需代理）
+    signup: 注册即得 $10；完成 onboarding 首个 team 再奖 $10
+    models:
+    - exa-search
+    - exa-deep-search
+    - exa-answer
+    - exa-agent
+    offer:
+      type: 试用金
+      credits_usd: 20
+    restrictions: Free Tier 每月 1 号重置 $10（持续性）；$20 为一次性合计；无需绑卡
+    est_usd_per_mtok: 0.0
+    verified: '2026-10-21'
+    confidence: high
+    notes: search API 非 LLM，按 1k 搜索请求计价（$4/1k）
+  - id: minimax-code-checkin
+    provider: MiniMax Code (international)
+    website: https://agent.minimax.io
+    docs: https://agent.minimax.io/docs/code/account/usage
+    region: 全球（MiniMax 国际版 UI）
+    signup: 注册后每日完成 check-in 赚积分
+    models:
+    - minimax-m3
+    - minimax-m3.1-flash
+    offer:
+      type: 签到积分
+      points_daily: 400
+    restrictions: check-in 400 点/天，第 4/7 天各 1000 点/天，满周共 4000；积分 30 天有效；限于 MiniMax Code 客户端
+    est_usd_per_mtok: 0.3
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方明示 400/day；点值未官方化故不作估值

@@ -61,8 +61,9 @@ def valuations(entry: dict) -> dict:
         sp = int(offer.get("signup_tokens") or 0)
         if offer.get("valid_months") and sp:
             # 明确写 valid_months 的注册赠可视为摊销后的持续收益
-            months = int(offer["valid_months"])
-            recur.append((per_mtok(sp, est) / months, f"注册 {sp:,} tokens 摊 {months} 月 × ${est}/1M"))
+            months = float(offer["valid_months"])
+            months = months if months > 0 else 1.0   # 0.5 月照常摊；0/负值兜底 1 月
+            recur.append((per_mtok(sp, est) / months, f"注册 {sp:,} tokens 摊 {months:g} 月 × ${est}/1M"))
 
     # ---------- 一次性部分 ----------
     credit = None

@@ -192,3 +192,79 @@ codegeex:
   official:
     - https://codegeex.cn/
   third_party: []
+
+# ===== 国际厂商扩充 2026-10-21 =====
+nvidia-nim:
+  official:
+    - https://build.nvidia.com/en-us
+  third_party: []
+cohere-trial:
+  official:
+    - https://docs.cohere.com/docs/rate-limits
+  third_party: []
+fireworks-ai:
+  official:
+    - https://fireworks.ai/pricing
+    - https://docs.fireworks.ai/faq-new/billing-pricing
+  third_party: []
+novita-ai:
+  official:
+    - https://docs.novita.ai/guides/sandbox-pricing
+  third_party: []
+hyperbolic:
+  official:
+    - https://www.hyperbolic.xyz/pricing
+  third_party: []
+nscale:
+  official:
+    - https://www.nscale.com/blog/introducing-nscale-serverless-inference-scalable-ai-without-infrastructure-hassles
+  third_party: []
+scaleway-generative-apis:
+  official:
+    - https://www.scaleway.com/en/docs/generative-apis/faq/
+  third_party: []
+ovhcloud-ai-endpoints:
+  official:
+    - https://www.ovhcloud.com/en/public-cloud/free-ai-api
+  third_party: []
+modal:
+  official:
+    - https://modal.com/pricing
+  third_party: []
+baseten:
+  official:
+    - https://www.baseten.co/resources/changelog/usage-based-pricing-with-free-credits
+    - https://docs.baseten.co/organization/billing
+  third_party: []
+perplexity-free:
+  official:
+    - https://docs.perplexity.ai/getting-started/pricing
+  third_party: []
+poe-daily-points:
+  official:
+    - https://help.poe.com/hc/en-us/articles/19944206309524-Poe-FAQs
+  third_party: []
+cursor-hobby:
+  official:
+    - https://cursor.com/pricing
+  third_party: []
+windsurf-free:
+  official:
+    - https://windsurf.com/pricing
+  third_party: []
+xai-grok-free:
+  official:
+    - https://x.ai/pricing
+  third_party: []
+gemini-code-assist-individuals:
+  official:
+    - https://developers.google.com/gemini-code-assist
+  third_party: []
+exa-free-tier:
+  official:
+    - https://exa.ai/docs/reference/pricing
+  third_party: []
+minimax-code-checkin:
+  official:
+    - https://agent.minimax.io/docs/code/account/usage
+  third_party: []
