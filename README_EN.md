@@ -69,6 +69,7 @@ Open the **「📮 订阅 / 退订邮件」issue template** on [Issues](https://
 
 - **Weekly Monday digest** by default (or tick Daily);
 - Emails live only as **AES-256 ciphertext** (`data/subscribers.enc`) — even maintainers can't read plaintext; the send-time workflow decrypts with its private key;
+- **Form stage**: the bot redacts the issue title/body automatically within seconds of processing; plaintext never lingers on public pages. Real-time GitHub notification emails to repo watchers do contain the original text (today that watcher list is just the maintainer);
 - Unsubscribe: open a new issue with the action switched to Unsubscribe;
 - Honest limitation: no clicking-based double opt-in (no backend). If someone subscribed on your behalf, use the opt-out header in every digest or open an issue.
 

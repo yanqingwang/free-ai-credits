@@ -65,6 +65,14 @@ jobs:
           git add data/subscribers.enc
           git diff --cached --quiet || git commit -m "chore(subscribers): encrypted list update"
           git push
+      - name: Redact issue content (email must not stay public)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh issue edit $ISSUE -R "$GITHUB_REPOSITORY" \
+            --title "邮件订阅/退订（已自动脱敏 #$ISSUE）" \
+            --body "（原文已自动脱敏：邮箱已加密入档或处理完成，明文不保留在公开仓库。处理结果见下方评论。）"
       - name: Reply on issue
         env:
           GH_TOKEN: ${{ github.token }}
