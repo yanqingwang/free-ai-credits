@@ -6,10 +6,10 @@ import src.i18n as i18n
 CATEGORIES = {"免费层": "🆓", "试用金": "🎁", "签到积分": "✅", "一次性赠送": "💪", "限时活动": "⏳", "其他（非免费）": "ℹ️"}
 
 HEADERS = {
-    "zh": "| # | 厂商 | 类型 | 免费内容（模型） | 持续价值(USD/月) | 一次性价值(USD) | 注册方式 | 限制条件 | 有效期 | 信号 |",
-    "en": "| # | Provider | Type | Free content (models) | Recurring value (USD/mo) | One-time value (USD) | Signup | Restrictions | Validity | Conf |",
+    "zh": "| # | 厂商 | 类型 | 免费内容（模型） | 持续价值(USD/月) | 一次性价值(USD) | 注册方式 | 限制条件 | 有效期 | 官方验证 | 第三方验证 |",
+    "en": "| # | Provider | Type | Free content (models) | Recurring value (USD/mo) | One-time value (USD) | Signup | Restrictions | Validity | Official sources | Third-party sources |",
 }
-SEP = "|---|---|---|---|---|---|---|---|---|---|"
+SEP = "|---|---|---|---|---|---|---|---|---|---|---|"
 
 L = {
     "zh": {"longterm": "长期有效", "left": "（剩 {d} 天 ⏰）", "expired": "（已过期 ❌）",
@@ -32,6 +32,11 @@ def _units(lang: str) -> dict:
 def _cell(s: str, limit: int) -> str:
     s = (s or "").replace("|", "/").replace("\n", " ")
     return s[: limit - 1] + "…" if len(s) > limit else s
+
+
+def _host(url: str) -> str:
+    import urllib.parse
+    return urllib.parse.urlparse(url).netloc or url[:24]
 
 
 def table(entries: list, lang: str = "zh") -> str:
@@ -136,9 +141,15 @@ def table(entries: list, lang: str = "zh") -> str:
             valid = T["longterm"]
 
         conf = e.get("confidence") or ""
-        conf_d = i18n.CONF_LABELS.get(conf, "") if lang == "en" else {"high": "✅双源", "medium": "☑️单源", "low": "⚠️待核"}.get(conf, "")
+        sig = e.get("_sources") or {}
+        sig_official = sig.get("official") or []
+        sig_third = sig.get("third") or []
+        empty = {"zh": "—（本会话未直接读到第三方源）", "en": "— (no third-party source read)"}
+        vals_key = "zh" if lang == "zh" else "en"
+        off_d = "<br>".join(f"✅ [{_host(u)}]({u})" for u in sig_official) or "—"
+        third_d = "<br>".join(f"📄 [{_host(u)}]({u})" for u in sig_third) or empty[vals_key]
 
-        rows.append(f"| {no} | {link} | {typ} | {free} | {recur_d} | {once_d} | {_cell(signup, 80)} | {_cell(restr, 90)} | {valid} | {conf_d} |")
+        rows.append(f"| {no} | {link} | {typ} | {free} | {recur_d} | {once_d} | {_cell(signup, 80)} | {_cell(restr, 90)} | {valid} | {off_d} | {third_d} |")
 
     if tot_recur or tot_once:
         rows.append(T["total"].format(n=no, r=round(tot_recur), o=round(tot_once)))

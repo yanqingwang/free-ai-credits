@@ -1,0 +1,143 @@
+# 信源清单（id 关联 data/offers.yml）
+# ============================================
+# 规则：
+# - official   = 厂商自有域名/官方文档/官方活动页/官方商店
+# - third_party = 独立媒体、社区、第三方统计站
+# - 每条只登记本仓库检索时真实打开/读到的页面；没看过的不进列
+# - 列表随探活周报复核；失效 Sources 会留下 🚫 标记
+# - 置信档在渲染时推导：两边都有 = ✅双源；只有一边 = ☑️单源；都没有 = ⚠️待核
+# ============================================
+
+groq:
+  official:
+    - https://console.groq.com/docs/rate-limits
+  third_party:
+    - https://klymentiev.com/articles/groq-api-free-tier-limits-2026
+    - https://www.grizzlypeaksoftware.com/articles/p/groq-api-free-tier-limits-in-2026-what-you-actually-get-uwysd6mb
+
+openrouter:
+  official:
+    - https://openrouter.ai/docs/api_reference/limits
+    - https://openrouter.ai/pricing
+    - https://openrouter.ai/docs/faq
+  third_party: []
+
+cerebras:
+  official:
+    - https://inference-docs.cerebras.ai/support/rate-limits
+    - https://www.cerebras.ai/pricing
+  third_party:
+    - https://pricepertoken.com/endpoints/cerebras/free
+    - https://www.reddit.com/r/LocalLLaMA/comments/1mfeazc/cerebras_pro_coder_deceptive_limits/
+
+google-ai-studio:
+  official:
+    - https://ai.google.dev/gemini-api/docs/rate-limits
+    - https://ai.google.dev/gemini-api/docs/pricing
+  third_party: []
+
+mistral:
+  official:
+    - https://mistral.ai/pricing/
+    - https://docs.mistral.ai/admin/billing-usage/usage-limits
+  third_party:
+    - https://pricepertoken.com/endpoints/mistral/free
+    - https://www.reddit.com/r/MistralAI/comments/1rc8rwf/mistral_api_quota_and_rate_limits_pools_analysis/
+
+zhipu-bigmodel:
+  official:
+    - https://bigmodel.cn/dev/activities/free/glm-4-flash
+    - https://docs.bigmodel.cn/cn/update/promotion
+  third_party:
+    - https://www.cnblogs.com/justin-Y/p/20078212
+    - https://cloud.tencent.com/developer/article/2638288
+
+siliconflow:
+  official:
+    - https://www.siliconflow.com/zh/pricing
+    - https://www.siliconflow.cn/developer-talk/od7wj9rr23p95uhihmhrombp
+  third_party:
+    - https://www.beizigen.com/post/siliconflow-invitation-code/
+    - https://zhuanlan.zhihu.com/p/712780071
+
+tencent-hunyuan-lite:
+  official:
+    - https://cloud.tencent.com/document/product/1729
+  third_party:
+    - https://www.cnblogs.com/justin-Y/p/20078212
+
+cloudflare-workers-ai:
+  official:
+    - https://developers.cloudflare.com/workers-ai/platform/pricing/
+  third_party: []
+
+workbuddy:
+  official:
+    - https://www.workbuddy.ai/docs/zh/workbuddy/credits
+    - https://www.workbuddy.ai/docs/zh/workbuddy/pricing
+    - https://apps.microsoft.com/detail/xpfg2p1xdmx1x0
+  third_party:
+    - https://cloud.tencent.com/developer/article/2712113
+    - https://post.m.smzdm.com/p/a0300z28/
+    - https://github.com/88lin/workbuddy-auto-signin
+
+volcengine-doubao:
+  official:
+    - https://www.volcengine.com/docs/82379
+  third_party: []
+
+alibaba-bailian:
+  official:
+    - https://help.aliyun.com/zh/model-studio/getting-started/models
+  third_party: []
+
+hf-inference:
+  official:
+    - https://huggingface.co/docs/inference-providers
+    - https://huggingface.co/docs/inference-providers/pricing
+  third_party: []
+
+gemini-cli:
+  official:
+    - https://ai.google.dev/gemini-api/docs/rate-limits
+  third_party: []
+
+qwen-code-cli:
+  official:
+    - https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
+    - https://github.com/QwenLM/qwen-code
+  third_party: []
+
+github-copilot-free:
+  official:
+    - https://docs.github.com/en/copilot/get-started/plans
+  third_party: []
+
+opencode-zen:
+  official:
+    - https://opencode.ai/zen
+  third_party: []
+
+kilo-code:
+  official:
+    - https://kilocode.ai
+    - https://kilocode.ai/pricing
+  third_party: []
+
+qoder:
+  official:
+    - https://docs.qoder.com/zh/events/100credits
+    - https://docs.qoder.com/zh/account/pricing
+    - https://docs.qoder.com/zh/events/sotafree
+    - https://forum.qoder.com/t/qoder/6368
+  third_party:
+    - https://zhuanlan.zhihu.com/p/2058865181518717227
+
+trae:
+  official:
+    - https://www.trae.ai/pricing
+    - https://www.trae.ai/blog/trae_membership_0213
+    - https://docs.trae.ai/ide/new-plans-and-billing
+  third_party:
+    - https://www.reddit.com/r/TraeIDE/comments/1laiiez/traeai_ide_free_vs_prosubscription/
+    - https://resourify.com/resources/trae

@@ -26,11 +26,24 @@ def load_offers() -> list:
     return data.get("offers") or []
 
 
+def load_sources() -> dict:
+    """id → {"official": [...], "third": [...]}"""
+    p = REPO_ROOT / "data" / "sources.yml"
+    if not p.exists():
+        return {}
+    with open(p, encoding="utf-8") as f:
+        raw = yaml.safe_load(f) or {}
+    return {k: {"official": (v or {}).get("official") or [],
+                "third": (v or {}).get("third_party") or []} for k, v in raw.items()}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-links", action="store_true")
     ap.add_argument("--mail", action="store_true", help="发送邮件日报（需 SMTP secrets）")
     args = ap.parse_args()
+
+    src_index = load_sources()
 
     entries = load_offers()
     for e in entries:
@@ -38,6 +51,10 @@ def main() -> None:
         e["_vals"] = vals
         e["_recur"] = vals["recurring"][0]
         e["_once"] = vals["once"][0]
+        e["_sources"] = src_index.get(e["id"], {})
+        n_off = len(e["_sources"]["official"])
+        n_third = len(e["_sources"]["third"])
+        e["_conf_rank"] = 0 if (n_off and n_third) else (1 if (n_off or n_third) else 2)
 
         stale_days = staleness(e)
         e["_stale"] = bool(stale_days and stale_days > 45)
@@ -57,13 +74,12 @@ def main() -> None:
         e["_locked"] = locked
         e["_link_bad"] = bool(bad_links)
 
-    # 排序：持续价值优先，其次一次性，无估值限速型随后，待核最后
-    conf_rank = {"high": 0, "medium": 1, "low": 2}
+    # 排序：持续价值优先，其次一次性，无估值限速型随后；信源贫乏条目最后
     entries.sort(key=lambda e: (
         0 if e["_recur"] or e["_once"] else 1,
         -(e["_recur"] or 0),
         -(e["_once"] or 0),
-        conf_rank.get(e.get("confidence"), 3),
+        e["_conf_rank"],
     ))
 
     today = dt.date.today().isoformat()
@@ -91,6 +107,7 @@ def main() -> None:
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "offers": {e["id"]: {
             "recurring_usd": e["_recur"], "once_usd": e["_once"],
+            "official_sources": len(e["_sources"]["official"]), "third_sources": len(e["_sources"]["third"]),
             "stale": e["_stale"], "bad_links": e["_bad_links"],
         } for e in entries},
     }

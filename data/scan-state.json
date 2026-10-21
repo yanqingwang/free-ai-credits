@@ -1,123 +1,163 @@
 {
-  "generated_at": "2026-10-21T01:54:34.300277+00:00",
+  "generated_at": "2026-10-21T02:05:11.404730+00:00",
   "offers": {
     "workbuddy": {
       "recurring_usd": 105.0,
       "once_usd": 60.0,
+      "official_sources": 3,
+      "third_sources": 3,
       "stale": false,
       "bad_links": []
     },
     "zhipu-bigmodel": {
       "recurring_usd": 22.0,
       "once_usd": 2.2,
+      "official_sources": 2,
+      "third_sources": 2,
       "stale": false,
       "bad_links": []
     },
     "mistral": {
       "recurring_usd": 15.0,
       "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 2,
       "stale": false,
       "bad_links": []
     },
     "cerebras": {
       "recurring_usd": 10.5,
       "once_usd": 5.0,
+      "official_sources": 2,
+      "third_sources": 2,
       "stale": false,
       "bad_links": []
     },
     "groq": {
       "recurring_usd": 1.8,
       "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 2,
       "stale": false,
       "bad_links": []
     },
     "siliconflow": {
       "recurring_usd": null,
       "once_usd": 2.5,
-      "stale": false,
-      "bad_links": []
-    },
-    "openrouter": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "google-ai-studio": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "qoder": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "gemini-cli": {
-      "recurring_usd": null,
-      "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 2,
       "stale": false,
       "bad_links": []
     },
     "tencent-hunyuan-lite": {
       "recurring_usd": null,
       "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 1,
       "stale": false,
       "bad_links": []
     },
-    "cloudflare-workers-ai": {
+    "qoder": {
       "recurring_usd": null,
       "once_usd": null,
+      "official_sources": 4,
+      "third_sources": 1,
       "stale": false,
       "bad_links": []
     },
     "trae": {
       "recurring_usd": null,
       "once_usd": null,
+      "official_sources": 3,
+      "third_sources": 2,
+      "stale": false,
+      "bad_links": []
+    },
+    "openrouter": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 3,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "google-ai-studio": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "cloudflare-workers-ai": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     },
     "volcengine-doubao": {
       "recurring_usd": null,
       "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "qwen-code-cli": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "github-copilot-free": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "opencode-zen": {
-      "recurring_usd": null,
-      "once_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "kilo-code": {
-      "recurring_usd": null,
-      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     },
     "alibaba-bailian": {
       "recurring_usd": null,
       "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     },
     "hf-inference": {
       "recurring_usd": null,
       "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "gemini-cli": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "qwen-code-cli": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "github-copilot-free": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "opencode-zen": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": []
+    },
+    "kilo-code": {
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 2,
+      "third_sources": 0,
       "stale": false,
       "bad_links": []
     }
