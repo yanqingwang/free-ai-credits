@@ -232,8 +232,8 @@ offers:
 
   - id: hf-inference
     provider: Hugging Face Inference Providers
-    website: https://huggingface.co/inference-providers
-    docs: https://huggingface.co/docs/inference-providers/index
+    website: https://huggingface.co/docs/inference-providers
+    docs: https://huggingface.co/docs/inference-providers/pricing
     region: "全球"
     signup: "HF 账号自带少量月度 free credits（登录即有）；PRO 账号额度更高"
     models: ["hf 推理路由全模型（groq/together 等多家后端）"]

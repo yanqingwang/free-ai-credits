@@ -61,6 +61,8 @@ def table(entries: list) -> str:
             val_d += " ⚠️数据>45天未复核"
         if e.get("_link_bad"):
             val_d += " 🚫链接失效"
+        if e.get("_locked"):
+            val_d += " 🔒需登录"
 
         signup = (e.get("signup") or "见官网").replace("|", "/").replace("\n", " ")
         if len(signup) > 80:
@@ -106,14 +108,15 @@ def report(entries: list, path: str) -> str:
         "",
         table(entries),
         "",
-        "## 本期挂掉的链接（探活失败）",
+        "## 本期链接体检",
         "",
     ]
     bad = [f"- 🚫 [{e['provider']}] {u}" for e in entries for u in (e.get("_bad_links") or [])]
-    if bad:
-        lines += [x for x in bad if x]
+    locked = [f"- 🔒 [{e['provider']}] {u}（403：需登录/反爬，非死链）" for e in entries for u in (e.get("_locked") or [])]
+    if bad or locked:
+        lines += bad + locked
     else:
-        lines.append("- 全部官方链接探活通过 ✅")
+        lines.append("全部官方链接探活通过 ✅")
     lines.append("")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

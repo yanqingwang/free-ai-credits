@@ -41,14 +41,18 @@ def main() -> None:
         e["_stale"] = bool(stale_days and stale_days > 45)
 
         bad_links = []
+        locked = []
         if not args.skip_links:
             for key in ("website", "docs"):
                 u = e.get(key)
                 if u and u.startswith("http"):
                     code = links.check(u)
-                    if code is None or code >= 400:
+                    if code == 403:
+                        locked.append(f"{key}:{u}")
+                    elif code is None or code >= 400:
                         bad_links.append(f"{key}:{u} (HTTP {code or 'NO'})")
         e["_bad_links"] = bad_links
+        e["_locked"] = locked
         e["_link_bad"] = bool(bad_links)
 
     # 排序：价值高的在前；无估值(限速型/待核)随后；confidence low 最后
