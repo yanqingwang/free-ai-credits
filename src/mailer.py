@@ -27,13 +27,13 @@ def enabled() -> bool:
     return bool(os.environ.get("SMTP_USER")) and bool(os.environ.get("SMTP_PASS"))
 
 
-def send(subject: str, md_text: str, attach_path: str | None = None) -> None:
+def send(subject: str, md_text: str, attach_path: str | None = None, to: str | None = None) -> None:
     host = os.environ.get("SMTP_HOST") or "smtp.qq.com"
     port = int(os.environ.get("SMTP_PORT") or 465)
     user = os.environ["SMTP_USER"]
     pwd = os.environ["SMTP_PASS"]
     from_addr = os.environ.get("MAIL_FROM", user)
-    to_addrs = [x.strip() for x in os.environ.get("MAIL_TO", user).split(",") if x.strip()]
+    to_addrs = ([to] if to else [x.strip() for x in os.environ.get("MAIL_TO", user).split(",") if x.strip()])
 
     msg = MIMEMultipart("mixed")
     msg["Subject"] = Header(subject, "utf-8")

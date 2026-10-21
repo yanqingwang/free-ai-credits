@@ -96,9 +96,23 @@ def main() -> None:
     if args.mail:
         from src import mailer
         if mailer.enabled():
-            mailer.send(f"免费额度日报 {today}（valuation + 链接体检）",
-                        (rep_dir / "weekly.md").read_text(encoding="utf-8"))
-            print("邮件已发送", file=sys.stderr)
+            body = (rep_dir / "weekly.md").read_text(encoding="utf-8")
+            attach = str(rep_dir / "weekly.md")
+            mailer.send(f"免费额度日报 {today}（valuation + 链接体检）", body, attach)
+            print("邮件已发送（库主）", file=sys.stderr)
+            # 订阅者：daily 每天发，weekly 仅周一（UTC）发；逐个失败隔离
+            try:
+                from src import subscribers
+                subs = subscribers.sendable(dt.date.today())
+            except SystemExit:
+                subs = []
+            for email, freq in subs:
+                subject = f"Free AI 额度周报 {today}" if freq == "weekly" else f"Free AI 额度日报 {today}"
+                try:
+                    mailer.send(subject, body, attach, to=email)
+                    print(f"邮件已发送（订阅者 {email}）", file=sys.stderr)
+                except Exception as exc:                 # 单个失败的订阅者不影响其余
+                    print(f"订阅者 {email} 发送失败: {exc}", file=sys.stderr)
         else:
             print("SMTP secrets 缺失，跳过邮件", file=sys.stderr)
 

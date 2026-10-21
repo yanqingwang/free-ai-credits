@@ -1,0 +1,37 @@
+name: 📮 订阅 / 退订邮件
+description: 输入你的邮箱，接收免费额度日报（默认每周一）/ Daily & weekly digest opt-in
+labels: ["subscribe"]
+body:
+  - type: dropdown
+    id: action
+    attributes:
+      label: 动作 / Action
+      options:
+        - 订阅 / Subscribe
+        - 退订 / Unsubscribe
+    validations:
+      required: true
+  - type: input
+    id: email
+    attributes:
+      label: 邮箱 / Email
+      placeholder: you@example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: freq
+    attributes:
+      label: 频率（仅订阅时生效）/ Frequency
+      options:
+        - 每周一 / Weekly (Monday)
+        - 每日 / Daily
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        🔒 **隐私说明**：你的邮箱以 AES-256 加密存在本仓库（`data/subscribers.enc`），
+        **任何人（包括维护者）打不开明文**，只有打包线工作在运行时才能解密发送。
+        仓库公开的是密文，不向垃圾邮件爬虫广播名单。
+        ⚠️ 无后台服务器，不做二次点击确认——发件箱仅用于发送，请勿回复该邮箱。
+        退订随时可用本表单把动作切到「退订」。

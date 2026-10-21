@@ -63,6 +63,15 @@ _2026-10-21 auto-rebuilt · source of truth in [`data/offers.yml`](data/offers.y
    - **Valuation** — recurring/one-time split is recomputed, rankings re-sorted, and both language READMEs are rebuilt; a snapshot lands in `reports/`; a **daily digest email** (HTML + `.md` attachment) goes out when SMTP secrets exist.
 2. Every human data change leaves an auditable git diff.
 
+## 📮 Subscribe to the digest (no self-hosting)
+
+Open the **「📮 订阅 / 退订邮件」issue template** on [Issues](https://github.com/yanqingwang/free-ai-credits/issues/new/choose) with your email — the bot encrypts it and confirms on the issue:
+
+- **Weekly Monday digest** by default (or tick Daily);
+- Emails live only as **AES-256 ciphertext** (`data/subscribers.enc`) — even maintainers can't read plaintext; the send-time workflow decrypts with its private key;
+- Unsubscribe: open a new issue with the action switched to Unsubscribe;
+- Honest limitation: no clicking-based double opt-in (no backend). If someone subscribed on your behalf, use the opt-out header in every digest or open an issue.
+
 ## ⚠️ Disclaimer
 
 - The consoles / pricing pages are always the truth; this repo is a reference snapshot and can lag by a day or more. Free tiers mutate — Cerebras swapped its forever-free tier for a $5 trial in 2026-07 — so judge by the `verified` date.
