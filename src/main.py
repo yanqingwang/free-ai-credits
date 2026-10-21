@@ -29,6 +29,7 @@ def load_offers() -> list:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-links", action="store_true")
+    ap.add_argument("--mail", action="store_true", help="发送邮件日报（需 SMTP secrets）")
     args = ap.parse_args()
 
     entries = load_offers()
@@ -71,6 +72,16 @@ def main() -> None:
     y, w, _ = dt.date.today().isocalendar()
     render_report(entries, str(rep_dir / f"{y}-W{w:02d}.md"))
     render_report(entries, str(rep_dir / "weekly.md"))
+
+    # 邮件日报（secrets 缺失时静默跳过，不影响报告产出）
+    if args.mail:
+        from src import mailer
+        if mailer.enabled():
+            mailer.send(f"免费额度日报 {today}（valuation + 链接体检）",
+                        (rep_dir / "weekly.md").read_text(encoding="utf-8"))
+            print("邮件已发送", file=sys.stderr)
+        else:
+            print("SMTP secrets 缺失，跳过邮件", file=sys.stderr)
 
     # state 记录（审计用，供未来 diff）
     state = {

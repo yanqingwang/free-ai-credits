@@ -181,22 +181,57 @@ offers:
     confidence: medium
 
   - id: workbuddy
-    provider: WorkBuddy（示例条目 — 由需求方提供，待核）
-    website: null             # TODO 待补准确官方站
-    docs: null
-    region: "未知"
-    signup: "见官网（待补）"
-    models: ["待核"]
+    provider: 腾讯 WorkBuddy（AI Agent 办公台）
+    website: https://www.workbuddy.ai
+    docs: https://www.workbuddy.ai/docs/zh/workbuddy/credits
+    region: "中国大陆可直连（国际版/国内版双站）"
+    signup: "官网/App（含 Microsoft Store）/国内版 workbuddy.cn 注册；部分活动需从邀请链接进入"
+    models: ["Kimi-K3", "GLM-5.3", "DeepSeek-V4.1-Flash", "Hy4（限时免费）"]
     offer:
       type: 签到积分
-      points_monthly: 500       # 冷启动每月 500 积分
-      points_daily: 100         # 每日签到 100 积分
+      points_monthly: 500       # 免费版每月 1 号到账 500 积分
+      points_daily: 100         # 每日签到 100 积分（多来源印证签到存在，数额待站内复核）
+      signup_points: 2000       # 新用户注册赠 2000 积分（腾讯云社区文章称 5000，以控制台为准）
       expiry: null
-    restrictions: "待核"
+    restrictions: "积分为统一用量单位，不同模型消耗不同；纯月包 500 积分重度使用 2-3 天烧完；社区发文/任务可再挣积分（zdm 称月合计 6000+）"
+    est_usd_per_mtok: null
+    point_value_usd: 0.03       # 官方加量包价：500 积分 = $15 → 1 积分 $0.03
+    verified: 2026-10-21
+    confidence: medium
+    notes: "双源印证：官方 docs（积分/定价/订阅）+ 腾讯云开发者文章 + zdm 攻略；签到每日 100 的数额原为需求方提供，与多来源『每天签到』吻合，待控制台截图级复核。GitHub 已有第三方自动签到脚本（88lin/workbuddy-auto-signin）"
+
+  - id: qoder
+    provider: Qoder（阿里，国际版 AI IDE）
+    website: https://qoder.com
+    docs: https://docs.qoder.com/zh/events/100credits
+    region: "全球"
+    signup: "官网下载桌面端（国际版）→ 邮箱注册；免费体验版即可参与活动"
+    models: ["Qwen 系列专属池", "SOTA 模型（活动期轮换）"]
+    offer:
+      type: 签到积分
+      credits_day: 100          # 2026-09-18 起国际版个人用户每天桌面端手动领 100 通用 Credits
+      expiry: null
+    restrictions: "每日额度需当天手动领取、不累计至次日；免费及个人付费用户均可领；Credit 换算美元未公示"
     est_usd_per_mtok: null
     verified: 2026-10-21
-    confidence: low
-    notes: "信息来自需求方口述示例（每月 500 积分 + 每日 100 签到），待补站址与模型池后复核"
+    confidence: high
+    notes: "官方 docs 双活动印证：每日 100 Credits（长期）+ SOTA 限时（2026-09 连领 5 天最高 7500）；新用户历史口径 14 天 Pro 试用 300 Credits；CN 版（原灵码）社区版免费、Pro ¥59/月含 2000 Credits"
+
+  - id: trae
+    provider: Trae（字节，AI IDE）
+    website: https://www.trae.ai
+    docs: https://docs.trae.ai/ide/new-plans-and-billing
+    region: "全球"
+    signup: "GitHub/Google/邮箱注册 IDE 即用"
+    models: ["Claude / GPT / Gemini / DeepSeek 池（IDE 内可切）"]
+    offer:
+      type: 免费层
+      expiry: null
+    restrictions: "按 token 折算 Dollar Usage 月度赠送，免费档排队优先级低（高峰等待）；商用受限；具体赠送金额以控制台展示"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: medium
+    notes: "2026-02-24 改为 token 计费（$3/$8/$20/$100 档 + Free 0 元档）；新用户有 14 天 Pro 试用；历史快闪『Free 补 600 次 Fast Request』已过期不展示"
 
   - id: volcengine-doubao
     provider: 火山引擎豆包大模型

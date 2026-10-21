@@ -1,6 +1,11 @@
 {
-  "generated_at": "2026-10-21T01:33:28.901313+00:00",
+  "generated_at": "2026-10-21T01:37:13.461227+00:00",
   "offers": {
+    "workbuddy": {
+      "value_usd": 105.0,
+      "stale": false,
+      "bad_links": []
+    },
     "zhipu-bigmodel": {
       "value_usd": 22.0,
       "stale": false,
@@ -36,6 +41,11 @@
       "stale": false,
       "bad_links": []
     },
+    "qoder": {
+      "value_usd": null,
+      "stale": false,
+      "bad_links": []
+    },
     "gemini-cli": {
       "value_usd": null,
       "stale": false,
@@ -47,6 +57,11 @@
       "bad_links": []
     },
     "cloudflare-workers-ai": {
+      "value_usd": null,
+      "stale": false,
+      "bad_links": []
+    },
+    "trae": {
       "value_usd": null,
       "stale": false,
       "bad_links": []
@@ -72,11 +87,6 @@
       "bad_links": []
     },
     "kilo-code": {
-      "value_usd": null,
-      "stale": false,
-      "bad_links": []
-    },
-    "workbuddy": {
       "value_usd": null,
       "stale": false,
       "bad_links": []

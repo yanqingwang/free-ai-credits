@@ -44,6 +44,10 @@ def table(entries: list) -> str:
             quant.append(f"${offer['credits_usd']} 赠金")
         if offer.get("credits_cny"):
             quant.append(f"¥{offer['credits_cny']} 券")
+        if offer.get("credits_day"):
+            quant.append(f"领 {offer['credits_day']:,} credits/日")
+        if offer.get("signup_points"):
+            quant.append(f"注册赠 {offer['signup_points']:,} 积分")
         if offer.get("signup_tokens"):
             quant.append(f"注册赠 {offer['signup_tokens']:,} tokens")
         if offer.get("checkin_tokens_day"):

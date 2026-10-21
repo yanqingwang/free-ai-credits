@@ -23,7 +23,25 @@ def monthly_value(entry: dict) -> tuple[float | None, str]:
         return float(entry["value_override_usd"]), "人工指定"
 
     est = entry.get("est_usd_per_mtok")
+    pv = entry.get("point_value_usd")
+    candidates: list[tuple[float, str]] = []
+
+    # 积分制： points_monthly + points_daily×30 按 1 点价值折算
+    if pv:
+        pm = int(offer.get("points_monthly") or 0)
+        pd = int(offer.get("points_daily") or 0)
+        pts = pm + pd * 30
+        if pts:
+            candidates.append((pts * float(pv), f"({pm} + {pd}×30) 点 × ${pv}/点"))
+
+    # credit 类： credits_day×30 有单价则折算
+    if pv and offer.get("credits_day"):
+        cd = int(offer["credits_day"])
+        candidates.append((cd * 30 * float(pv), f"{cd} credits/日 × 30 × ${pv}/点"))
+
     if not est:
+        if candidates:
+            return max(candidates, key=lambda x: x[0])
         return None, ""
 
     credit = None
@@ -35,29 +53,23 @@ def monthly_value(entry: dict) -> tuple[float | None, str]:
         months = offer.get("valid_months") or 1
         credit = float(offer["credits_cny"]) / CNY_PER_USD / max(int(months), 1)
         formula = f"¥{offer['credits_cny']} ≈ $(摊 {months} 月)"
+    if credit:
+        candidates.append((credit, formula))
 
     day_tokens = int(offer.get("checkin_tokens_day") or 0)
     if day_tokens:
         v = day_tokens * 30 / 1e6 * float(est)
-        if credit and credit > v:
-            return credit, formula or ""
-        return v, f"签到 {day_tokens}/日 × 30 × ${est}/1M"
+        candidates.append((v, f"签到 {day_tokens}/日 × 30 × ${est}/1M"))
 
     td = int(offer.get("tokens_day") or 0)
     tm = int(offer.get("tokens_month") or 0)
     if td:
-        v = td * 30 / 1e6 * float(est)
-        if credit and credit > v:
-            return credit, formula or ""
-        return v, f"{td:,} tokens/日 × 30 × ${est}/1M"
+        candidates.append((td * 30 / 1e6 * float(est), f"{td:,} tokens/日 × 30 × ${est}/1M"))
     if tm:
-        v = tm / 1e6 * float(est)
-        if credit and credit > v:
-            return credit, formula or ""
-        return v, f"{tm:,} tokens/月 × ${est}/1M"
+        candidates.append((tm / 1e6 * float(est), f"{tm:,} tokens/月 × ${est}/1M"))
 
-    if credit:
-        return credit, formula or ""
+    if candidates:
+        return max(candidates, key=lambda x: x[0])
     return None, ""
 
 

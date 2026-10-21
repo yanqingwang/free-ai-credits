@@ -1,8 +1,8 @@
-name: weekly refresh
+name: daily digest
 
 on:
   schedule:
-    - cron: "0 2 * * 1"      # 每周一 02:00 UTC（北京 10:00）
+    - cron: "0 2 * * *"      # 每日 02:00 UTC（北京 10:00）
   workflow_dispatch:
 
 permissions:
@@ -22,9 +22,13 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install deps
-        run: pip install pyyaml requests
-      - name: Scan offers & rebuild README
-        run: python -m src.main
+        run: pip install pyyaml requests markdown
+      - name: Scan offers, rebuild README & send daily digest email
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python -m src.main --mail
       - name: Commit snapshot
         run: |
           git config user.name "free-ai-credits-bot"
@@ -33,6 +37,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            git commit -m " weekly scan $(date -u +%Y-%m-%d)"
+            git commit -m "daily scan $(date -u +%Y-%m-%d)"
             git push
           fi
