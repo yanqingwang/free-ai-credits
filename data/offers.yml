@@ -225,17 +225,17 @@ offers:
     signup: "workbuddy.ai 邮箱或 GitHub 注册；与 Buddy AI/CodeBuddy 国际版同账号体系"
     models: ["Kimi", "DeepSeek", "Claude 系（夜间折扣）等国际池"]
     offer:
-      type: 签到积分
+      type: 限时活动            # 非国内式手动签到：Limited-Time Daily Activity Reward，客户端活跃自动发放，无公开截止日
       points_monthly: 100       # Free 版每月 100 积分（官方 pricing 页）
-      signup_points: 250        # 注册登录赠 250 积分，14 天有效
-      points_daily: 30          # 限时『活跃赠送』Free 30/天、Pro 50/天
+      signup_points: 250        # 注册+首次登录赠 250 积分，14 天有效
+      points_daily: 30          # 限时活动：当日客户端发起≥1次有效对话/任务自动发 30/天（Pro 50/天）
       expiry: null
-    restrictions: "积分统一用量单位、不同模型消耗不同；Pro $10/月（首月 $7）含 2000 积分/月；与国内版 workbuddy.cn 账号与额度不互通"
+    restrictions: "每日 30 为限时活动奖励非永久签到政策：官方条款明示 Limited-Time Offer、未公布结束日期；必须在 WorkBuddy/CodeBuddy 客户端发起有效会话才计入（网页端不算）；系统自动发放无需手动领；与月度积分可叠加；Pro $10/月（首月 $7）含 2000 积分/月；与国内版 workbuddy.cn 账号与额度不互通"
     est_usd_per_mtok: null
     point_value_usd: 0.005      # Pro $10/月 ≈ 2000 积分 → 1 积分 ≈ $0.005
     verified: 2026-10-21
     confidence: high
-    notes: "旧条目曾把国内版 500/月+签到 100 误挂到国际站，已按官方 docs 拆分纠正；point_value 以 Pro 月包 $10/2000 积分折算 ≈ $0.005/积分"
+    notes: "2026-10-21 官方 Subscription『Limited-Time Daily Activity Reward Terms』+ pricing 页直抓：国际版无手动签到，仅活跃自动奖励；国内版（cn）才是签到制；旧条目曾把国内 500/月误挂国际站，已拆分纠正"
 
   - id: workbuddy-cn
     provider: 腾讯 WorkBuddy 国内版（workbuddy.cn）
