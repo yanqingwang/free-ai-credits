@@ -23,8 +23,8 @@
 | 15 | [Kilo Code（IDE/CLI agent 客户端）](https://kilocode.ai) | 免费层 | 🆓 免费层：限速免费（量级未公布）｜模型：500+ 模型零加成；免费模型池（Auto Free 自动路由） | —（限速内自由） | GitHub/邮箱注册 app.kilo.ai → 装 VS Code 插件或 CLI | 免费池额度与模型动态调整；限时活动以站内公告为准；企业版有 Cursor 迁移优惠（非白嫖主线） | 长期有效 | ☑️单源 |
 | 16 | **WorkBuddy（示例条目 — 由需求方提供，待核）** | 签到积分 | ✅ 签到积分：积分 500/月 + 100/日｜模型：待核 | —（限速内自由） ⚠️待核 | 见官网（待补） | 待核 | 长期有效 | ⚠️待核 |
 | 17 | [阿里云百炼 DashScope](https://bailian.console.aliyun.com) | 一次性赠送 | 💪 一次性赠送：限速免费（量级未公布）｜模型：qwen 系列（各模型免费额度不同） | —（限速内自由） ⚠️待核 | 阿里云账号开通百炼 → 新用户按模型层获得免费试用额度（qwen-turbo 等百万级 tokens；时有时效） | 额度有有效期；具体以控制台展示为准 | 长期有效 | ⚠️待核 |
-| 18 | [Hugging Face Inference Providers](https://huggingface.co/inference-providers) | 免费层 | 🆓 免费层：限速免费（量级未公布）｜模型：hf 推理路由全模型（groq/together 等多家后端） | —（限速内自由） ⚠️待核 | HF 账号自带少量月度 free credits（登录即有）；PRO 账号额度更高 | 免费账户 credits 量极小，主要用于试玩；具体钱数官方动态调整 | 长期有效 | ⚠️待核 |
+| 18 | [Hugging Face Inference Providers](https://huggingface.co/inference-providers) | 免费层 | 🆓 免费层：限速免费（量级未公布）｜模型：hf 推理路由全模型（groq/together 等多家后端） | —（限速内自由） ⚠️待核 🚫链接失效 | HF 账号自带少量月度 free credits（登录即有）；PRO 账号额度更高 | 免费账户 credits 量极小，主要用于试玩；具体钱数官方动态调整 | 长期有效 | ⚠️待核 |
 
 ## 本期挂掉的链接（探活失败）
 
-- 全部官方链接探活通过 ✅
+- 🚫 [Hugging Face Inference Providers] website:https://huggingface.co/inference-providers (HTTP 404)
