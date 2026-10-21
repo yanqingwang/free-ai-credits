@@ -107,7 +107,7 @@ offers:
       expiry: null
     restrictions: "限速严格（约 1 req/s），月吞吐上限按平台平均用量池化计；不能用于生产 SLA"
     est_usd_per_mtok: 0.40
-    value_override_usd: 15      # 理论池化上限 1B tokens/月 ≈ $400；受 ~1 req/s 限速实际达不到，保守记 $15
+    value_override_recurring_usd: 15   # 理论池化上限 1B tokens/月 ≈ $400；受 ~1 req/s 限速实际达不到，保守记 $15
     verified: 2026-10-21
     confidence: medium
     notes: "1B tokens/月为平台平均吞吐口径（pricepertoken），个人实际利用率远低于此"
@@ -126,7 +126,7 @@ offers:
       expiry: null              # 邀荐活动长期有效
     restrictions: "免费模型系列并发 1；邀请要求新用户实名注册起跑"
     est_usd_per_mtok: 0.11      # glm-4-air paid 价 ≈ ¥0.8/1M
-    value_override_usd: 22      # 邀荐 2 亿 tokens/月 折算
+    value_override_recurring_usd: 22   # 邀请 2 亿 tokens/月 折算（覆盖公式候选）
     verified: 2026-10-21
     confidence: high
 

@@ -1,103 +1,123 @@
 {
-  "generated_at": "2026-10-21T01:45:01.838221+00:00",
+  "generated_at": "2026-10-21T01:53:36.357030+00:00",
   "offers": {
     "workbuddy": {
-      "value_usd": 105.0,
+      "recurring_usd": 105.0,
+      "once_usd": 60.0,
       "stale": false,
       "bad_links": []
     },
     "zhipu-bigmodel": {
-      "value_usd": 22.0,
+      "recurring_usd": 22.0,
+      "once_usd": 2.2,
       "stale": false,
       "bad_links": []
     },
     "mistral": {
-      "value_usd": 15.0,
+      "recurring_usd": 15.0,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "cerebras": {
-      "value_usd": 10.5,
-      "stale": false,
-      "bad_links": []
-    },
-    "siliconflow": {
-      "value_usd": 2.5,
+      "recurring_usd": 10.5,
+      "once_usd": 5.0,
       "stale": false,
       "bad_links": []
     },
     "groq": {
-      "value_usd": 1.7999999999999998,
+      "recurring_usd": 1.8,
+      "once_usd": null,
+      "stale": false,
+      "bad_links": []
+    },
+    "siliconflow": {
+      "recurring_usd": null,
+      "once_usd": 2.5,
       "stale": false,
       "bad_links": []
     },
     "openrouter": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "google-ai-studio": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "qoder": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "gemini-cli": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "tencent-hunyuan-lite": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "cloudflare-workers-ai": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "trae": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "volcengine-doubao": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "qwen-code-cli": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "github-copilot-free": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "opencode-zen": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "kilo-code": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "alibaba-bailian": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     },
     "hf-inference": {
-      "value_usd": null,
+      "recurring_usd": null,
+      "once_usd": null,
       "stale": false,
       "bad_links": []
     }

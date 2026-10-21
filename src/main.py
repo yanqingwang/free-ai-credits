@@ -16,7 +16,7 @@ sys.path.insert(0, str(REPO_ROOT))
 
 import yaml                                  # noqa: E402
 from src import links                        # noqa: E402
-from src.valuecalc import monthly_value, staleness  # noqa: E402
+from src.valuecalc import valuations, staleness  # noqa: E402
 from src.render import table, inject_readme, report as render_report  # noqa: E402
 
 
@@ -34,9 +34,10 @@ def main() -> None:
 
     entries = load_offers()
     for e in entries:
-        val, formula = monthly_value(e)
-        e["_value"] = val
-        e["_formula"] = formula
+        vals = valuations(e)
+        e["_vals"] = vals
+        e["_recur"] = vals["recurring"][0]
+        e["_once"] = vals["once"][0]
 
         stale_days = staleness(e)
         e["_stale"] = bool(stale_days and stale_days > 45)
@@ -56,16 +57,18 @@ def main() -> None:
         e["_locked"] = locked
         e["_link_bad"] = bool(bad_links)
 
-    # 排序：价值高的在前；无估值(限速型/待核)随后；confidence low 最后
+    # 排序：持续价值优先，其次一次性，无估值限速型随后，待核最后
     conf_rank = {"high": 0, "medium": 1, "low": 2}
     entries.sort(key=lambda e: (
-        0 if e["_value"] is not None else 1,
-        -(e["_value"] or 0),
+        0 if e["_recur"] or e["_once"] else 1,
+        -(e["_recur"] or 0),
+        -(e["_once"] or 0),
         conf_rank.get(e.get("confidence"), 3),
     ))
 
     today = dt.date.today().isoformat()
-    inject_readme(str(REPO_ROOT / "README.md"), table(entries), today)
+    inject_readme(str(REPO_ROOT / "README.md"), table(entries, "zh"), today, "zh")
+    inject_readme(str(REPO_ROOT / "README_EN.md"), table(entries, "en"), today, "en")
 
     rep_dir = REPO_ROOT / "reports"
     rep_dir.mkdir(exist_ok=True)
@@ -87,7 +90,8 @@ def main() -> None:
     state = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "offers": {e["id"]: {
-            "value_usd": e["_value"], "stale": e["_stale"], "bad_links": e["_bad_links"],
+            "recurring_usd": e["_recur"], "once_usd": e["_once"],
+            "stale": e["_stale"], "bad_links": e["_bad_links"],
         } for e in entries},
     }
     sp = REPO_ROOT / "data" / "scan-state.json"
@@ -96,8 +100,7 @@ def main() -> None:
 
     for e in entries:
         flag = "🚫" if e["_link_bad"] else ("⚠️stale" if e["_stale"] else "✅")
-        v = e["_value"]
-        print(f"[{e['id']}] {flag} value={v if v is not None else '—'} formula={e['_formula'] or '—'} bad_links={len(e['_bad_links'])}", file=sys.stderr)
+        print(f"[{e['id']}] {flag} recur={e['_recur']} once={e['_once']} bad={len(e['_bad_links'])}/locked={len(e.get('_locked', []))}", file=sys.stderr)
 
 
 if __name__ == "__main__":
