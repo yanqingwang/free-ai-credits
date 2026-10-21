@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T05:18:12.935662+00:00",
+  "generated_at": "2026-10-21T05:26:02.809508+00:00",
   "offers": {
     "workbuddy-cn": {
       "recurring_usd": 105.0,
@@ -269,9 +269,7 @@
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": [
-        "docs:https://intl.cloud.tencent.com/document/product/1300/80423 (HTTP NO)"
-      ]
+      "bad_links": []
     },
     "cloudflare-workers-ai": {
       "recurring_usd": null,
