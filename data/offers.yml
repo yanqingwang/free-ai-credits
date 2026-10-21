@@ -113,22 +113,39 @@ offers:
     notes: "1B tokens/月为平台平均吞吐口径（pricepertoken），个人实际利用率远低于此"
 
   - id: zhipu-bigmodel
-    provider: 智谱 AI BigModel
+    provider: 智谱 AI BigModel（国内开放平台）
     website: https://open.bigmodel.cn
     docs: https://docs.bigmodel.cn/cn/update/promotion
-    region: "中国大陆可直连"
-    signup: "手机号注册；实名后完整额度"
-    models: ["glm-4-flash-250414(永久免费)", "glm-4.7-flash", "glm-4-air", "glm-4.6+ 全家"]
+    region: "中国大陆可直连（手机号+短信验证，领额度需实名）"
+    signup: "手机号注册即得赠包；实名认证后追加至约 2500 万"
+    models: ["glm-4.7-flash 等 8 款 Flash 系永久免费", "glm-4-air", "glm-5 全家"]
     offer:
       type: 一次性赠送
-      signup_tokens: 20000000   # 新用户 2000 万 tokens（有效期内）
-      invite_tokens_monthly: 200000000  # 邀荐每月最高 2 亿 free tokens（每位用户最多邀 10 人/月）
-      expiry: null              # 邀荐活动长期有效
-    restrictions: "免费模型系列并发 1；邀请要求新用户实名注册起跑"
+      signup_tokens: 20000000   # 新用户注册赠 2000 万 tokens（官方横幅），实名后合计约 2500 万
+      invite_tokens_monthly: 200000000  # 邀荐最高累计 2 亿（实际通用额度以控制台为准，实测仅约 200 万）
+      expiry: null
+    restrictions: "赠包分 3 个资源包、约 90 天有效（官方未写死，以控制台财务→资源包为准）；免费 Flash 模型并发 1；与国际 Z.ai 账号/余额完全独立不互通"
     est_usd_per_mtok: 0.11      # glm-4-air paid 价 ≈ ¥0.8/1M
     value_override_recurring_usd: 22   # 邀请 2 亿 tokens/月 折算（覆盖公式候选）
     verified: 2026-10-21
     confidence: high
+    notes: "ZCode/AutoClaw 端内赠送 credits 属客户端活动，不计入 API 余额；国际版见 zhipu-zai 独立条目"
+
+  - id: zhipu-zai
+    provider: Z.ai（智谱国际平台 api.z.ai）
+    website: https://z.ai
+    docs: https://docs.z.ai/guides/overview/pricing
+    region: "全球（邮箱/Google SSO，无需手机与实名）"
+    signup: "z.ai 邮箱或 Google 注册 → Dashboard 取 API Key，美元计价"
+    models: ["GLM-5.3/5.2/4.7 全系", "GLM-4.7-Flash / 4.5-Flash（$0 免费模型）"]
+    offer:
+      type: 免费层
+      expiry: null
+    restrictions: "官方定价页列出 GLM-4.7-Flash / 4.5-Flash 等 $0 免费模型（长期）；新用户按量钱包是否有注册赠金未获官方直证，不录入具体数额；与 bigmodel.cn 余额/Key 不通用（跨用报错）"
+    est_usd_per_mtok: 1.4       # GLM-5.2 输入 $1.40/1M 参考
+    verified: 2026-10-21
+    confidence: medium
+    notes: "仅保留可验证的 $0 免费模型口径；曾记录的『每日 300 万 tokens 体验额度』出自 ZCode 客户端文档、非 API 平台官方可验证额度，已按『不造假』原则移除具体数字"
 
   - id: siliconflow
     provider: 硅基流动 SiliconFlow
@@ -149,20 +166,40 @@ offers:
     confidence: high
     notes: "旧活动『注册送 2000 万 tokens』已下线（beizigen 2025-03 记录改为实名 ¥18 通用券）"
 
-  - id: tencent-hunyuan-lite
-    provider: 腾讯混元 Lite
-    website: https://lke.cloud.tencent.com/lke/#/hybrid/home
-    docs: https://cloud.tencent.com/document/product/1729
-    region: "中国大陆可直连"
-    signup: "腾讯云账号 → 开通混元 → 用 hunyuan-lite 免费模型"
-    models: ["hunyuan-lite（永久免费）", "hunyuan-turbos(付费) 等"]
+  - id: tencent-tokenhub-cn
+    provider: 腾讯云 TokenHub（国内，原混元 API 入口）
+    website: https://cloud.tencent.com/product/tokenhub
+    docs: https://cloud.tencent.com/document/product/1823/130053
+    region: "中国大陆可直连（腾讯云账号）"
+    signup: "腾讯云主账号 → 首次激活 TokenHub 自动领新人免费体验包"
+    models: ["hy3 全系语言模型", "多模态理解/图像/视频/3D", "第三方 DeepSeek 等"]
     offer:
-      type: 免费层
-      expiry: null
-    restrictions: "并发限制以腾讯云文档为准；lite 系列限速免费"
+      type: 一次性赠送
+      signup_tokens: 1000000    # 所有语言模型各 100 万 tokens（1 年有效，主账号一次）
+      expiry: 2026-12-31        # 活动截至日
+    restrictions: "旧混元平台模型（hunyuan-lite/turbos/t1）2026-06-22 下线、平台 2026-09-30 停服，『hunyuan-lite 永久免费』已成历史；多模态另赠：理解 100 万 tokens、图像 50 次、视频 50 积分、3D 100 积分；原 90 天有效期 2026-07-21 官方上调为 1 年"
     est_usd_per_mtok: null
     verified: 2026-10-21
-    confidence: medium
+    confidence: high
+    notes: "替代已停服的 tencent-hunyuan-lite 条目；官方文档 + 官方迁移指南 PDF 双源"
+
+  - id: tencent-tokenhub-intl
+    provider: Tencent Cloud TokenHub（国际站）
+    website: https://www.tencentcloud.com/product/tokenhub
+    docs: https://intl.cloud.tencent.com/document/product/1300/80423
+    region: "全球（国际站账号，信用卡/ PayPal）"
+    signup: "国际站主账号首次激活 TokenHub 领 New User Free Trial Package"
+    models: ["hy3 语言模型 + 第三方模型（国际池）"]
+    offer:
+      type: 一次性赠送
+      signup_tokens: 1000000    # 每语言模型 100 万 tokens
+      valid_months: 3           # 90 天（国际文档未跟进国内 1 年调整）
+      expiry: 2026-12-31
+    restrictions: "与国内站额度/账号独立；有效期比国内短（90 天 vs 1 年）"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+    notes: "国际官方文档直抓"
 
   - id: cloudflare-workers-ai
     provider: Cloudflare Workers AI
@@ -180,74 +217,152 @@ offers:
     verified: 2026-10-21
     confidence: medium
 
-  - id: workbuddy
-    provider: 腾讯 WorkBuddy（AI Agent 办公台）
+  - id: workbuddy-intl
+    provider: 腾讯 WorkBuddy 国际版（workbuddy.ai）
     website: https://www.workbuddy.ai
-    docs: https://www.workbuddy.ai/docs/zh/workbuddy/credits
-    region: "中国大陆可直连（国际版/国内版双站）"
-    signup: "官网/App（含 Microsoft Store）/国内版 workbuddy.cn 注册；部分活动需从邀请链接进入"
-    models: ["Kimi-K3", "GLM-5.3", "DeepSeek-V4.1-Flash", "Hy4（限时免费）"]
+    docs: https://www.workbuddy.ai/docs/workbuddy/pricing
+    region: "全球（邮箱/GitHub 注册）"
+    signup: "workbuddy.ai 邮箱或 GitHub 注册；与 Buddy AI/CodeBuddy 国际版同账号体系"
+    models: ["Kimi", "DeepSeek", "Claude 系（夜间折扣）等国际池"]
     offer:
       type: 签到积分
-      points_monthly: 500       # 免费版每月 1 号到账 500 积分
-      points_daily: 100         # 每日签到 100 积分（多来源印证签到存在，数额待站内复核）
-      signup_points: 2000       # 新用户注册赠 2000 积分（腾讯云社区文章称 5000，以控制台为准）
+      points_monthly: 100       # Free 版每月 100 积分（官方 pricing 页）
+      signup_points: 250        # 注册登录赠 250 积分，14 天有效
+      points_daily: 30          # 限时『活跃赠送』Free 30/天、Pro 50/天
       expiry: null
-    restrictions: "积分为统一用量单位，不同模型消耗不同；纯月包 500 积分重度使用 2-3 天烧完；社区发文/任务可再挣积分（zdm 称月合计 6000+）"
+    restrictions: "积分统一用量单位、不同模型消耗不同；Pro $10/月（首月 $7）含 2000 积分/月；与国内版 workbuddy.cn 账号与额度不互通"
     est_usd_per_mtok: null
-    point_value_usd: 0.03       # 官方加量包价：500 积分 = $15 → 1 积分 $0.03
+    point_value_usd: 0.005      # Pro $10/月 ≈ 2000 积分 → 1 积分 ≈ $0.005
     verified: 2026-10-21
-    confidence: medium
-    notes: "双源印证：官方 docs（积分/定价/订阅）+ 腾讯云开发者文章 + zdm 攻略；签到每日 100 的数额原为需求方提供，与多来源『每天签到』吻合，待控制台截图级复核。GitHub 已有第三方自动签到脚本（88lin/workbuddy-auto-signin）"
+    confidence: high
+    notes: "旧条目曾把国内版 500/月+签到 100 误挂到国际站，已按官方 docs 拆分纠正；point_value 以 Pro 月包 $10/2000 积分折算 ≈ $0.005/积分"
+
+  - id: workbuddy-cn
+    provider: 腾讯 WorkBuddy 国内版（workbuddy.cn）
+    website: https://www.workbuddy.cn
+    docs: https://www.workbuddy.cn/docs/workbuddy/Pricing
+    region: "中国大陆可直连（手机号/微信注册）"
+    signup: "workbuddy.cn / codebuddy.cn 手机号或微信注册；与 CodeBuddy 同账号积分共享"
+    models: ["DeepSeek", "GLM", "MiniMax", "混元 Hy（限免）等国内池"]
+    offer:
+      type: 签到积分
+      points_monthly: 500       # 体验版每月 1 号自动到账 500 积分（当月不结转，官方微博直述）
+      points_daily: 100         # 每日签到：第 1-6 天各 100、第 7 天 1000（7 天循环）
+      signup_points: 2100       # 新人礼包约 2100-5000 积分、90 天有效、需手动领（随活动浮动）
+      expiry: null
+    restrictions: "积分制用量单位；付费标准 ¥99/高级 ¥199/旗舰 ¥999 每月；两站（cn/ai）签到与额度为独立体系；师生认证 +1000、邀请 500/人"
+    est_usd_per_mtok: null
+    point_value_usd: 0.03
+    verified: 2026-10-21
+    confidence: high
+    notes: "500/月为官方三源（cn docs+腾讯云计费概述+官方微博）；签到与新人礼包数额来自多源实测、随活动浮动，取 medium 口径"
 
   - id: qoder
     provider: Qoder（阿里，国际版 AI IDE）
     website: https://qoder.com
-    docs: https://docs.qoder.com/zh/events/100credits
-    region: "全球"
-    signup: "官网下载桌面端（国际版）→ 邮箱注册；免费体验版即可参与活动"
-    models: ["Qwen 系列专属池", "SOTA 模型（活动期轮换）"]
+    docs: https://docs.qoder.com/zh/account/pricing
+    region: "全球（邮箱注册，无需信用卡）"
+    signup: "官网下载桌面端（国际版）→ 邮箱验证码注册；体验版即可参与每日领取活动"
+    models: ["基础模型池（免费档）", "Qwen 系列", "SOTA 模型（活动期轮换）"]
     offer:
       type: 签到积分
-      credits_day: 100          # 2026-09-18 起国际版个人用户每天桌面端手动领 100 通用 Credits
+      credits_day: 100          # 2026-09-18 起每天桌面端手动领 100 通用 Credits，进行中
+      signup_credits: 300       # 体验版含 2 周 Pro 试用 + 300 Credits
       expiry: null
-    restrictions: "每日额度需当天手动领取、不累计至次日；免费及个人付费用户均可领；Credit 换算美元未公示"
+    restrictions: "每日 100 Credits 在 10:00～次日 10:00 窗口领取、错过不补；每笔自领取起 30 天有效、可累积；免费档仅基础模型且补全限次；CN 版账号/Credits 与国际版完全独立不互通"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
-    notes: "官方 docs 双活动印证：每日 100 Credits（长期）+ SOTA 限时（2026-09 连领 5 天最高 7500）；新用户历史口径 14 天 Pro 试用 300 Credits；CN 版（原灵码）社区版免费、Pro ¥59/月含 2000 Credits"
+    notes: "docs 定价页：体验版免费/Pro $20/Pro+ $60/Ultra $200 每月；每日 100 Credits 活动 2026-09-18 起长期进行；另有 Qwen3.8-Flash 限时免费（官方延期公告）；国内版见 qoder-cn 独立条目"
+
+  - id: qoder-cn
+    provider: Qoder CN（阿里，中国大陆版，原通义灵码）
+    website: https://qoder.com.cn
+    docs: https://docs.qoder.cn/events/100credits
+    region: "中国大陆可直连（手机号绑定的阿里云主账号）"
+    signup: "qoder.com.cn 注册（手机号，未注册阿里云会自动建号）→ 下载 Desktop/JetBrains 插件"
+    models: ["Qwen / GLM / DeepSeek / Kimi / MiniMax 国产模型池（国内部署）"]
+    offer:
+      type: 签到积分
+      credits_day: 100          # 与国际版同款活动：2026-09-18 起每日领 100 Credits
+      signup_credits: 300       # 体验版含 2 周 Pro 试用 + 300 Credits
+      expiry: null
+    restrictions: "每日领取窗口/30 天有效期同国际版；Pro ¥59/月 2000 Credits、Pro+ ¥169/月 6000、Ultra ¥559/月 20000；全家桶（Desktop/CLI/Mobile）Credits 跨产品共享（2026-06-20 起）；子账号 Credits 为 0；与国际版 Credits 不可换算"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+    notes: "通义灵码 2026-05-20 正式更名 Qoder CN，原 tongyi-lingma 条目并入本条；help.aliyun.com 计费说明 + docs.qoder.cn 双官方源"
 
   - id: trae
-    provider: Trae（字节，AI IDE）
+    provider: Trae（字节，AI IDE 国际版）
     website: https://www.trae.ai
     docs: https://docs.trae.ai/ide/new-plans-and-billing
-    region: "全球"
-    signup: "GitHub/Google/邮箱注册 IDE 即用"
-    models: ["Claude / GPT / Gemini / DeepSeek 池（IDE 内可切）"]
+    region: "全球（邮箱/Google/GitHub 注册）"
+    signup: "GitHub/Google/邮箱注册 IDE 即用，无需信用卡"
+    models: ["Claude / GPT / Gemini / DeepSeek 池（Auto 模式路由）"]
     offer:
       type: 免费层
+      requests_day: 5000        # Free 档代码补全 5000 次/月（trae.ai/pricing 对比表）
       expiry: null
-    restrictions: "按 token 折算 Dollar Usage 月度赠送，免费档排队优先级低（高峰等待）；商用受限；具体赠送金额以控制台展示"
+    restrictions: "Free 仅 Auto 模式 + 普通队列（高峰排队）+ 无 SOLO + 云任务并行 2；Dollar Usage 官方 2026-10 起不再公布具体数额（仅『有限额度/月』，2026-02 口径为 $3/月）；超额可开 On-Demand 按 $3 档扣费；与国内版账号数据完全独立不互通"
     est_usd_per_mtok: null
     verified: 2026-10-21
-    confidence: medium
-    notes: "2026-02-24 改为 token 计费（$3/$8/$20/$100 档 + Free 0 元档）；新用户有 14 天 Pro 试用；历史快闪『Free 补 600 次 Fast Request』已过期不展示"
+    confidence: high
+    notes: "2026-09/10 又改版：Free $0 / Lite $8 / Pro $20 / Pro+ $60 / Ultra $200（勿再用 2026-02 的 $3/$10/$30/$100 旧价）；新用户 14 天 Pro 试用含 $10 Basic Usage（2026-02 官方口径，10 月是否存续待确认）；Lite 档 docs 有但 pricing 页未展示，疑区域受限"
+
+  - id: trae-cn
+    provider: Trae CN（字节，AI IDE 国内版）
+    website: https://www.trae.cn
+    docs: https://docs.trae.cn/ide_plans-and-billing
+    region: "中国大陆可直连（手机号验证码注册）"
+    signup: "trae.cn 手机号注册下载，不支持国际版账号登录"
+    models: ["豆包 Seed 系（Seed-Code/2.1-Pro）", "DeepSeek-V4.1", "GLM-5.3", "Kimi-K3", "Qwen3.8", "MiniMax-M3 等国产池"]
+    offer:
+      type: 签到积分
+      points_monthly: 500       # 每月登录赠送 500 通用积分（当月有效）
+      points_daily: 100         # 每日签到 100 积分（31 天有效；历史 200→150→100 收缩中）
+      signup_points: 4000       # 新用户注册一次性 4000 积分（31 天有效）
+      expiry: null
+    restrictions: "2026-08 起从速通次数制改积分制（非无限量）；免费档高峰排队、云任务并行 2；Seed-Evolving 等仅会员；接入自定义模型不耗积分；邀请新用户双方各 500 积分；付费 Lite ¥49/Pro ¥99/Pro+ ¥239/Ultra ¥699，增购 1000 积分=¥50"
+    est_usd_per_mtok: null
+    point_value_usd: 0.007      # 增购价 1000 积分=¥50 → 1 积分≈¥0.05≈$0.007
+    verified: 2026-10-21
+    confidence: high
+    notes: "trae.cn/pricing + docs.trae.cn 官方双页直抓；『SOLO 完全免费』为积分制前旧宣传已作废"
 
   - id: volcengine-doubao
-    provider: 火山引擎豆包大模型
+    provider: 火山引擎豆包大模型（国内方舟）
     website: https://www.volcengine.com/product/doubao
-    docs: https://www.volcengine.com/docs/82379
-    region: "中国大陆可直连"
-    signup: "手机号注册 → 控制台为每个模型开通 → 赠送试用 tokens"
-    models: ["doubao-seed 全线（每个模型赠 49 万 tokens 试用期，以控制台为准）"]
+    docs: https://www.volcengine.com/docs/82379/1465347
+    region: "中国大陆可直连（手机号+实名）"
+    signup: "手机号注册 → 控制台开通模型服务；未开通账号自动适用『安心体验模式』"
+    models: ["doubao-seed 全线（除多模态向量化/同声传译）"]
     offer:
       type: 一次性赠送
-      signup_tokens: 490000
+      signup_tokens: 500000     # 平台赠送每模型 50 万 tokens，独立计数
       expiry: null
-    restrictions: "按模型独立赠送；开通即赠；具体额度以官网控制台校准"
+    restrictions: "安心体验模式仅消耗赠送额度、用尽自动暂停且不可重开模式；图像模型约 200 张、视频约 200 万 tokens；有效期官方未明示（三方称 30 天，以控制台为准）；另有协作奖励计划（手动参与+授权数据，T+1 返还 50-200 万/日，口径不一）"
+    est_usd_per_mtok: null
+    verified: 2026-10-21
+    confidence: high
+    notes: "官方《安心体验模式细则说明》直抓：每模型 50 万 tokens；国际版见 byteplus-modelark 独立条目；『每日自动发 200 万 token』为误传不可信"
+
+  - id: byteplus-modelark
+    provider: BytePlus ModelArk（字节国际版方舟）
+    website: https://www.byteplus.com/en/product/modelark
+    docs: https://docs.byteplus.com/zh-CN/docs/ModelArk/promotion
+    region: "全球（邮箱注册，无需中国实名）"
+    signup: "console.byteplus.com 邮箱+密码+邮箱验证注册，即取 API Key"
+    models: ["Dola Seed 系（豆包国际名）", "Dola Seedream 生图", "SkyLark", "DeepSeek/Kimi 第三方"]
+    offer:
+      type: 一次性赠送
+      signup_tokens: 500000     # 新用户每模型 50 万 tokens 一次性试用额度
+      expiry: null
+    restrictions: "支持 Free Tokens Only 模式（额度用尽即停）；首 10 亿 token 5 折促销已于 2025-12-31 结束；与国内方舟账号额度不互通、模型命名不同"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: medium
+    notes: "官方营销页『All Advanced LLM 500k free tokens』+ 两个独立第三方目录一致；细则页因限流未直抓，下轮复核"
 
   - id: alibaba-bailian
     provider: 阿里云百炼 DashScope
@@ -384,11 +499,11 @@ offers:
     confidence: high
     notes: 官方活动页长期挂『免费包(个人) 200万 tokens/有效期1年/0元』
   - id: minimax-platform
-    provider: MiniMax Open Platform (稀宇科技)
+    provider: MiniMax Open Platform 国内（platform.minimaxi.com）
     website: https://platform.minimaxi.com/
-    docs: https://platform.minimaxi.com/docs/m-plan/faq.md
-    region: 中国大陆（手机号注册+实名）
-    signup: 注册并完成实名认证
+    docs: https://platform.minimaxi.com/docs/guides/quickstart
+    region: 中国大陆（手机号注册+个人实名）
+    signup: 注册并完成个人实名认证后发放赠金
     models:
     - MiniMax-M3
     - MiniMax-M3.1-Flash
@@ -396,12 +511,14 @@ offers:
     offer:
       type: 试用金
       credits_cny: 15
-      valid_months: 2
-    restrictions: 注册赠金未在官方页面公示，数值为多第三方源交叉；用完即停
+      valid_months: 3
+    restrictions: 注册赠金未在官方页面公示，15 元/约 90 天为两个独立第三方源交叉；2026-06-01 起改按 Token 计费，1000 积分=¥7 与刊例价 1:1、跨模态共享；与国际平台 Key/区域错配直接 401
     est_usd_per_mtok: 0
     verified: '2026-10-21'
-    confidence: low
-    notes: 15 元代金券约 2 个月（多源交叉，低置信）；音乐免费接口 2026-08 已下线
+    confidence: medium
+    notes: 15 元代金券约 90 天（ai-bot.cn 与 zingnex 两独立源一致，无官方直证故 medium）；音乐免费接口 2026-08 已下线；国际版见 minimax-platform-intl
+
+
   - id: baidu-qianfan-modelbuilder
     provider: Baidu Qianfan ModelBuilder (百度千帆)
     website: https://cloud.baidu.com/product/qianfan.html
@@ -442,10 +559,10 @@ offers:
     confidence: medium
     notes: 官方定价页标注限时免费；注册送 Step Plan 属不定期活动，不写入稳定数值
   - id: moonshot-kimi-openplatform
-    provider: Moonshot Kimi Open Platform (月之暗面)
+    provider: Moonshot Kimi Open Platform（国内，月之暗面）
     website: https://platform.kimi.com/
     docs: https://www.kimi.com/help/kimi-api/api-free-trial
-    region: 中国大陆（手机号注册+实名）
+    region: 中国大陆（国内手机号注册+实名）
     signup: 国内手机号注册开放平台并实名，代金券自动发放抵扣
     models:
     - kimi-k3
@@ -455,11 +572,30 @@ offers:
       type: 一次性赠送
       credits_cny: 15
       valid_months: 3
-    restrictions: 仅国内新用户实名发放；不可用于 Kimi K3（需充值解锁）；用尽自动停
+    restrictions: 仅国内新用户实名发放；不可用于 Kimi K3（需充值解锁）；用尽自动停；与国际平台账号/计费完全独立
     est_usd_per_mtok: 0
     verified: '2026-10-21'
     confidence: high
-    notes: 官方帮助中心明确 15 元代金券/3 个月
+    notes: 官方帮助中心明确 15 元代金券/3 个月（自发放日起）；充值赠金 20-30% 为限时促销未录入
+
+  - id: kimi-platform-intl
+    provider: Kimi Platform（国际，platform.kimi.ai）
+    website: https://platform.kimi.ai/
+    docs: https://platform.kimi.ai/docs/pricing/chat
+    region: 全球（邮箱/Google SSO，无需实名）
+    signup: 邮箱或 Google 注册，美元计价；API 端点 api.moonshot.ai/v1
+    models:
+    - kimi-k3(1M 上下文)
+    - k2.7-code
+    - k2.6/k2.5
+    offer:
+      type: 限时活动            # 非纯免费：充值 $5 才触发送 $5 代金券，不计入免费折算
+      expiry: null
+    restrictions: "无新用户免费层：须先充值最低 $1 才激活 API 调用；累计充值满 $5 送 $5 代金券（条件赠金，不折算为免费额度）；累计 $10 进 Tier 1、最高 Tier 5=$3000；Key 与国内平台互不通用（跨用 401）"
+    est_usd_per_mtok: 3.0       # k3 输入 $3/1M 参考
+    verified: '2026-10-21'
+    confidence: medium
+    notes: "三个独立接入教程/实测一致（$1 激活、$5 送 $5）；Bybit 百科把国内 15 元赠金误写为国际规则，判不可信"
   - id: sensenova-token-plan
     provider: SenseTime SenseNova (商汤日日新)
     website: https://token.sensenova.cn/
@@ -514,21 +650,7 @@ offers:
     verified: '2026-10-21'
     confidence: medium
     notes: 官方专题页明确领 1000 万 Tokens；2 周期限来自媒体转载
-  - id: tongyi-lingma
-    provider: Alibaba Tongyi Lingma (通义灵码)
-    website: https://lingma.aliyun.com/
-    docs: https://lingma.aliyun.com/
-    region: 中国大陆（阿里账号）
-    signup: 下载 IDE 插件登录阿里账号即可
-    models:
-    - tongyi-lingma(qwen 系列内置)
-    offer:
-      type: 免费层
-    restrictions: 个人版不限时长免费；专业版 59 元/月（多渠道限时免费，活动制可收回）
-    est_usd_per_mtok: 0
-    verified: '2026-10-21'
-    confidence: high
-    notes: 官方首页明示『个人免费使用』，IDE 插件型免费层而非 API 赠金
+  # tongyi-lingma 已于 2026-05-20 更名并入 Qoder CN，条目移至 qoder-cn
   - id: baidu-comate
     provider: Baidu Comate (文心快码)
     website: https://comate.baidu.com/
@@ -897,4 +1019,5 @@ offers:
     est_usd_per_mtok: 0.3
     verified: '2026-10-21'
     confidence: high
+    notes: "官方 agent.minimaxi.com docs 直证；签到积分属 MiniMax Code/Token Plan 积分体系（1000 积分=¥7 同币种换算），与开放平台按量 API 余额是独立 Key/配额两套体系，勿与 minimax-platform* 条目合并计"
     notes: 官方明示 400/day；点值未官方化故不作估值
