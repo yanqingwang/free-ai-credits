@@ -1,6 +1,8 @@
-# 全球大模型厂商「免费 Token / 免费额度 / 签到积分」白皮书
+# Free AI Credits / 全球大模型厂商「免费 Token / 免费额度 / 签到积分」白皮书
 
-> 一个**开源、每日自动核查**的数据库：扫描全球大模型厂商（国内 + 海外）官方渠道里能白嫖的 API 额度——免费层、注册赠送金、每日签到积分、限时活动；标注模型、**持续/一次性双轨价值**、注册方法、限制条件、有效期。**PR 欢迎补充新厂商 / 更正数字。**
+> **English**: An open-source, **daily-auto-verified** database of free API credits from global LLM vendors (intl + CN) — free tiers, signup grants, daily check-in points, limited-time promos. Each offer lists models, **continuing-vs-one-time USD value**, signup path, restrictions and validity. **PRs welcome for new vendors / corrections.** (Up to **50** tracked vendors; English table first, Chinese table below.)
+>
+> **中文**：一个**开源、每日自动核查**的数据库：扫描全球大模型厂商（国内 + 海外）官方渠道里能白嫖的 API 额度——免费层、注册赠送金、每日签到积分、限时活动；标注模型、**持续/一次性双轨价值**、注册方法、限制条件、有效期。**PR 欢迎补充新厂商 / 更正数字。**（当前收录最多 **50** 家，英文表在前、中文表在后。）
 
 **Language / 语言切换：[中文](README.md)（本页） · [English](README_EN.md)**
 
