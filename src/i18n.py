@@ -16,6 +16,14 @@ TYPE_LABELS = {
 
 CONF_LABELS = {"high": "✅ two-source", "medium": "☑️ one-source", "low": "⚠️ unverified"}
 
+COUNTRY_EN = {
+    "中国": "China", "美国": "US", "法国": "France", "英国": "UK", "加拿大": "Canada",
+}
+
+OSS_EN = {
+    "开源": "Open-weight", "部分开源": "Partial OSS", "闭源": "Closed", "平台型": "Platform",
+}
+
 SIGNUP = {
     "groq": "Email/GitHub OAuth signup → API Key at console.groq.com/keys",
     "openrouter": "Email signup, API key right away; no card needed",

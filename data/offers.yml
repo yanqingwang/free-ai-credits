@@ -12,6 +12,9 @@
 # offer.points_monthly / points_daily   签到积分制
 # offer.expiry                          截止日期 YYYY-MM-DD
 # restrictions                          使用限制
+# country                               厂商总部所在国家（中国/美国/法国/英国/加拿大）
+# open_source                           开源属性：开源｜部分开源｜闭源｜平台型（不自营旗舰模型的聚合/IDE/infra）
+# bench_model / bench_score             最新代表模型的第三方行业评分（Artificial Analysis Intelligence Index 或 LMArena），无可靠评分则两字段都不填
 # est_usd_per_mtok                      用于折算的官方付费价（$/百万 tokens）
 # value_override_usd                    人工指定的折算月价值（覆盖自动计算）
 # verified / confidence                 核查日期 YYYY-MM-DD ｜ high/medium/low
@@ -19,6 +22,8 @@
 
 offers:
   - id: groq
+    country: 美国
+    open_source: 平台型
     provider: Groq
     website: https://console.groq.com
     docs: https://console.groq.com/docs/rate-limits
@@ -38,6 +43,8 @@ offers:
     notes: "2026-09 阵容调整：llama-3.1-8b-instant 14,400 RPD 的老额度对新账号已不适用（klymentiev.com 与 console 文档交叉验证）"
 
   - id: openrouter
+    country: 美国
+    open_source: 平台型
     provider: OpenRouter
     website: https://openrouter.ai
     docs: https://openrouter.ai/docs/faq
@@ -56,6 +63,8 @@ offers:
     confidence: high
 
   - id: cerebras
+    country: 美国
+    open_source: 平台型
     provider: Cerebras
     website: https://cloud.cerebras.ai
     docs: https://inference-docs.cerebras.ai/support/rate-limits
@@ -76,6 +85,12 @@ offers:
     notes: "2026-07 改版：老的『每日 1M tokens 永久免费』由 Free Trial（$5 credits）取代，具体以控制台为准"
 
   - id: google-ai-studio
+    country: 美国
+    open_source: 闭源
+    bench_model: Gemini 4 Argon
+    bench_score: 53
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Google AI Studio / Gemini API
     website: https://aistudio.google.com
     docs: https://ai.google.dev/gemini-api/docs/rate-limits
@@ -94,6 +109,12 @@ offers:
     confidence: high
 
   - id: mistral
+    country: 法国
+    open_source: 部分开源
+    bench_model: Mistral Large 4
+    bench_score: 38
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Mistral La Plateforme
     website: https://console.mistral.ai
     docs: https://docs.mistral.ai/admin/billing-usage/usage-limits
@@ -113,6 +134,12 @@ offers:
     notes: "1B tokens/月为平台平均吞吐口径（pricepertoken），个人实际利用率远低于此"
 
   - id: zhipu-bigmodel
+    country: 中国
+    open_source: 部分开源
+    bench_model: GLM-5.3
+    bench_score: 45
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: 智谱 AI BigModel（国内开放平台）
     website: https://open.bigmodel.cn
     docs: https://docs.bigmodel.cn/cn/update/promotion
@@ -132,6 +159,12 @@ offers:
     notes: "ZCode/AutoClaw 端内赠送 credits 属客户端活动，不计入 API 余额；国际版见 zhipu-zai 独立条目"
 
   - id: zhipu-zai
+    country: 中国
+    open_source: 部分开源
+    bench_model: GLM-5.3
+    bench_score: 45
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Z.ai（智谱国际平台 api.z.ai）
     website: https://z.ai
     docs: https://docs.z.ai/guides/overview/pricing
@@ -141,13 +174,15 @@ offers:
     offer:
       type: 免费层
       expiry: null
-    restrictions: "官方定价页列出 GLM-4.7-Flash / 4.5-Flash 等 $0 免费模型（长期）；新用户按量钱包是否有注册赠金未获官方直证，不录入具体数额；与 bigmodel.cn 余额/Key 不通用（跨用报错）"
+    restrictions: "官方定价页列出 GLM-4.7-Flash / 4.5-Flash 等 $0 免费模型（长期）；新用户前 5 天有每日自动发放的旗舰体验额度（官方 ZCode 欢迎页口径，限时 5 天、非长期每日，不录入数额）；与 bigmodel.cn 余额/Key 不通用（跨用报错）；无每日签到机制"
     est_usd_per_mtok: 1.4       # GLM-5.2 输入 $1.40/1M 参考
     verified: 2026-10-21
     confidence: medium
     notes: "仅保留可验证的 $0 免费模型口径；曾记录的『每日 300 万 tokens 体验额度』出自 ZCode 客户端文档、非 API 平台官方可验证额度，已按『不造假』原则移除具体数字"
 
   - id: siliconflow
+    country: 中国
+    open_source: 平台型
     provider: 硅基流动 SiliconFlow
     website: https://cloud.siliconflow.cn
     docs: https://www.siliconflow.com/zh/pricing
@@ -167,6 +202,8 @@ offers:
     notes: "旧活动『注册送 2000 万 tokens』已下线（beizigen 2025-03 记录改为实名 ¥18 通用券）"
 
   - id: tencent-tokenhub-cn
+    country: 中国
+    open_source: 开源
     provider: 腾讯云 TokenHub（国内，原混元 API 入口）
     website: https://cloud.tencent.com/product/tokenhub
     docs: https://cloud.tencent.com/document/product/1823/130053
@@ -177,13 +214,15 @@ offers:
       type: 一次性赠送
       signup_tokens: 1000000    # 所有语言模型各 100 万 tokens（1 年有效，主账号一次）
       expiry: 2026-12-31        # 活动截至日
-    restrictions: "旧混元平台模型（hunyuan-lite/turbos/t1）2026-06-22 下线、平台 2026-09-30 停服，『hunyuan-lite 永久免费』已成历史；多模态另赠：理解 100 万 tokens、图像 50 次、视频 50 积分、3D 100 积分；原 90 天有效期 2026-07-21 官方上调为 1 年"
+    restrictions: "旧混元平台模型（hunyuan-lite/turbos/t1）2026-06-22 下线、平台 2026-09-30 停服，『hunyuan-lite 永久免费』已成历史；领取双通道：模型广场手动勾选 或 首次调用自动领，无每日签到；多模态另赠：理解 100 万 tokens、图像 50 次、视频 50 积分、3D 100 积分；原 90 天有效期 2026-07-21 官方上调为 1 年"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "替代已停服的 tencent-hunyuan-lite 条目；官方文档 + 官方迁移指南 PDF 双源"
 
   - id: tencent-tokenhub-intl
+    country: 中国
+    open_source: 开源
     provider: Tencent Cloud TokenHub（国际站）
     website: https://www.tencentcloud.com/product/tokenhub
     docs: https://intl.cloud.tencent.com/document/product/1300/80423
@@ -192,16 +231,18 @@ offers:
     models: ["hy3 语言模型 + 第三方模型（国际池）"]
     offer:
       type: 一次性赠送
-      signup_tokens: 1000000    # 每语言模型 100 万 tokens
-      valid_months: 3           # 90 天（国际文档未跟进国内 1 年调整）
+      signup_tokens: 1000000    # 每语言模型 100 万 tokens，有效期现同为 1 年
+      valid_months: 12          # 官方文档现行口径 1 年（90 天为旧口径，英文引导页仍残留该措辞）
       expiry: 2026-12-31
-    restrictions: "与国内站额度/账号独立；有效期比国内短（90 天 vs 1 年）"
+    restrictions: "每领取一个资源包自动冻结 $1（可退）；领取双通道：模型广场手动勾选 或 首次调用自动领；无每日签到机制；与国内站额度/账号独立"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "国际官方文档直抓"
 
   - id: cloudflare-workers-ai
+    country: 美国
+    open_source: 平台型
     provider: Cloudflare Workers AI
     website: https://developers.cloudflare.com/workers-ai/
     docs: https://developers.cloudflare.com/workers-ai/platform/pricing/
@@ -218,6 +259,8 @@ offers:
     confidence: medium
 
   - id: workbuddy-intl
+    country: 中国
+    open_source: 闭源
     provider: 腾讯 WorkBuddy 国际版（workbuddy.ai）
     website: https://www.workbuddy.ai
     docs: https://www.workbuddy.ai/docs/workbuddy/pricing
@@ -238,6 +281,8 @@ offers:
     notes: "2026-10-21 官方 Subscription『Limited-Time Daily Activity Reward Terms』+ pricing 页直抓：国际版无手动签到，仅活跃自动奖励；国内版（cn）才是签到制；旧条目曾把国内 500/月误挂国际站，已拆分纠正"
 
   - id: workbuddy-cn
+    country: 中国
+    open_source: 闭源
     provider: 腾讯 WorkBuddy 国内版（workbuddy.cn）
     website: https://www.workbuddy.cn
     docs: https://www.workbuddy.cn/docs/workbuddy/Pricing
@@ -258,6 +303,8 @@ offers:
     notes: "500/月为官方三源（cn docs+腾讯云计费概述+官方微博）；签到与新人礼包数额来自多源实测、随活动浮动，取 medium 口径"
 
   - id: qoder
+    country: 中国
+    open_source: 闭源
     provider: Qoder（阿里，国际版 AI IDE）
     website: https://qoder.com
     docs: https://docs.qoder.com/zh/account/pricing
@@ -269,13 +316,15 @@ offers:
       credits_day: 100          # 2026-09-18 起每天桌面端手动领 100 通用 Credits，进行中
       signup_credits: 300       # 体验版含 2 周 Pro 试用 + 300 Credits
       expiry: null
-    restrictions: "每日 100 Credits 在 10:00～次日 10:00 窗口领取、错过不补；每笔自领取起 30 天有效、可累积；免费档仅基础模型且补全限次；CN 版账号/Credits 与国际版完全独立不互通"
+    restrictions: "每日 100 Credits 为限时活动（2026-09-18 起、结束日待公告）：需当天 10:00～次日 10:00 窗口在桌面端**手动领取**、不滚存；每笔自领取起 30 天有效、可累积；免费及个人付费档均可领；Teams/Enterprise 不适用；Credit 换算美元未公示"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "docs 定价页：体验版免费/Pro $20/Pro+ $60/Ultra $200 每月；每日 100 Credits 活动 2026-09-18 起长期进行；另有 Qwen3.8-Flash 限时免费（官方延期公告）；国内版见 qoder-cn 独立条目"
 
   - id: qoder-cn
+    country: 中国
+    open_source: 闭源
     provider: Qoder CN（阿里，中国大陆版，原通义灵码）
     website: https://qoder.com.cn
     docs: https://docs.qoder.cn/events/100credits
@@ -287,13 +336,15 @@ offers:
       credits_day: 100          # 与国际版同款活动：2026-09-18 起每日领 100 Credits
       signup_credits: 300       # 体验版含 2 周 Pro 试用 + 300 Credits
       expiry: null
-    restrictions: "每日领取窗口/30 天有效期同国际版；Pro ¥59/月 2000 Credits、Pro+ ¥169/月 6000、Ultra ¥559/月 20000；全家桶（Desktop/CLI/Mobile）Credits 跨产品共享（2026-06-20 起）；子账号 Credits 为 0；与国际版 Credits 不可换算"
+    restrictions: "每日 100 Credits 为限时活动（2026-09-18 起、结束日待公告）：需当天 10:00～次日 10:00 窗口在桌面端**手动领取**、不滚存；每笔 30 天有效可累积；体验/专业/高级/旗舰版及会员卡用户均可参与，企业版不适用；Pro ¥59/月 2000 Credits、Pro+ ¥169/月 6000、Ultra ¥559/月 20000；全家桶 Credits 跨产品共享（2026-06-20 起）；与国际版 Credits 不可换算"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "通义灵码 2026-05-20 正式更名 Qoder CN，原 tongyi-lingma 条目并入本条；help.aliyun.com 计费说明 + docs.qoder.cn 双官方源"
 
   - id: trae
+    country: 中国
+    open_source: 闭源
     provider: Trae（字节，AI IDE 国际版）
     website: https://www.trae.ai
     docs: https://docs.trae.ai/ide/new-plans-and-billing
@@ -304,13 +355,15 @@ offers:
       type: 免费层
       requests_day: 5000        # Free 档代码补全 5000 次/月（trae.ai/pricing 对比表）
       expiry: null
-    restrictions: "Free 仅 Auto 模式 + 普通队列（高峰排队）+ 无 SOLO + 云任务并行 2；Dollar Usage 官方 2026-10 起不再公布具体数额（仅『有限额度/月』，2026-02 口径为 $3/月）；超额可开 On-Demand 按 $3 档扣费；与国内版账号数据完全独立不互通"
+    restrictions: "Free 仅 Auto 模式 + 普通队列（高峰排队）+ 无 SOLO + 云任务并行 2；Dollar Usage 官方 2026-10 起不再公布具体数额（仅『有限额度/月』，2026-02 口径为 $3/月）；超额可开 On-Demand 按 $3 档扣费；**无每日签到/活跃奖励机制**（2026-01 一次性周年赠送活动已结束）；与国内版账号数据完全独立不互通"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "2026-09/10 又改版：Free $0 / Lite $8 / Pro $20 / Pro+ $60 / Ultra $200（勿再用 2026-02 的 $3/$10/$30/$100 旧价）；新用户 14 天 Pro 试用含 $10 Basic Usage（2026-02 官方口径，10 月是否存续待确认）；Lite 档 docs 有但 pricing 页未展示，疑区域受限"
 
   - id: trae-cn
+    country: 中国
+    open_source: 闭源
     provider: Trae CN（字节，AI IDE 国内版）
     website: https://www.trae.cn
     docs: https://docs.trae.cn/ide_plans-and-billing
@@ -320,10 +373,10 @@ offers:
     offer:
       type: 签到积分
       points_monthly: 500       # 每月登录赠送 500 通用积分（当月有效）
-      points_daily: 100         # 每日签到 100 积分（31 天有效；历史 200→150→100 收缩中）
+      points_daily: 100         # 真·手动签到（客户端头像菜单→签到按钮）：免费 100/日、会员 200/日，31 天有效；2026-10 初由 150 降至 100
       signup_points: 4000       # 新用户注册一次性 4000 积分（31 天有效）
       expiry: null
-    restrictions: "2026-08 起从速通次数制改积分制（非无限量）；免费档高峰排队、云任务并行 2；Seed-Evolving 等仅会员；接入自定义模型不耗积分；邀请新用户双方各 500 积分；付费 Lite ¥49/Pro ¥99/Pro+ ¥239/Ultra ¥699，增购 1000 积分=¥50"
+    restrictions: "2026-08 起从速通次数制改积分制（非无限量）；500 积分/月为登录当月**自动到账**、月底失效不滚存；每日签到为独立手动机制；免费档高峰排队、云任务并行 2；Seed-Evolving 等仅会员；自定义模型接入不耗积分；邀请新用户双方各 500 积分；付费 Lite ¥49/Pro ¥99/Pro+ ¥239/Ultra ¥699，增购 1000 积分=¥50"
     est_usd_per_mtok: null
     point_value_usd: 0.007      # 增购价 1000 积分=¥50 → 1 积分≈¥0.05≈$0.007
     verified: 2026-10-21
@@ -331,6 +384,8 @@ offers:
     notes: "trae.cn/pricing + docs.trae.cn 官方双页直抓；『SOLO 完全免费』为积分制前旧宣传已作废"
 
   - id: volcengine-doubao
+    country: 中国
+    open_source: 闭源
     provider: 火山引擎豆包大模型（国内方舟）
     website: https://www.volcengine.com/product/doubao
     docs: https://www.volcengine.com/docs/82379/1465347
@@ -341,13 +396,15 @@ offers:
       type: 一次性赠送
       signup_tokens: 500000     # 平台赠送每模型 50 万 tokens，独立计数
       expiry: null
-    restrictions: "安心体验模式仅消耗赠送额度、用尽自动暂停且不可重开模式；图像模型约 200 张、视频约 200 万 tokens；有效期官方未明示（三方称 30 天，以控制台为准）；另有协作奖励计划（手动参与+授权数据，T+1 返还 50-200 万/日，口径不一）"
+    restrictions: "安心体验赠送为开通模型服务后**自动到账**、非每日；安心体验模式本身是默认关闭的可选保护开关（仅耗免费额度、用尽即停、关闭不可重开）；图像模型约 200 张、视频约 200 万 tokens；赠金有效期官方未明示（三方称 30 天，以控制台为准）；另有『协作奖励计划』为真正的按天机制：活动页**每日手动领取**、单模型最高 500 万 tokens/日（需授权调用数据，与安心体验分开计）"
     est_usd_per_mtok: null
     verified: 2026-10-21
     confidence: high
     notes: "官方《安心体验模式细则说明》直抓：每模型 50 万 tokens；国际版见 byteplus-modelark 独立条目；『每日自动发 200 万 token』为误传不可信"
 
   - id: byteplus-modelark
+    country: 中国
+    open_source: 闭源
     provider: BytePlus ModelArk（字节国际版方舟）
     website: https://www.byteplus.com/en/product/modelark
     docs: https://docs.byteplus.com/zh-CN/docs/ModelArk/promotion
@@ -365,6 +422,12 @@ offers:
     notes: "官方营销页『All Advanced LLM 500k free tokens』+ 两个独立第三方目录一致；细则页因限流未直抓，下轮复核"
 
   - id: alibaba-bailian
+    country: 中国
+    open_source: 开源
+    bench_model: Qwen3.8-Max-0902
+    bench_score: 45.4
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: 阿里云百炼 DashScope
     website: https://bailian.console.aliyun.com
     docs: https://help.aliyun.com/zh/model-studio/getting-started/models
@@ -381,6 +444,8 @@ offers:
     confidence: low
 
   - id: hf-inference
+    country: 美国
+    open_source: 平台型
     provider: Hugging Face Inference Providers
     website: https://huggingface.co/docs/inference-providers
     docs: https://huggingface.co/docs/inference-providers/pricing
@@ -397,6 +462,12 @@ offers:
     confidence: low
 
   - id: gemini-cli
+    country: 美国
+    open_source: 闭源
+    bench_model: Gemini 4 Argon
+    bench_score: 53
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Gemini CLI（终端 agent 客户端）
     website: https://github.com/google-gemini/gemini-cli
     docs: https://ai.google.dev/gemini-api/docs/rate-limits
@@ -414,6 +485,12 @@ offers:
     notes: "与 google-ai-studio 同源（之前 websearch 核得 250 req/day；官方计划页佐证个人层免费）"
 
   - id: qwen-code-cli
+    country: 中国
+    open_source: 开源
+    bench_model: Qwen3.8-Max-0902
+    bench_score: 45.4
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Qwen Code CLI（终端 agent 客户端）
     website: https://github.com/QwenLM/qwen-code
     docs: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
@@ -432,6 +509,8 @@ offers:
     notes: "agent 客户端里免费量最大方的之一；数字在 repo README/docs 历史版本可见，未在最新 fetch 里直见原文"
 
   - id: github-copilot-free
+    country: 美国
+    open_source: 闭源
     provider: GitHub Copilot Free（IDE/网页 agent 客户端）
     website: https://github.com/features/copilot
     docs: https://docs.github.com/en/copilot/get-started/plans
@@ -448,6 +527,8 @@ offers:
     notes: "官方 plans 页印证存在 Copilot Free / Copilot Student；『2000 补全+50 聊天/月』为社区广泛流传口径"
 
   - id: opencode-zen
+    country: 美国
+    open_source: 平台型
     provider: OpenCode Zen（agent 客户端模型网关）
     website: https://opencode.ai/zen
     docs: https://opencode.ai/docs
@@ -464,6 +545,8 @@ offers:
     notes: "收录原因：用户点名覆盖 agent 客户端；本身非白嫖目标，但可挂 OpenRouter 免费模型作透明托管层"
 
   - id: kilo-code
+    country: 美国
+    open_source: 开源
     provider: Kilo Code（IDE/CLI agent 客户端）
     website: https://kilocode.ai
     docs: https://kilocode.ai/pricing
@@ -481,6 +564,8 @@ offers:
 
 # ==== 中国大陆厂商扩充（2026-10-21 核查；evidence 见 data/sources.yml） ====
   - id: iflytek-spark
+    country: 中国
+    open_source: 部分开源
     provider: iFLYTEK Spark (讯飞星火)
     website: https://www.xfyun.cn/doc/spark/HTTP调用文档.html
     docs: https://www.xfyun.cn/activities/discount
@@ -499,6 +584,12 @@ offers:
     confidence: high
     notes: 官方活动页长期挂『免费包(个人) 200万 tokens/有效期1年/0元』
   - id: minimax-platform
+    country: 中国
+    open_source: 部分开源
+    bench_model: MiniMax-M3.1-Flash
+    bench_score: 42
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: MiniMax Open Platform 国内（platform.minimaxi.com）
     website: https://platform.minimaxi.com/
     docs: https://platform.minimaxi.com/docs/guides/quickstart
@@ -520,6 +611,8 @@ offers:
 
 
   - id: baidu-qianfan-modelbuilder
+    country: 中国
+    open_source: 部分开源
     provider: Baidu Qianfan ModelBuilder (百度千帆)
     website: https://cloud.baidu.com/product/qianfan.html
     docs: https://cloud.baidu.com/doc/qianfan/s/Imi2rpirg
@@ -542,6 +635,12 @@ offers:
     confidence: high
     notes: 官方文档：17 模型各 100 万 tokens/3 个月，自动发放
   - id: stepfun-free-models
+    country: 中国
+    open_source: 开源
+    bench_model: Step 5 Preview
+    bench_score: 44
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: StepFun (阶跃星辰)
     website: https://platform.stepfun.com/
     docs: https://platform.stepfun.com/docs/zh/guides/pricing/details
@@ -559,6 +658,12 @@ offers:
     confidence: medium
     notes: 官方定价页标注限时免费；注册送 Step Plan 属不定期活动，不写入稳定数值
   - id: moonshot-kimi-openplatform
+    country: 中国
+    open_source: 部分开源
+    bench_model: Kimi K3
+    bench_score: 44
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Moonshot Kimi Open Platform（国内，月之暗面）
     website: https://platform.kimi.com/
     docs: https://www.kimi.com/help/kimi-api/api-free-trial
@@ -579,6 +684,12 @@ offers:
     notes: 官方帮助中心明确 15 元代金券/3 个月（自发放日起）；充值赠金 20-30% 为限时促销未录入
 
   - id: kimi-platform-intl
+    country: 中国
+    open_source: 部分开源
+    bench_model: Kimi K3
+    bench_score: 44
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Kimi Platform（国际，platform.kimi.ai）
     website: https://platform.kimi.ai/
     docs: https://platform.kimi.ai/docs/pricing/chat
@@ -597,6 +708,8 @@ offers:
     confidence: medium
     notes: "三个独立接入教程/实测一致（$1 激活、$5 送 $5）；Bybit 百科把国内 15 元赠金误写为国际规则，判不可信"
   - id: sensenova-token-plan
+    country: 中国
+    open_source: 部分开源
     provider: SenseTime SenseNova (商汤日日新)
     website: https://token.sensenova.cn/
     docs: https://www.sensetime.com/cn/news/sensenova-u1-5-lite-token-plan-20260911-1741
@@ -613,6 +726,12 @@ offers:
     confidence: high
     notes: 官方新闻（2026-09-11）：公测期间完全免费，每 5 小时 1500 次请求
   - id: xiaomi-mimo
+    country: 中国
+    open_source: 开源
+    bench_model: MiMo-V2.6-Pro
+    bench_score: 46
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Xiaomi MiMo Open Platform (小米)
     website: https://mimo.mi.com/
     docs: https://mimo.mi.com/docs/zh-CN/quick-start/promotions/new%20user
@@ -632,6 +751,8 @@ offers:
     confidence: high
     notes: 官方活动页（2026-10-15 更新）长期开放；注意 10-21 起切换 V2.6 模型名
   - id: scnet-supercomputing
+    country: 中国
+    open_source: 平台型
     provider: SCNet National Supercomputing (国家超算互联网)
     website: https://www.scnet.cn/
     docs: https://www.scnet.cn/home/subject/hxjd/index.html
@@ -652,6 +773,8 @@ offers:
     notes: 官方专题页明确领 1000 万 Tokens；2 周期限来自媒体转载
   # tongyi-lingma 已于 2026-05-20 更名并入 Qoder CN，条目移至 qoder-cn
   - id: baidu-comate
+    country: 中国
+    open_source: 闭源
     provider: Baidu Comate (文心快码)
     website: https://comate.baidu.com/
     docs: https://comate.baidu.com/zh/page/un1ao36mvok
@@ -667,6 +790,8 @@ offers:
     confidence: medium
     notes: 个人版基础功能免费，边界以购买页为准
   - id: fitten-code
+    country: 中国
+    open_source: 闭源
     provider: Fitten Code (非十科技)
     website: https://code.fittentech.com/
     docs: https://code.fittentech.com/
@@ -682,6 +807,8 @@ offers:
     confidence: medium
     notes: 个人档明示免费，Copilot 平替定位
   - id: codegeex
+    country: 中国
+    open_source: 开源
     provider: Zhipu CodeGeeX (智谱)
     website: https://codegeex.cn/
     docs: https://codegeex.cn/
@@ -698,6 +825,12 @@ offers:
     notes: 最老牌免费中文代码助手系列之一；免费页无明确额度数字
 # ==== 国际厂商扩充（2026-10-21 核查；evidence 见 data/sources.yml） ====
   - id: nvidia-nim
+    country: 美国
+    open_source: 开源
+    bench_model: Nemotron 3.5 Super VL
+    bench_score: 26
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: NVIDIA NIM
     website: https://build.nvidia.com
     docs: https://build.nvidia.com/en-us
@@ -715,6 +848,12 @@ offers:
     confidence: high
     notes: 官方 FAQ 明示免费原型层长期存在；不自动扣费
   - id: cohere-trial
+    country: 加拿大
+    open_source: 部分开源
+    bench_model: Command A+
+    bench_score: 37
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Cohere
     website: https://dashboard.cohere.com
     docs: https://docs.cohere.com/docs/rate-limits
@@ -736,6 +875,8 @@ offers:
     confidence: high
     notes: requests_day=33 为 1000 calls/月折算的等价值
   - id: fireworks-ai
+    country: 美国
+    open_source: 平台型
     provider: Fireworks AI
     website: https://fireworks.ai
     docs: https://docs.fireworks.ai/faq-new/billing-pricing
@@ -754,6 +895,8 @@ offers:
     confidence: high
     notes: 官方定价页明示 $1 free credits；另有 Muse Glimmer 30B 免费微调至 2026-11-30
   - id: novita-ai
+    country: 美国
+    open_source: 平台型
     provider: Novita AI
     website: https://novita.ai
     docs: https://docs.novita.ai/guides/sandbox-pricing
@@ -774,6 +917,8 @@ offers:
     confidence: medium
     notes: $100 Agent Sandbox 促销金仅限 Sandbox，不并入 LLM API 估值
   - id: hyperbolic
+    country: 美国
+    open_source: 平台型
     provider: Hyperbolic
     website: https://app.hyperbolic.ai
     docs: https://www.hyperbolic.xyz/pricing
@@ -792,6 +937,8 @@ offers:
     confidence: medium
     notes: 60 RPM 为官方口径；$1 注册金为第三方保守值
   - id: nscale
+    country: 英国
+    open_source: 平台型
     provider: Nscale
     website: https://console.nscale.com
     docs: https://www.nscale.com/blog/introducing-nscale-serverless-inference-scalable-ai-without-infrastructure-hassles
@@ -810,6 +957,8 @@ offers:
     confidence: high
     notes: 官方博客/产品页反复明示 Sign up and claim $5 free credits
   - id: scaleway-generative-apis
+    country: 法国
+    open_source: 平台型
     provider: Scaleway Generative APIs
     website: https://console.scaleway.com
     docs: https://www.scaleway.com/en/docs/generative-apis/faq/
@@ -827,6 +976,8 @@ offers:
     confidence: medium
     notes: 1M token 为官方明示；月刷性未确认，估值按保守
   - id: ovhcloud-ai-endpoints
+    country: 法国
+    open_source: 平台型
     provider: OVHcloud AI Endpoints
     website: https://www.ovhcloud.com/en/public-cloud/ai-endpoints/
     docs: https://www.ovhcloud.com/en/public-cloud/free-ai-api
@@ -848,6 +999,8 @@ offers:
     confidence: medium
     notes: $200 为第三方汇总口径，绑卡门槛高
   - id: modal
+    country: 美国
+    open_source: 平台型
     provider: Modal
     website: https://modal.com
     docs: https://modal.com/pricing
@@ -864,6 +1017,8 @@ offers:
     value_override_recurring_usd: 30
     notes: $30 为每月刷新额度（recurring），非一次性——用 override 计持续价值
   - id: baseten
+    country: 美国
+    open_source: 平台型
     provider: Baseten
     website: https://app.baseten.co
     docs: https://docs.baseten.co/organization/billing
@@ -883,6 +1038,8 @@ offers:
     confidence: high
     notes: $30 为官方 changelog 明示（all new workspaces）
   - id: perplexity-free
+    country: 美国
+    open_source: 闭源
     provider: Perplexity
     website: https://www.perplexity.ai
     docs: https://docs.perplexity.ai/getting-started/pricing
@@ -900,6 +1057,8 @@ offers:
     confidence: medium
     notes: requests_day=3 取低界
   - id: poe-daily-points
+    country: 美国
+    open_source: 平台型
     provider: Poe (Quora)
     website: https://poe.com
     docs: https://help.poe.com/hc/en-us/articles/19944206309524-Poe-FAQs
@@ -919,6 +1078,8 @@ offers:
     confidence: low
     notes: 300 点/天为第三方估计（非官方）；点值未官方化故不作估值，避免高估
   - id: cursor-hobby
+    country: 美国
+    open_source: 闭源
     provider: Cursor
     website: https://cursor.com
     docs: https://cursor.com/pricing
@@ -936,6 +1097,8 @@ offers:
     confidence: high
     notes: 官方所有具体数字均未公布，只能确认免费层存在
   - id: windsurf-free
+    country: 美国
+    open_source: 闭源
     provider: Windsurf (Devin Desktop)
     website: https://windsurf.com
     docs: https://windsurf.com/pricing
@@ -953,6 +1116,12 @@ offers:
     confidence: medium
     notes: 品牌现为 Devin Desktop；SWE 模型 2026-10-15 前 $0/M 属限时价格福利，勿当永久免费层
   - id: xai-grok-free
+    country: 美国
+    open_source: 部分开源
+    bench_model: Grok 4.7
+    bench_score: 46
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: xAI Grok
     website: https://grok.com
     docs: https://x.ai/pricing
@@ -968,6 +1137,12 @@ offers:
     confidence: medium
     notes: 旧 10 msg/2h 口径已作废；免费层仍存在
   - id: gemini-code-assist-individuals
+    country: 美国
+    open_source: 闭源
+    bench_model: Gemini 4 Argon
+    bench_score: 53
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: Google Gemini Code Assist (individuals)
     website: https://developers.google.com/gemini-code-assist
     docs: https://developers.google.com/gemini-code-assist
@@ -985,6 +1160,8 @@ offers:
     confidence: high
     notes: 6000/240 明示于官方页面；2026-06 起 IDE 插件被 Antigravity 取代，个人层免费口径同源
   - id: exa-free-tier
+    country: 美国
+    open_source: 闭源
     provider: Exa AI
     website: https://dashboard.exa.ai
     docs: https://exa.ai/docs/reference/pricing
@@ -1004,6 +1181,12 @@ offers:
     confidence: high
     notes: search API 非 LLM，按 1k 搜索请求计价（$4/1k）
   - id: minimax-code-checkin
+    country: 中国
+    open_source: 部分开源
+    bench_model: MiniMax-M3.1-Flash
+    bench_score: 42
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-21'
     provider: MiniMax Code (international)
     website: https://agent.minimax.io
     docs: https://agent.minimax.io/docs/code/account/usage
@@ -1019,5 +1202,5 @@ offers:
     est_usd_per_mtok: 0.3
     verified: '2026-10-21'
     confidence: high
-    notes: "官方 agent.minimaxi.com docs 直证；签到积分属 MiniMax Code/Token Plan 积分体系（1000 积分=¥7 同币种换算），与开放平台按量 API 余额是独立 Key/配额两套体系，勿与 minimax-platform* 条目合并计"
+    notes: "官方 agent.minimaxi.com docs 直证为**手动签到领取**；2026-09-28～10-07 双倍签到限时活动已结束（10-21 核实），恢复日常 400/第4、7天 1000 口径；国际站 code.minimax.io 第三方称规则一致但官方国际文档未直抓，待核；签到积分属 MiniMax Code/Token Plan 积分体系（1000 积分=¥7 同币种换算），与开放平台按量 API 余额是独立 Key/配额两套体系，勿与 minimax-platform 合并计"
     notes: 官方明示 400/day；点值未官方化故不作估值
