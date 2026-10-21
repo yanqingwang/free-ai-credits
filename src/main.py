@@ -98,7 +98,7 @@ def main() -> None:
         if mailer.enabled():
             body = (rep_dir / "weekly.md").read_text(encoding="utf-8")
             attach = str(rep_dir / "weekly.md")
-            mailer.send(f"免费额度日报 {today}（valuation + 链接体检）", body, attach)
+            mailer.send(f"Free AI Credits Daily · 免费额度日报 {today}（valuation + link health）", body, attach)
             print("邮件已发送（库主）", file=sys.stderr)
             # 订阅者：daily 每天发，weekly 仅周一（UTC）发；逐个失败隔离
             try:
@@ -107,7 +107,11 @@ def main() -> None:
             except SystemExit:
                 subs = []
             for email, freq in subs:
-                subject = f"Free AI 额度周报 {today}" if freq == "weekly" else f"Free AI 额度日报 {today}"
+                subject = (
+                    f"Free AI Weekly Digest {today} · 周报（ valuation + link health）"
+                    if freq == "weekly"
+                    else f"Free AI Credits Daily {today} · 日报（valuation + link health）"
+                )
                 try:
                     mailer.send(subject, body, attach, to=email)
                     print(f"邮件已发送（订阅者 {email}）", file=sys.stderr)

@@ -37,7 +37,7 @@ def send(subject: str, md_text: str, attach_path: str | None = None, to: str | N
 
     msg = MIMEMultipart("mixed")
     msg["Subject"] = Header(subject, "utf-8")
-    msg["From"] = formataddr((str(Header("免费额度日报机器人", "utf-8")), from_addr))
+    msg["From"] = formataddr((str(Header("Free AI Credits Bot · 免费额度日报", "utf-8")), from_addr))
     msg["To"] = ", ".join(to_addrs)
     msg["Date"] = formatdate()
 

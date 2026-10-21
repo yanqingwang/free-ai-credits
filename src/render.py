@@ -184,21 +184,21 @@ def report(entries: list, path: str) -> str:
     en = table(entries, "en")
     today = dt.date.today().isoformat()
     lines = [
-        "# 免费额度日报快照",
+        "# Free AI Credits Daily Snapshot · 免费额度日报快照",
         "",
-        f"**生成日：{today}（UTC）**",
+        f"**Generated: {today} (UTC)**",
         "",
-        "数据源：`data/offers.yml`（当期探活 + 估值重排），结论以官方控制台为准。",
-        "",
-        "## 中文榜",
-        "",
-        zh,
+        "Source of truth: `data/offers.yml` (daily liveness probe + valuation re-rank). Always confirm on official consoles.",
         "",
         "## English table",
         "",
         en,
         "",
-        "## 链接体检",
+        "## 中文榜（Chinese table）",
+        "",
+        zh,
+        "",
+        "## Link health check · 链接体检",
         "",
     ]
     bad = [f"- 🚫 [{e['provider']}] {u}" for e in entries for u in (e.get("_bad_links") or [])]
@@ -206,7 +206,7 @@ def report(entries: list, path: str) -> str:
     if bad or locked:
         lines += bad + locked
     else:
-        lines.append("全部官方链接探活通过 ✅ / All links alive")
+        lines.append("All official links alive ✅ 全部官方链接探活通过")
     lines.append("")
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))

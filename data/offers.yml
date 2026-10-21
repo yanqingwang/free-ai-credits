@@ -363,3 +363,214 @@ offers:
     verified: 2026-10-21
     confidence: medium
     notes: "官网 fetch 印证『免费 VS Code agent + 免费 CLI』；限时免费模型类活动（如指定模型免费期）偶发，站内公告确认后升级为限时活动条目"
+
+# ==== 中国大陆厂商扩充（2026-10-21 核查；evidence 见 data/sources.yml） ====
+  - id: iflytek-spark
+    provider: iFLYTEK Spark (讯飞星火)
+    website: https://www.xfyun.cn/doc/spark/HTTP调用文档.html
+    docs: https://www.xfyun.cn/activities/discount
+    region: 中国大陆（手机号注册）
+    signup: console.xfyun.cn 注册 → 活动页 0 元下单领取免费包
+    models:
+    - spark-v3.0
+    - spark-lite(活动标价体系内)
+    offer:
+      type: 一次性赠送
+      signup_tokens: 2000000
+      valid_months: 12
+    restrictions: 仅个人免费包 QPS=2；企业包 500万 tokens/1 年；到期时间未公示
+    est_usd_per_mtok: 4.17
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方活动页长期挂『免费包(个人) 200万 tokens/有效期1年/0元』
+  - id: minimax-platform
+    provider: MiniMax Open Platform (稀宇科技)
+    website: https://platform.minimaxi.com/
+    docs: https://platform.minimaxi.com/docs/m-plan/faq.md
+    region: 中国大陆（手机号注册+实名）
+    signup: 注册并完成实名认证
+    models:
+    - MiniMax-M3
+    - MiniMax-M3.1-Flash
+    - Speech-2.8-HD
+    offer:
+      type: 试用金
+      credits_cny: 15
+      valid_months: 2
+    restrictions: 注册赠金未在官方页面公示，数值为多第三方源交叉；用完即停
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: low
+    notes: 15 元代金券约 2 个月（多源交叉，低置信）；音乐免费接口 2026-08 已下线
+  - id: baidu-qianfan-modelbuilder
+    provider: Baidu Qianfan ModelBuilder (百度千帆)
+    website: https://cloud.baidu.com/product/qianfan.html
+    docs: https://cloud.baidu.com/doc/qianfan/s/Imi2rpirg
+    region: 中国大陆（百度账号）
+    signup: 访问千帆平台同意协议，系统自动发放新用户额度
+    models:
+    - ERNIE-4.5-Turbo-128K
+    - ERNIE-X1-Turbo-32K
+    - DeepSeek-R1
+    - DeepSeek-V3.1-250821
+    - Kimi-K2-Instruct
+    - Qwen3-235B-A22B-Instruct-2507
+    offer:
+      type: 一次性赠送
+      signup_tokens: 1000000
+      valid_months: 3
+    restrictions: 17 个预置模型各 100 万 tokens 独立配额；仅抵扣在线推理
+    est_usd_per_mtok: 0.11
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方文档：17 模型各 100 万 tokens/3 个月，自动发放
+  - id: stepfun-free-models
+    provider: StepFun (阶跃星辰)
+    website: https://platform.stepfun.com/
+    docs: https://platform.stepfun.com/docs/zh/guides/pricing/details
+    region: 中国大陆（手机号注册）
+    signup: 注册即可申请 API Key
+    models:
+    - stepaudio-3-chat-preview
+    - stepaudio-3-realtime-preview
+    - stepaudio-3-music-preview
+    offer:
+      type: 限时活动
+    restrictions: 仅 stepaudio-3 系列 preview 模型标『限时免费』，随时可移出；text 模型无免费层
+    est_usd_per_mtok: 0.19
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 官方定价页标注限时免费；注册送 Step Plan 属不定期活动，不写入稳定数值
+  - id: moonshot-kimi-openplatform
+    provider: Moonshot Kimi Open Platform (月之暗面)
+    website: https://platform.kimi.com/
+    docs: https://www.kimi.com/help/kimi-api/api-free-trial
+    region: 中国大陆（手机号注册+实名）
+    signup: 国内手机号注册开放平台并实名，代金券自动发放抵扣
+    models:
+    - kimi-k3
+    - kimi-k2.5
+    - kimi-k2
+    offer:
+      type: 一次性赠送
+      credits_cny: 15
+      valid_months: 3
+    restrictions: 仅国内新用户实名发放；不可用于 Kimi K3（需充值解锁）；用尽自动停
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方帮助中心明确 15 元代金券/3 个月
+  - id: sensenova-token-plan
+    provider: SenseTime SenseNova (商汤日日新)
+    website: https://token.sensenova.cn/
+    docs: https://www.sensetime.com/cn/news/sensenova-u1-5-lite-token-plan-20260911-1741
+    region: 中国大陆（手机号实名注册）
+    signup: Token Plan 页免费开始并申请 API Key
+    models:
+    - sensenova-u1.5-lite
+    - sensenova-6.7-flash-lite
+    offer:
+      type: 免费层
+    restrictions: 公测期免费：每 5 小时 1500 次请求，模型独立计数；公测截止未公示
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方新闻（2026-09-11）：公测期间完全免费，每 5 小时 1500 次请求
+  - id: xiaomi-mimo
+    provider: Xiaomi MiMo Open Platform (小米)
+    website: https://mimo.mi.com/
+    docs: https://mimo.mi.com/docs/zh-CN/quick-start/promotions/new%20user
+    region: 中国大陆（手机号注册+实名）
+    signup: 注册并在个人中心完成首笔实名认证，¥5 赠金即时到账
+    models:
+    - MiMo-V2.6
+    - MiMo-V2.5-ASR
+    - MiMo-V2.5-TTS
+    offer:
+      type: 一次性赠送
+      credits_cny: 5
+      valid_months: 1.3
+    restrictions: 赠金 40 天有效、仅抵扣 API 费用；受邀邀请双方各再得 ¥10
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方活动页（2026-10-15 更新）长期开放；注意 10-21 起切换 V2.6 模型名
+  - id: scnet-supercomputing
+    provider: SCNet National Supercomputing (国家超算互联网)
+    website: https://www.scnet.cn/
+    docs: https://www.scnet.cn/home/subject/hxjd/index.html
+    region: 中国大陆（手机号注册）
+    signup: 注册后在活动页一键领取
+    models:
+    - DeepSeek-R1
+    - Qwen3
+    - MiniMax-M2.5
+    offer:
+      type: 一次性赠送
+      signup_tokens: 10000000
+      valid_months: 0.5
+    restrictions: 限时活动（媒体口径 2 周）；3000万 tokens 档活动以领取页实时为准
+    est_usd_per_mtok: 0.014
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 官方专题页明确领 1000 万 Tokens；2 周期限来自媒体转载
+  - id: tongyi-lingma
+    provider: Alibaba Tongyi Lingma (通义灵码)
+    website: https://lingma.aliyun.com/
+    docs: https://lingma.aliyun.com/
+    region: 中国大陆（阿里账号）
+    signup: 下载 IDE 插件登录阿里账号即可
+    models:
+    - tongyi-lingma(qwen 系列内置)
+    offer:
+      type: 免费层
+    restrictions: 个人版不限时长免费；专业版 59 元/月（多渠道限时免费，活动制可收回）
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: high
+    notes: 官方首页明示『个人免费使用』，IDE 插件型免费层而非 API 赠金
+  - id: baidu-comate
+    provider: Baidu Comate (文心快码)
+    website: https://comate.baidu.com/
+    docs: https://comate.baidu.com/zh/page/un1ao36mvok
+    region: 中国大陆（百度账号）
+    signup: 安装 VSCode/JetBrains 插件并登录
+    models:
+    - comate(文心内置)
+    offer:
+      type: 免费层
+    restrictions: 个人标准版免费；专业/企业版按人头收费
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 个人版基础功能免费，边界以购买页为准
+  - id: fitten-code
+    provider: Fitten Code (非十科技)
+    website: https://code.fittentech.com/
+    docs: https://code.fittentech.com/
+    region: 中国大陆（邮箱/手机注册）
+    signup: 官网注册免费账户，装 VSCode/JetBrains 插件即用
+    models:
+    - fittencode(自研代码模型)
+    offer:
+      type: 免费层
+    restrictions: Individual 档 Free；部分 Pro 能力『限时免费』；无 API 出口
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 个人档明示免费，Copilot 平替定位
+  - id: codegeex
+    provider: Zhipu CodeGeeX (智谱)
+    website: https://codegeex.cn/
+    docs: https://codegeex.cn/
+    region: 中国大陆（手机号注册）
+    signup: 官网下载插件注册即用
+    models:
+    - codegeex-4(基于 GLM 自研)
+    offer:
+      type: 免费层
+    restrictions: 个人用户免费；插件型无 API 赠金语义（不与 zhipu-bigmodel 重复计）
+    est_usd_per_mtok: 0
+    verified: '2026-10-21'
+    confidence: medium
+    notes: 最老牌免费中文代码助手系列之一；免费页无明确额度数字
