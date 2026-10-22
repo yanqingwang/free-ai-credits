@@ -6,16 +6,18 @@ import src.i18n as i18n
 CATEGORIES = {"免费层": "🆓", "试用金": "🎁", "签到积分": "✅", "一次性赠送": "💪", "限时活动": "⏳", "其他（非免费）": "ℹ️"}
 
 HEADERS = {
-    "zh": "| # | 厂商 | 国家/开源/评分 | 类型 | 免费内容（模型） | 持续价值(USD/月) | 一次性价值(USD) | 注册方式 | 限制条件 | 有效期 | 官方验证 | 第三方验证 |",
-    "en": "| # | Provider | Country/OSS/Score | Type | Free content (models) | Recurring value (USD/mo) | One-time value (USD) | Signup | Restrictions | Validity | Official sources | Third-party sources |",
+    "zh": "| # | 厂商 | 国家/开源/评分 | 类型 | 较昨日 | 免费内容（模型） | 持续价值(USD/月) | 一次性价值(USD) | 注册方式 | 限制条件 | 有效期 | 官方验证 | 第三方验证 |",
+    "en": "| # | Provider | Country/OSS/Score | Type | vs yesterday | Free content (models) | Recurring value (USD/mo) | One-time value (USD) | Signup | Restrictions | Validity | Official sources | Third-party sources |",
 }
-SEP = "|---|---|---|---|---|---|---|---|---|---|---|---|"
+SEP = "|---|---|---|---|---|---|---|---|---|---|---|---|---|"
 
 L = {
     "zh": {"longterm": "长期有效", "left": "（剩 {d} 天 ⏰）", "expired": "（已过期 ❌）",
-           "free_rate": "—（限速内自由）", "total": "> 表内 {n} 条合计：持续 ≈ **${r}/月** · 一次性 ≈ **${o}**", "dash": "—"},
+           "free_rate": "—（限速内自由）", "total": "> 表内 {n} 条合计：持续 ≈ **${r}/月** · 一次性 ≈ **${o}**", "dash": "—",
+           "nochange": "无变化", "more": "…另 {n} 项", "removed": "> 较昨日下线：{names}"},
     "en": {"longterm": "ongoing", "left": "({d} days left ⏰)", "expired": "(expired ❌)",
-           "free_rate": "— (uncapped within rate limit)", "total": "> Totals over {n} rows: recurring ≈ **${r}/mo** · one-time ≈ **${o}**", "dash": "—"},
+           "free_rate": "— (uncapped within rate limit)", "total": "> Totals over {n} rows: recurring ≈ **${r}/mo** · one-time ≈ **${o}**", "dash": "—",
+           "nochange": "no change", "more": "…{n} more", "removed": "> Removed since yesterday: {names}"},
 }
 
 
@@ -39,7 +41,7 @@ def _host(url: str) -> str:
     return urllib.parse.urlparse(url).netloc or url[:24]
 
 
-def table(entries: list, lang: str = "zh") -> str:
+def table(entries: list, lang: str = "zh", removed: list | None = None) -> str:
     U = _units(lang)
     T = L[lang]
     rows = [HEADERS[lang], SEP]
@@ -161,10 +163,22 @@ def table(entries: list, lang: str = "zh") -> str:
         off_d = "<br>".join(f"✅ [{_host(u)}]({u})" for u in sig_official) or "—"
         third_d = "<br>".join(f"📄 [{_host(u)}]({u})" for u in sig_third) or empty[vals_key]
 
-        rows.append(f"| {no} | {link} | {_cell(meta_d, 46)} | {typ} | {free} | {recur_d} | {once_d} | {_cell(signup, 80)} | {_cell(restr, 90)} | {valid} | {off_d} | {third_d} |")
+        delta = e.get("_delta")
+        if delta is None:
+            delta_d = T["dash"]
+        elif not delta:
+            delta_d = T["nochange"]
+        else:
+            delta_d = "<br>".join(x[0] if lang == "zh" else x[1] for x in delta[:4])
+            if len(delta) > 4:
+                delta_d += "<br>" + T["more"].format(n=len(delta) - 4)
+
+        rows.append(f"| {no} | {link} | {_cell(meta_d, 46)} | {typ} | {_cell(delta_d, 72)} | {free} | {recur_d} | {once_d} | {_cell(signup, 80)} | {_cell(restr, 90)} | {valid} | {off_d} | {third_d} |")
 
     if tot_recur or tot_once:
         rows.append(T["total"].format(n=no, r=round(tot_recur), o=round(tot_once)))
+    if removed:
+        rows.append(T["removed"].format(names="、".join(removed) if lang == "zh" else ", ".join(removed)))
     return "\n".join(rows)
 
 
@@ -191,9 +205,9 @@ def data_src_lang(lang: str) -> str:
     return "data/offers.yml"
 
 
-def report(entries: list, path: str) -> str:
-    zh = table(entries, "zh")
-    en = table(entries, "en")
+def report(entries: list, path: str, removed: list | None = None) -> str:
+    zh = table(entries, "zh", removed)
+    en = table(entries, "en", removed)
     today = dt.date.today().isoformat()
     lines = [
         "# Free AI Credits Daily Snapshot · 免费额度日报快照",

@@ -1,71 +1,269 @@
 {
-  "generated_at": "2026-10-22T06:46:45.699199+00:00",
+  "generated_at": "2026-10-22T07:24:53.061175+00:00",
   "offers": {
     "workbuddy-cn": {
+      "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
       "recurring_usd": 105.0,
       "once_usd": 63.0,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "DeepSeek",
+          "GLM",
+          "MiniMax",
+          "混元 Hy（限免）等国内池"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": 2100,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": 500,
+        "points_daily": 100,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "modal": {
+      "provider": "Modal",
       "recurring_usd": 30.0,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "自托管任意开源模型（BYO image，如 vLLM）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "trae-cn": {
+      "provider": "Trae CN（字节，AI IDE 国内版）",
       "recurring_usd": 24.5,
       "once_usd": 28.0,
       "official_sources": 3,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "豆包 Seed 系（Seed-Code/2.1-Pro）",
+          "DeepSeek-V4.1",
+          "GLM-5.3",
+          "Kimi-K3",
+          "Qwen3.8",
+          "MiniMax-M3 等国产池"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": 4000,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": 500,
+        "points_daily": 100,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "zhipu-bigmodel": {
+      "provider": "智谱 AI BigModel（国内开放平台）",
       "recurring_usd": 22.0,
       "once_usd": 2.2,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "glm-4.7-flash 等 8 款 Flash 系永久免费",
+          "glm-4-air",
+          "glm-5 全家"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 20000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": 200000000,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "mistral": {
+      "provider": "Mistral La Plateforme",
       "recurring_usd": 15.0,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "mistral-large",
+          "mistral-medium",
+          "codestral",
+          "mistral-small",
+          "pixtral(视模型池为准)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": 1000000000,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "cerebras": {
+      "provider": "Cerebras",
       "recurring_usd": 10.5,
       "once_usd": 5.0,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "Llama 4 Scout/Qwen3 + 试用金可开全量模型"
+        ],
+        "credits_usd": 5,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": 1000000,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 1,
+        "expiry": null
+      }
     },
     "workbuddy-intl": {
+      "provider": "腾讯 WorkBuddy 国际版（workbuddy.ai）",
       "recurring_usd": 5.0,
       "once_usd": 1.25,
       "official_sources": 2,
       "third_sources": 1,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "限时活动",
+        "models": [
+          "Kimi",
+          "DeepSeek",
+          "Claude 系（夜间折扣）等国际池"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": 250,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": 100,
+        "points_daily": 30,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "groq": {
+      "provider": "Groq",
       "recurring_usd": 1.8,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "openai/gpt-oss-120b",
+          "openai/gpt-oss-20b",
+          "qwen/qwen3.6-27b",
+          "qwen/qwen3.8-27b",
+          "moonshotai/kimi-k2-instruct",
+          "whisper-large-v3(语音)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 1000,
+        "tokens_day": 200000,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "iflytek-spark": {
+      "provider": "iFLYTEK Spark (讯飞星火)",
       "recurring_usd": 0.69,
       "once_usd": null,
       "official_sources": 1,
@@ -73,49 +271,197 @@
       "stale": false,
       "bad_links": [
         "website:https://www.xfyun.cn/doc/spark/HTTP调用文档.html (HTTP NO)"
-      ]
+      ],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "spark-v3.0",
+          "spark-lite(活动标价体系内)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 2000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 12,
+        "expiry": null
+      }
     },
     "scnet-supercomputing": {
+      "provider": "SCNet National Supercomputing (国家超算互联网)",
       "recurring_usd": 0.28,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "DeepSeek-R1",
+          "Qwen3",
+          "MiniMax-M2.5"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 10000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 0.5,
+        "expiry": null
+      }
     },
     "scaleway-generative-apis": {
+      "provider": "Scaleway Generative APIs",
       "recurring_usd": 0.18,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "qwen3.5-397b-a17b",
+          "mistral-small-3.2-24b"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": 1000000,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "baidu-qianfan-modelbuilder": {
+      "provider": "Baidu Qianfan ModelBuilder (百度千帆)",
       "recurring_usd": 0.04,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "ERNIE-4.5-Turbo-128K",
+          "ERNIE-X1-Turbo-32K",
+          "DeepSeek-R1",
+          "DeepSeek-V3.1-250821",
+          "Kimi-K2-Instruct",
+          "Qwen3-235B-A22B-Instruct-2507"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 1000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 3,
+        "expiry": null
+      }
     },
     "ovhcloud-ai-endpoints": {
+      "provider": "OVHcloud AI Endpoints",
       "recurring_usd": null,
       "once_usd": 200.0,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "gpt-oss-120b",
+          "qwen3.5",
+          "stable-diffusion-xl(免费)",
+          "qwen3guard-8b(免费)",
+          "nvidia-riva-tts(免费)"
+        ],
+        "credits_usd": 200,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 1,
+        "expiry": null
+      }
     },
     "baseten": {
+      "provider": "Baseten",
       "recurring_usd": null,
       "once_usd": 30.0,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "gpt-oss-120b",
+          "deepseek-v4-flash",
+          "glm-5.3-flash",
+          "kimi-k3"
+        ],
+        "credits_usd": 30,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "exa-free-tier": {
+      "provider": "Exa AI",
       "recurring_usd": null,
       "once_usd": 20.0,
       "official_sources": 1,
@@ -123,49 +469,192 @@
       "stale": false,
       "bad_links": [
         "website:https://dashboard.exa.ai (HTTP 429)"
-      ]
+      ],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "exa-search",
+          "exa-deep-search",
+          "exa-answer",
+          "exa-agent"
+        ],
+        "credits_usd": 20,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "nscale": {
+      "provider": "Nscale",
       "recurring_usd": null,
       "once_usd": 5.0,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "llama-3.3-70b-instruct",
+          "qwen3-coder",
+          "deepseek-r1"
+        ],
+        "credits_usd": 5,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "siliconflow": {
+      "provider": "硅基流动 SiliconFlow",
       "recurring_usd": null,
       "once_usd": 2.5,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "Qwen 系列 / DeepSeek 蒸馏 / GLM 等国产开源全量 200+ 模型"
+        ],
+        "credits_usd": null,
+        "credits_cny": 18,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "minimax-platform": {
+      "provider": "MiniMax Open Platform 国内（platform.minimaxi.com）",
       "recurring_usd": null,
       "once_usd": 2.08,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "MiniMax-M3",
+          "MiniMax-M3.1-Flash",
+          "Speech-2.8-HD"
+        ],
+        "credits_usd": null,
+        "credits_cny": 15,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 3,
+        "expiry": null
+      }
     },
     "moonshot-kimi-openplatform": {
+      "provider": "Moonshot Kimi Open Platform（国内，月之暗面）",
       "recurring_usd": null,
       "once_usd": 2.08,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "kimi-k3",
+          "kimi-k2.5",
+          "kimi-k2"
+        ],
+        "credits_usd": null,
+        "credits_cny": 15,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 3,
+        "expiry": null
+      }
     },
     "fireworks-ai": {
+      "provider": "Fireworks AI",
       "recurring_usd": null,
       "once_usd": 1.0,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "kimi-k3",
+          "glm-5.3",
+          "deepseek-v4.1-flash"
+        ],
+        "credits_usd": 1,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "hyperbolic": {
+      "provider": "Hyperbolic",
       "recurring_usd": null,
       "once_usd": 1.0,
       "official_sources": 1,
@@ -173,185 +662,713 @@
       "stale": false,
       "bad_links": [
         "docs:https://www.hyperbolic.xyz/pricing (HTTP 404)"
-      ]
+      ],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "meta-llama/Llama-3.3-70B",
+          "deepseek-v3",
+          "qwen3-235b"
+        ],
+        "credits_usd": 1,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "xiaomi-mimo": {
+      "provider": "Xiaomi MiMo Open Platform (小米)",
       "recurring_usd": null,
       "once_usd": 0.69,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "MiMo-V2.6",
+          "MiMo-V2.5-ASR",
+          "MiMo-V2.5-TTS"
+        ],
+        "credits_usd": null,
+        "credits_cny": 5,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 1.3,
+        "expiry": null
+      }
     },
     "novita-ai": {
+      "provider": "Novita AI",
       "recurring_usd": null,
       "once_usd": 0.5,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "试用金",
+        "models": [
+          "deepseek-v4-flash",
+          "llama-3.1-8b-instruct",
+          "qwen2.5-7b-instruct",
+          "glm-4-9b-0414"
+        ],
+        "credits_usd": 0.5,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 12,
+        "expiry": null
+      }
     },
     "zhipu-zai": {
+      "provider": "Z.ai（智谱国际平台 api.z.ai）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "GLM-5.3/5.2/4.7 全系",
+          "GLM-4.7-Flash / 4.5-Flash（$0 免费模型）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "tencent-tokenhub-cn": {
+      "provider": "腾讯云 TokenHub（国内，原混元 API 入口）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 3,
       "third_sources": 1,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "hy3 全系语言模型",
+          "多模态理解/图像/视频/3D",
+          "第三方 DeepSeek 等"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 1000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": "2026-12-31"
+      }
     },
     "qoder": {
+      "provider": "Qoder（阿里，国际版 AI IDE）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 4,
       "third_sources": 1,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "基础模型池（免费档）",
+          "Qwen 系列",
+          "SOTA 模型（活动期轮换）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": 100,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "qoder-cn": {
+      "provider": "Qoder CN（阿里，中国大陆版，原通义灵码）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 3,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "Qwen / GLM / DeepSeek / Kimi / MiniMax 国产模型池（国内部署）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": 100,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "trae": {
+      "provider": "Trae（字节，AI IDE 国际版）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 3,
       "third_sources": 2,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "Claude / GPT / Gemini / DeepSeek 池（Auto 模式路由）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 5000,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "volcengine-doubao": {
+      "provider": "火山引擎豆包大模型（国内方舟）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 1,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "doubao-seed 全线（除多模态向量化/同声传译）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 500000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "byteplus-modelark": {
+      "provider": "BytePlus ModelArk（字节国际版方舟）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 1,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "Dola Seed 系（豆包国际名）",
+          "Dola Seedream 生图",
+          "SkyLark",
+          "DeepSeek/Kimi 第三方"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 500000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "openrouter": {
+      "provider": "OpenRouter",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 3,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "19+ 个 :free 后缀文本模型(含 deepseek/qwen/llama 等) + openrouter/free 路由"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 50,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "google-ai-studio": {
+      "provider": "Google AI Studio / Gemini API",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "gemini-3.8-flash",
+          "gemini-3.6-flash",
+          "gemini-2.5 系列(免费层口径官方动态调整)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "tencent-tokenhub-intl": {
+      "provider": "Tencent Cloud TokenHub（国际站）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "hy3 语言模型 + 第三方模型（国际池）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": 1000000,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": 12,
+        "expiry": "2026-12-31"
+      }
     },
     "cloudflare-workers-ai": {
+      "provider": "Cloudflare Workers AI",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "Llama 3.x / Qwen2.5 / Mistral 7B / SDXL 图像等"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "alibaba-bailian": {
+      "provider": "阿里云百炼 DashScope",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "一次性赠送",
+        "models": [
+          "qwen 系列（各模型免费额度不同）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "hf-inference": {
+      "provider": "Hugging Face Inference Providers",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "hf 推理路由全模型（groq/together 等多家后端）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "gemini-cli": {
+      "provider": "Gemini CLI（终端 agent 客户端）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "gemini-3.8-flash",
+          "gemini-3.6-flash（免费层可用阵容动态调整）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 250,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "qwen-code-cli": {
+      "provider": "Qwen Code CLI（终端 agent 客户端）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "qwen3-coder 系列（OAuth 免费池）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 2000,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "github-copilot-free": {
+      "provider": "GitHub Copilot Free（IDE/网页 agent 客户端）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "官方指定的有限模型池（免费层阵容由 GitHub 单方面调整）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "opencode-zen": {
+      "provider": "OpenCode Zen（agent 客户端模型网关）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "其他（非免费）",
+        "models": [
+          "GLM/Kimi/Qwen 等精选池（官方统一基准测试）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "kilo-code": {
+      "provider": "Kilo Code（IDE/CLI agent 客户端）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 2,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "500+ 模型零加成；免费模型池（Auto Free 自动路由）"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "stepfun-free-models": {
+      "provider": "StepFun (阶跃星辰)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "限时活动",
+        "models": [
+          "stepaudio-3-chat-preview",
+          "stepaudio-3-realtime-preview",
+          "stepaudio-3-music-preview"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "kimi-platform-intl": {
+      "provider": "Kimi Platform（国际，platform.kimi.ai）",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 0,
       "third_sources": 3,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "限时活动",
+        "models": [
+          "kimi-k3(1M 上下文)",
+          "k2.7-code",
+          "k2.6/k2.5"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "sensenova-token-plan": {
+      "provider": "SenseTime SenseNova (商汤日日新)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
@@ -359,103 +1376,406 @@
       "stale": false,
       "bad_links": [
         "website:https://token.sensenova.cn/ (HTTP 404)"
-      ]
+      ],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "sensenova-u1.5-lite",
+          "sensenova-6.7-flash-lite"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "baidu-comate": {
+      "provider": "Baidu Comate (文心快码)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "comate(文心内置)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "fitten-code": {
+      "provider": "Fitten Code (非十科技)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "fittencode(自研代码模型)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "codegeex": {
+      "provider": "Zhipu CodeGeeX (智谱)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "codegeex-4(基于 GLM 自研)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "nvidia-nim": {
+      "provider": "NVIDIA NIM",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "nvidia/nemotron-3-ultra-550b-a55b",
+          "deepseek-ai/deepseek-v4",
+          "qwen/qwen3-coder"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "cohere-trial": {
+      "provider": "Cohere",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "command-a-plus",
+          "command-a",
+          "command-a-reasoning",
+          "command-r7b",
+          "embed-4",
+          "rerank-3.5"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 33,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "perplexity-free": {
+      "provider": "Perplexity",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "perplexity-web-pro-search",
+          "sonar"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 3,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "poe-daily-points": {
+      "provider": "Poe (Quora)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "poe-bot-claude",
+          "poe-bot-gpt",
+          "poe-bot-gemini",
+          "poe-bot-grok"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": 300,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "cursor-hobby": {
+      "provider": "Cursor",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "composer",
+          "tab (completion)",
+          "agent (受限)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "windsurf-free": {
+      "provider": "Windsurf (Devin Desktop)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "swe-1.x",
+          "tab (completion)",
+          "cascade-agent (受限)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "xai-grok-free": {
+      "provider": "xAI Grok",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "grok-4.7-fast"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "gemini-code-assist-individuals": {
+      "provider": "Google Gemini Code Assist (individuals)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "gemini-code-assist(auto)",
+          "gemini-cli(合并额度)"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": 6000,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     },
     "minimax-code-checkin": {
+      "provider": "MiniMax Code (international)",
       "recurring_usd": null,
       "once_usd": null,
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": []
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "minimax-m3",
+          "minimax-m3.1-flash"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": 400,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
     }
   }
 }

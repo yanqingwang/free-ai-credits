@@ -15,7 +15,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 import yaml                                  # noqa: E402
-from src import links                        # noqa: E402
+from src import changelog, links             # noqa: E402
 from src.valuecalc import valuations, staleness  # noqa: E402
 from src.render import table, inject_readme, report as render_report  # noqa: E402
 
@@ -44,6 +44,8 @@ def main() -> None:
     args = ap.parse_args()
 
     src_index = load_sources()
+    state_path = REPO_ROOT / "data" / "scan-state.json"
+    previous = changelog.load_previous(state_path)   # 昨天提交的基线，用于「较昨日」列
 
     entries = load_offers()
     for e in entries:
@@ -61,7 +63,11 @@ def main() -> None:
 
         bad_links = []
         locked = []
-        if not args.skip_links:
+        if args.skip_links:                       # 离线排版：沿用昨日探活结果，避免误报「死链修复」
+            prev_offer = (previous.get("offers") or {}).get(e["id"]) or {}
+            bad_links = list(prev_offer.get("bad_links") or [])
+            locked = list(prev_offer.get("locked") or [])
+        else:
             for key in ("website", "docs"):
                 u = e.get(key)
                 if u and u.startswith("http"):
@@ -75,6 +81,7 @@ def main() -> None:
         e["_link_bad"] = bool(bad_links)
 
     # 排序：持续价值优先，其次一次性，无估值限速型随后；信源贫乏条目最后
+    removed = changelog.annotate(entries, previous)
     entries.sort(key=lambda e: (
         0 if e["_recur"] or e["_once"] else 1,
         -(e["_recur"] or 0),
@@ -83,14 +90,14 @@ def main() -> None:
     ))
 
     today = dt.date.today().isoformat()
-    inject_readme(str(REPO_ROOT / "README.md"), table(entries, "zh"), today, "zh")
-    inject_readme(str(REPO_ROOT / "README_EN.md"), table(entries, "en"), today, "en")
+    inject_readme(str(REPO_ROOT / "README.md"), table(entries, "zh", removed), today, "zh")
+    inject_readme(str(REPO_ROOT / "README_EN.md"), table(entries, "en", removed), today, "en")
 
     rep_dir = REPO_ROOT / "reports"
     rep_dir.mkdir(exist_ok=True)
     y, w, _ = dt.date.today().isocalendar()
-    render_report(entries, str(rep_dir / f"{y}-W{w:02d}.md"))
-    render_report(entries, str(rep_dir / "weekly.md"))
+    render_report(entries, str(rep_dir / f"{y}-W{w:02d}.md"), removed)
+    render_report(entries, str(rep_dir / "weekly.md"), removed)
 
     # 邮件日报（secrets 缺失时静默跳过，不影响报告产出）
     if args.mail:
@@ -124,14 +131,15 @@ def main() -> None:
     state = {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "offers": {e["id"]: {
+            "provider": e["provider"],
             "recurring_usd": e["_recur"], "once_usd": e["_once"],
             "official_sources": len(e["_sources"]["official"]), "third_sources": len(e["_sources"]["third"]),
-            "stale": e["_stale"], "bad_links": e["_bad_links"],
+            "stale": e["_stale"], "bad_links": e["_bad_links"], "locked": e["_locked"],
+            "snapshot": changelog.snapshot(e),
         } for e in entries},
     }
-    sp = REPO_ROOT / "data" / "scan-state.json"
-    sp.parent.mkdir(parents=True, exist_ok=True)
-    sp.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
     for e in entries:
         flag = "🚫" if e["_link_bad"] else ("⚠️stale" if e["_stale"] else "✅")
