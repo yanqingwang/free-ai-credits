@@ -75,6 +75,9 @@ SIGNUP = {
     "baidu-comate": "VS Code/JetBrains plugin + Baidu account",
     "fitten-code": "Free account → VS Code/JetBrains plugin",
     "codegeex": "Download plugin + phone signup",
+    "raccoon-xiaohuanxiong": "Sign up on xiaohuanxiong.com or the app → free plan, 300 credits/day reset at 00:00",
+    "zcode-start-plan": "Sign in to the ZCode client with a Z.ai account → free Start Plan",
+    "qwenwork-qianwen-office": "Sign in to QwenWork public cloud with an Alibaba Cloud account",
 }
 
 RESTRICTIONS = {
@@ -128,6 +131,9 @@ RESTRICTIONS = {
     "baidu-comate": "Individual standard free; Pro/Enterprise per-seat",
     "fitten-code": "Individual tier Free; some Pro features 'free (limited time)'; no API",
     "codegeex": "Free for individuals; plugin product without API-grant semantics",
+    "raccoon-xiaohuanxiong": "Free plan ¥0 forever: 300 credits/day, reset at 00:00 and non-cumulative, **standard models only** (upgraded models need a paid subscription); ~1-5 credits per chat, PPT/deep-search/long-document parsing billed extra; 5 files per chat, 80 MB storage, 500 MB community Q&A; Pro from ¥29.9/mo (500 credits/day + 10,000 credits/mo); top-up packs 500 credits ¥9.9 / 1,200 credits ¥19.9 (permanent, Pro only)",
+    "zcode-start-plan": "Free Start Plan is a tier built into the ZCode client; quota and rate limits are not published; ZCode CLI only; paid plans go through Z.ai GLM Coding Plan",
+    "qwenwork-qianwen-office": "Public-cloud free tier quota is not published; enterprise flagship requires a company-owned domain; in-product only, no public API",
 }
 
 MODELS = {
@@ -181,4 +187,7 @@ MODELS = {
     "baidu-comate": ["comate (ERNIE built-in)"],
     "fitten-code": ["fittencode (proprietary code model)"],
     "codegeex": ["codegeex-4 (GLM-based)"],
+    "raccoon-xiaohuanxiong": ["sn-glm-5-3", "sn-glm-5-3-flash", "sn-deepseek-v4-1-flash-1017", "sn-kimi-k3", "sn-sensenova-6-8-flash", "sn-sensenova-6-8-flash-lite"],
+    "zcode-start-plan": ["glm-5.3", "glm-5.3-flash", "glm-5.2"],
+    "qwenwork-qianwen-office": ["qwen3.8", "qwen3.7-plus"],
 }

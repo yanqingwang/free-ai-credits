@@ -1204,3 +1204,67 @@ offers:
     confidence: high
     notes: "官方 agent.minimaxi.com docs 直证为**手动签到领取**；2026-09-28～10-07 双倍签到限时活动已结束（10-21 核实），恢复日常 400/第4、7天 1000 口径；国际站 code.minimax.io 第三方称规则一致但官方国际文档未直抓，待核；签到积分属 MiniMax Code/Token Plan 积分体系（1000 积分=¥7 同币种换算），与开放平台按量 API 余额是独立 Key/配额两套体系，勿与 minimax-platform 合并计"
     notes: 官方明示 400/day；点值未官方化故不作估值
+  - id: raccoon-xiaohuanxiong
+    country: 中国
+    open_source: 部分开源
+    provider: 商汤小浣熊（办公小浣熊，raccoon）
+    website: https://www.xiaohuanxiong.com
+    docs: https://www.xiaohuanxiong.com/pricing
+    region: 中国大陆（手机号注册，网页/桌面/移动/微信小程序）
+    signup: 官网或客户端注册即得免费版；每日 0 点重置 300 积分
+    models:
+    - sn-glm-5-3
+    - sn-glm-5-3-flash
+    - sn-deepseek-v4-1-flash-1017
+    - sn-kimi-k3
+    - sn-sensenova-6-8-flash
+    - sn-sensenova-6-8-flash-lite
+    offer:
+      type: 签到积分
+      points_daily: 300
+    restrictions: "免费版 ¥0/永久：300 积分/日、每日 0 点重置不累计、**仅限标准模型**（升级模型需付费订阅）；一次对话约 1~5 积分，PPT 生成/深度搜索/长文档解析按算力额外计；文件上传 5 个/对话、80 MB 存储、500 MB 社群答疑；个人升级版 ¥29.9/月起（500 积分/日 + 10000 积分/月）；加油包 500 积分 ¥9.9、1200 积分 ¥19.9（永久有效，仅升级版可购）"
+    est_usd_per_mtok: 0
+    verified: '2026-10-26'
+    confidence: high
+    notes: "官方定价页直证：免费版 300 积分/日仅限标准模型；账户实际显示 Free 6600 Credits 为一次性活动赠送总额（非月度额度，当前已用 4/6600），magpie 插件 @magpie-community/opencode-raccoon-auth 已接入其模型与每日签到；11 个模型含 GLM-5.3 / DeepSeek-V4.1-Flash / Kimi-K3 / SenseNova-6.8-Flash 系；与 sensenova-token-plan（日日新开放平台）是两套独立体系，勿合并计"
+  - id: zcode-start-plan
+    country: 中国
+    open_source: 部分开源
+    bench_model: GLM-5.3
+    bench_score: 45
+    bench_source: AA Intelligence Index v4.3
+    bench_verified: '2026-10-26'
+    provider: ZCode（智谱 GLM Coding，Z.ai 官方 CLI）
+    website: https://zcode.z.ai
+    docs: https://zcode.z.ai/en/docs/configuration
+    region: 中国大陆 / 国际（Z.ai 账号）
+    signup: Z.ai 账号登录 ZCode 客户端，自动获得免费 Start Plan
+    models:
+    - glm-5.3
+    - glm-5.3-flash
+    - glm-5.2
+    offer:
+      type: 免费层
+    restrictions: "免费 Start Plan 为 ZCode 客户端内置档位，额度/限速未在官方页面公示具体数字；仅限 ZCode CLI 使用；付费走 Z.ai GLM Coding Plan 订阅"
+    est_usd_per_mtok: 0
+    verified: '2026-10-26'
+    confidence: medium
+    notes: "magpie 插件 @magpie-community/opencode-zcode-auth 官方描述：『Z.ai 与智谱 GLM Coding Plan，支持团队席位和 ZCode 免费 Start Plan』；免费 Start Plan 额度未公示故不折算价值，与 zhipu-zai（API 平台免费层）是不同入口，额度独立"
+  - id: qwenwork-qianwen-office
+    country: 中国
+    open_source: 闭源
+    provider: 千问办公 QwenWork（阿里）
+    website: https://qwenwork.alibaba.com
+    docs: https://qwenwork.alibaba.com
+    region: 中国大陆（阿里云账号，公有云版）
+    signup: 阿里云账号登录千问办公公有云版即用免费档
+    models:
+    - qwen3.8
+    - qwen3.7-plus
+    offer:
+      type: 免费层
+    restrictions: "公有云版免费档额度官方未公示；企业旗舰版需企业自有域名部署；仅限千问办公产品内使用，无公开 API 出口"
+    est_usd_per_mtok: 0
+    verified: '2026-10-26'
+    confidence: low
+    notes: "magpie 插件 @magpie-community/opencode-qoder-auth 收录 providers 含 qwenwork / qwenwork-enterprise（千问办公公有云与企业旗舰版），插件方标注『千问办公部分非官方』；免费额度未获官方直证，仅作线索登记，估值留空"

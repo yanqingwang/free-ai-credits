@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T07:04:42.475364+00:00",
+  "generated_at": "2026-10-26T02:44:23.724961+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -1778,6 +1778,104 @@
         "checkin_tokens_day": null,
         "points_monthly": null,
         "points_daily": 400,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
+    },
+    "raccoon-xiaohuanxiong": {
+      "provider": "商汤小浣熊（办公小浣熊，raccoon）",
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "签到积分",
+        "models": [
+          "sn-glm-5-3",
+          "sn-glm-5-3-flash",
+          "sn-deepseek-v4-1-flash-1017",
+          "sn-kimi-k3",
+          "sn-sensenova-6-8-flash",
+          "sn-sensenova-6-8-flash-lite"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": 300,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
+    },
+    "zcode-start-plan": {
+      "provider": "ZCode（智谱 GLM Coding，Z.ai 官方 CLI）",
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "glm-5.3",
+          "glm-5.3-flash",
+          "glm-5.2"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
+        "invite_tokens_monthly": null,
+        "valid_months": null,
+        "expiry": null
+      }
+    },
+    "qwenwork-qianwen-office": {
+      "provider": "千问办公 QwenWork（阿里）",
+      "recurring_usd": null,
+      "once_usd": null,
+      "official_sources": 1,
+      "third_sources": 0,
+      "stale": false,
+      "bad_links": [],
+      "locked": [],
+      "snapshot": {
+        "type": "免费层",
+        "models": [
+          "qwen3.8",
+          "qwen3.7-plus"
+        ],
+        "credits_usd": null,
+        "credits_cny": null,
+        "credits_day": null,
+        "requests_day": null,
+        "tokens_day": null,
+        "tokens_month": null,
+        "signup_points": null,
+        "signup_tokens": null,
+        "checkin_tokens_day": null,
+        "points_monthly": null,
+        "points_daily": null,
         "invite_tokens_monthly": null,
         "valid_months": null,
         "expiry": null

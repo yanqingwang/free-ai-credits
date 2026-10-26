@@ -326,3 +326,15 @@ minimax-code-checkin:
   official:
     - https://agent.minimax.io/docs/code/account/usage
   third_party: []
+raccoon-xiaohuanxiong:
+  official:
+    - https://www.xiaohuanxiong.com/pricing
+  third_party: []
+zcode-start-plan:
+  official:
+    - https://zcode.z.ai/en/docs/configuration
+  third_party: []
+qwenwork-qianwen-office:
+  official:
+    - https://qwenwork.alibaba.com
+  third_party: []
