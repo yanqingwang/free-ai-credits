@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T02:44:23.724961+00:00",
+  "generated_at": "2026-10-26T07:11:43.338099+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -1857,7 +1857,10 @@
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": [],
+      "bad_links": [
+        "website:https://qwenwork.alibaba.com (HTTP NO)",
+        "docs:https://qwenwork.alibaba.com (HTTP NO)"
+      ],
       "locked": [],
       "snapshot": {
         "type": "免费层",
