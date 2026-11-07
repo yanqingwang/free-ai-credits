@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T08:41:24.714655+00:00",
+  "generated_at": "2026-11-07T07:56:16.644519+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -337,7 +337,9 @@
       "third_sources": 0,
       "stale": false,
       "bad_links": [],
-      "locked": [],
+      "locked": [
+        "docs:https://www.scaleway.com/en/docs/generative-apis/faq/"
+      ],
       "snapshot": {
         "type": "免费层",
         "models": [
@@ -1730,9 +1732,7 @@
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": [
-        "docs:https://developers.google.com/gemini-code-assist (HTTP NO)"
-      ],
+      "bad_links": [],
       "locked": [],
       "snapshot": {
         "type": "免费层",
