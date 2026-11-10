@@ -210,11 +210,11 @@ def report(entries: list, path: str, removed: list | None = None) -> str:
     en = table(entries, "en", removed)
     today = dt.date.today().isoformat()
     lines = [
-        "# Free AI Credits Daily Snapshot · 免费额度日报快照",
+        "# Free AI Credits Snapshot · 免费额度快照",
         "",
         f"**Generated: {today} (UTC)**",
         "",
-        "Source of truth: `data/offers.yml` (daily liveness probe + valuation re-rank). Always confirm on official consoles.",
+        "Source of truth: `data/offers.yml` (liveness probe + valuation re-rank). Always confirm on official consoles.",
         "",
         "## English table",
         "",

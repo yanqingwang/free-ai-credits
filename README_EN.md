@@ -95,19 +95,19 @@ _2026-11-10 auto-rebuilt · source of truth in [`data/offers.yml`](data/offers.y
 | `restrictions, signup` | Limits & how to register |
 | `verified / confidence` | Last human check + signal strength |
 
-## Automation (daily, 10:00 Beijing time)
+## Automation (daily scan at 10:00 Beijing time, Friday digest)
 
 1. Every row in `data/offers.yml` gets:
    - **Link check** — dead links get 🚫, login-walled 403s get 🔒 (kept visible, not counted dead);
    - **Freshness** — rows untouched by a human for 45+ days get flagged;
-   - **Valuation** — recurring/one-time split is recomputed, rankings re-sorted, and both language READMEs are rebuilt; a snapshot lands in `reports/`; a **daily digest email** (HTML + `.md` attachment) goes out when SMTP secrets exist.
+   - **Valuation** — recurring/one-time split is recomputed, rankings re-sorted, and both language READMEs are rebuilt; a snapshot lands in `reports/`; a **Friday weekly digest email** (HTML + `.md` attachment) goes out when SMTP secrets exist.
 2. Every human data change leaves an auditable git diff.
 
 ## 📮 Subscribe to the digest (no self-hosting)
 
 Open the **「📮 订阅 / 退订邮件」issue template** on [Issues](https://github.com/yanqingwang/free-ai-credits/issues/new/choose) with your email — the bot encrypts it and confirms on the issue:
 
-- **Weekly Monday digest** by default (or tick Daily);
+- **Weekly Friday digest** (10:00 Beijing time) — no daily mail;
 - Emails live only as **AES-256 ciphertext** (`data/subscribers.enc`) — even maintainers can't read plaintext; the send-time workflow decrypts with its private key;
 - **Form stage**: the bot redacts the issue title/body automatically within seconds of processing; plaintext never lingers on public pages. Real-time GitHub notification emails to repo watchers do contain the original text (today that watcher list is just the maintainer);
 - Unsubscribe: open a new issue with the action switched to Unsubscribe;

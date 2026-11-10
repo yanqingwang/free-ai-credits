@@ -1,4 +1,4 @@
-"""Email delivery: render the daily digest markdown into a mobile-friendly HTML email + .md attachment.
+"""Email delivery: render the weekly digest markdown into a mobile-friendly HTML email + .md attachment.
 
 The digest is a 13-column Markdown table, which is unreadable on a phone (horizontal
 scrolling, 13px text). This module converts tables into a *responsive card layout*:
@@ -163,7 +163,7 @@ def md_to_html(md_text: str) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
-<title>Free AI Credits Daily</title>
+<title>Free AI Credits Weekly</title>
 <style>
 {BASE_CSS}
 {MOBILE_CSS}
@@ -174,7 +174,7 @@ def md_to_html(md_text: str) -> str:
      max-width:1040px;margin:0 auto;padding:16px;color:#222;line-height:1.6;background:#fff;">
 {html}
 <hr>
-<small style="color:#667085;">本邮件由 free-ai-credits 流水线每日自动发送（仅供参考快照，以各厂商控制台为准）</small>
+<small style="color:#667085;">本邮件由 free-ai-credits 流水线每周五自动发送（每周扫描快照，以各厂商控制台为准）</small>
 </div>
 </body>
 </html>"""
@@ -194,7 +194,7 @@ def send(subject: str, md_text: str, attach_path: str | None = None, to: str | N
 
     msg = MIMEMultipart("mixed")
     msg["Subject"] = Header(subject, "utf-8")
-    msg["From"] = formataddr((str(Header("Free AI Credits Bot · 免费额度日报", "utf-8")), from_addr))
+    msg["From"] = formataddr((str(Header("Free AI Credits Bot · 免费额度周报", "utf-8")), from_addr))
     msg["To"] = ", ".join(to_addrs)
     msg["Date"] = formatdate()
 

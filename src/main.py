@@ -1,9 +1,9 @@
 """free-ai-credits scanner orchestrator.
 
 用法：
-    python -m src.main                # 探活 + 折算 + 重建 README 表格 + reports 周报
+    python -m src.main                # 探活 + 折算 + 重建 README 表格 + reports 快照
+    python -m src.main --mail-only    # 只发周报邮件（用现有 reports/weekly.md，不扫描）
     python -m src.main --skip-links   # 跳过探活（离线快速排版）
-    python -m src.main --no-stale     # 不标 stale
 """
 import argparse
 import datetime as dt
@@ -36,12 +36,42 @@ def load_sources() -> dict:
     return {k: {"official": (v or {}).get("official") or [],
                 "third": (v or {}).get("third_party") or []} for k, v in raw.items()}
 
+def send_digest(rep_dir: Path) -> None:
+    """周五周报：库主 + 全部订阅者，逐个失败隔离。"""
+    from src import mailer
+    if not mailer.enabled():
+        print("SMTP secrets 缺失，跳过邮件", file=sys.stderr)
+        return
+    today = dt.date.today().isoformat()
+    body = (rep_dir / "weekly.md").read_text(encoding="utf-8")
+    attach = str(rep_dir / "weekly.md")
+    subject = f"Free AI Weekly Digest {today} · 免费额度周报（valuation + link health）"
+
+    mailer.send(subject, body, attach)
+    print("邮件已发送（库主）", file=sys.stderr)
+
+    try:
+        from src import subscribers
+        subs = subscribers.all()
+    except SystemExit:                    # SUBSCRIBER_KEY 缺失：只发库主
+        subs = []
+    for email in subs:
+        try:
+            mailer.send(subject, body, attach, to=email)
+            print(f"邮件已发送（订阅者 {email}）", file=sys.stderr)
+        except Exception as exc:          # 单个失败的订阅者不影响其余
+            print(f"订阅者 {email} 发送失败: {exc}", file=sys.stderr)
+
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-links", action="store_true")
-    ap.add_argument("--mail", action="store_true", help="发送邮件日报（需 SMTP secrets）")
+    ap.add_argument("--mail", action="store_true", help="扫描后发送周报邮件（需 SMTP secrets）")
+    ap.add_argument("--mail-only", action="store_true", help="不扫描，直接发送现有 reports/weekly.md")
     args = ap.parse_args()
+    if args.mail_only:
+        send_digest(REPO_ROOT / "reports")
+        return
 
     src_index = load_sources()
     state_path = REPO_ROOT / "data" / "scan-state.json"
@@ -99,33 +129,9 @@ def main() -> None:
     render_report(entries, str(rep_dir / f"{y}-W{w:02d}.md"), removed)
     render_report(entries, str(rep_dir / "weekly.md"), removed)
 
-    # 邮件日报（secrets 缺失时静默跳过，不影响报告产出）
+    # 周报邮件（secrets 缺失时静默跳过，不影响报告产出）
     if args.mail:
-        from src import mailer
-        if mailer.enabled():
-            body = (rep_dir / "weekly.md").read_text(encoding="utf-8")
-            attach = str(rep_dir / "weekly.md")
-            mailer.send(f"Free AI Credits Daily · 免费额度日报 {today}（valuation + link health）", body, attach)
-            print("邮件已发送（库主）", file=sys.stderr)
-            # 订阅者：daily 每天发，weekly 仅周一（UTC）发；逐个失败隔离
-            try:
-                from src import subscribers
-                subs = subscribers.sendable(dt.date.today())
-            except SystemExit:
-                subs = []
-            for email, freq in subs:
-                subject = (
-                    f"Free AI Weekly Digest {today} · 周报（ valuation + link health）"
-                    if freq == "weekly"
-                    else f"Free AI Credits Daily {today} · 日报（valuation + link health）"
-                )
-                try:
-                    mailer.send(subject, body, attach, to=email)
-                    print(f"邮件已发送（订阅者 {email}）", file=sys.stderr)
-                except Exception as exc:                 # 单个失败的订阅者不影响其余
-                    print(f"订阅者 {email} 发送失败: {exc}", file=sys.stderr)
-        else:
-            print("SMTP secrets 缺失，跳过邮件", file=sys.stderr)
+        send_digest(rep_dir)
 
     # state 记录（审计用，供未来 diff）
     state = {

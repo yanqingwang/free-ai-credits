@@ -1,8 +1,8 @@
-name: daily digest
+name: daily scan + Friday digest
 
 on:
   schedule:
-    - cron: "0 2 * * *"      # 每日 02:00 UTC（北京 10:00）
+    - cron: "0 2 * * *"      # 每日 02:00 UTC（北京 10:00）扫描；邮件只发周五
   workflow_dispatch:
 
 permissions:
@@ -23,12 +23,8 @@ jobs:
           python-version: "3.11"
       - name: Install deps
         run: pip install pyyaml requests markdown
-      - name: Scan offers, rebuild README & send daily digest email
-        env:
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          MAIL_TO: ${{ secrets.MAIL_TO }}
-        run: python -m src.main --mail
+      - name: Scan offers, rebuild README & snapshots
+        run: python -m src.main
       - name: Commit snapshot
         run: |
           git config user.name "free-ai-credits-bot"
@@ -40,3 +36,15 @@ jobs:
             git commit -m "daily scan $(date -u +%Y-%m-%d)"
             git push
           fi
+      - name: Weekly digest email (Fridays only)
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          SUBSCRIBER_KEY: ${{ secrets.SUBSCRIBER_KEY }}
+        run: |
+          if [ "$(date -u +%u)" != "5" ]; then
+            echo "Not Friday (UTC weekday $(date -u +%u)) — weekly digest skipped."
+            exit 0
+          fi
+          python -m src.main --mail-only

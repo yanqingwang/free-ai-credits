@@ -1,5 +1,5 @@
 name: 📮 订阅 / 退订邮件
-description: 输入你的邮箱，接收免费额度日报（默认每周一）/ Daily & weekly digest opt-in
+description: 输入你的邮箱，每周五接收免费额度周报（10:00 北京时间）/ Weekly Friday digest opt-in
 labels: ["subscribe"]
 body:
   - type: dropdown
@@ -18,15 +18,10 @@ body:
       placeholder: you@example.com
     validations:
       required: true
-  - type: dropdown
-    id: freq
+  - type: markdown
     attributes:
-      label: 频率（仅订阅时生效）/ Frequency
-      options:
-        - 每周一 / Weekly (Monday)
-        - 每日 / Daily
-    validations:
-      required: true
+      value: |
+        📅 **发送频率**：每周五（10:00 北京时间）一封《免费额度周报》，无每日推送。
   - type: markdown
     attributes:
       value: |

@@ -1,9 +1,11 @@
 """Subscriber registry: issue-form opt-in, encrypted at rest.
 
-- data/subscribers.enc is OpenSSL AES-256-CBC ciphertext of `email,freq` lines.
+- data/subscribers.enc is OpenSSL AES-256-CBC ciphertext of one `email` per line.
+  Legacy rows were `email,freq`; the freq column is ignored and rewritten away on
+  the next update (delivery is weekly-Friday for everyone, so freq is moot).
 - Key lives in repo secret SUBSCRIBER_KEY; storage file stays public but opaque
   (anti-harvest), and no plaintext email is ever committed.
-- Modes: --add "email" --freq daily|weekly | --remove "email" | --list
+- Modes: --add "email" | --remove "email" | --list
 """
 import os
 import re
@@ -30,7 +32,7 @@ def _openssl(args: list[str], input_bytes: bytes) -> bytes:
     return r.stdout
 
 
-def _decrypt() -> list[tuple[str, str]]:
+def _decrypt() -> list[str]:
     if not os.path.exists(ENC_PATH):
         return []
     blob = open(ENC_PATH, "rb").read()
@@ -41,15 +43,14 @@ def _decrypt() -> list[tuple[str, str]]:
     ).decode("utf-8")
     out = []
     for line in text.splitlines():
-        line = line.strip()
-        if "," in line and EMAIL_RE.match(line.split(",")[0]):
-            email, freq = line.split(",", 1)
-            out.append((email.lower(), freq if freq in ("daily", "weekly") else "weekly"))
+        email = line.split(",", 1)[0].strip().lower()   # 丢弃历史 freq 列
+        if EMAIL_RE.match(email):
+            out.append(email)
     return out
 
 
-def _encrypt(pairs: list[tuple[str, str]]) -> None:
-    text = "\n".join(f"{e},{f}" for e, f in pairs) + "\n"
+def _encrypt(emails: list[str]) -> None:
+    text = "\n".join(emails) + "\n"
     blob = _openssl(
         ["enc", "-aes-256-cbc", "-pbkdf2", "-pass", "env:SK"], text.encode("utf-8")
     )
@@ -57,41 +58,32 @@ def _encrypt(pairs: list[tuple[str, str]]) -> None:
         f.write(blob)
 
 
-def add(email: str, freq: str) -> str:
+def add(email: str) -> str:
     """Returns action taken for commenting back."""
     email = email.strip().lower()
     if not EMAIL_RE.match(email):
         return "invalid"
-    freq = freq if freq in ("daily", "weekly") else "weekly"
-    pairs = _decrypt()
-    for i, (e, f) in enumerate(pairs):
-        if e == email:
-            if f == freq:
-                return "exists"
-            pairs[i] = (email, freq)
-            _encrypt(pairs)
-            return f"updated:{freq}"
-    pairs.append((email, freq))
-    _encrypt(pairs)
-    return f"subscribed:{freq}"
+    emails = _decrypt()
+    if email in emails:
+        return "exists"
+    emails.append(email)
+    _encrypt(emails)
+    return "subscribed"
 
 
 def remove(email: str) -> str:
     email = email.strip().lower()
-    pairs = [p for p in _decrypt() if p[0] != email]
-    if len(pairs) == len(_decrypt()):
+    emails = _decrypt()
+    kept = [e for e in emails if e != email]
+    if len(kept) == len(emails):
         return "not_found"
-    _encrypt(pairs)
+    _encrypt(kept)
     return "removed"
 
 
-def sendable(today) -> list[tuple[str, str]]:
-    """Subscribers due today: daily ones every day, weekly ones only Monday."""
-    out = []
-    for email, freq in _decrypt():
-        if freq == "daily" or today.weekday() == 0:
-            out.append((email, freq))
-    return out
+def all() -> list[str]:
+    """Everyone gets the Friday digest."""
+    return _decrypt()
 
 
 if __name__ == "__main__":
@@ -99,13 +91,12 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--add", help="email to add")
     ap.add_argument("--remove", help="email to remove")
-    ap.add_argument("--freq", default="weekly", choices=["daily", "weekly"])
     ap.add_argument("--list", action="store_true", help="print decrypted emails (owner ops)")
     a = ap.parse_args()
     if a.add:
-        print(add(a.add, a.freq))
+        print(add(a.add))
     elif a.remove:
         print(remove(a.remove))
     elif a.list:
-        for e, f in _decrypt():
-            print(f"{e},{f}")
+        for e in _decrypt():
+            print(e)
