@@ -1,8 +1,8 @@
-# Free AI Credits Daily Snapshot · 免费额度日报快照
+# Free AI Credits Snapshot · 免费额度快照
 
 **Generated: 2026-11-10 (UTC)**
 
-Source of truth: `data/offers.yml` (daily liveness probe + valuation re-rank). Always confirm on official consoles.
+Source of truth: `data/offers.yml` (liveness probe + valuation re-rank). Always confirm on official consoles.
 
 ## English table
 
