@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T08:33:58.097817+00:00",
+  "generated_at": "2026-11-12T08:56:29.842238+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -337,7 +337,9 @@
       "third_sources": 0,
       "stale": false,
       "bad_links": [],
-      "locked": [],
+      "locked": [
+        "docs:https://www.scaleway.com/en/docs/generative-apis/faq/"
+      ],
       "snapshot": {
         "type": "免费层",
         "models": [
@@ -1411,7 +1413,9 @@
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": [],
+      "bad_links": [
+        "website:https://comate.baidu.com/ (HTTP NO)"
+      ],
       "locked": [],
       "snapshot": {
         "type": "免费层",
