@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:56:29.842238+00:00",
+  "generated_at": "2026-11-13T08:53:05.615665+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -1381,7 +1381,8 @@
       "third_sources": 0,
       "stale": false,
       "bad_links": [
-        "website:https://token.sensenova.cn/ (HTTP 404)"
+        "website:https://token.sensenova.cn/ (HTTP 404)",
+        "docs:https://www.sensetime.com/cn/news/sensenova-u1-5-lite-token-plan-20260911-1741 (HTTP NO)"
       ],
       "locked": [],
       "snapshot": {
@@ -1413,9 +1414,7 @@
       "official_sources": 1,
       "third_sources": 0,
       "stale": false,
-      "bad_links": [
-        "website:https://comate.baidu.com/ (HTTP NO)"
-      ],
+      "bad_links": [],
       "locked": [],
       "snapshot": {
         "type": "免费层",
