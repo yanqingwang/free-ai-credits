@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T08:58:38.121965+00:00",
+  "generated_at": "2026-11-23T09:56:55.013084+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -338,8 +338,7 @@
       "stale": false,
       "bad_links": [],
       "locked": [
-        "website:https://console.scaleway.com",
-        "docs:https://www.scaleway.com/en/docs/generative-apis/faq/"
+        "website:https://console.scaleway.com"
       ],
       "snapshot": {
         "type": "免费层",
