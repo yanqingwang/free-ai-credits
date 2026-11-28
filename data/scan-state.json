@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T10:15:27.633018+00:00",
+  "generated_at": "2026-11-28T09:33:57.018835+00:00",
   "offers": {
     "workbuddy-cn": {
       "provider": "腾讯 WorkBuddy 国内版（workbuddy.cn）",
@@ -1606,7 +1606,6 @@
       "stale": false,
       "bad_links": [],
       "locked": [
-        "website:https://poe.com",
         "docs:https://help.poe.com/hc/en-us/articles/19944206309524-Poe-FAQs"
       ],
       "snapshot": {
